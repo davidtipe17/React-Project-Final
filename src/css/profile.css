@@ -1,0 +1,40 @@
+
+* {
+  padding: 0;
+  margin: 0;
+  font-size: 14px;
+  font-family: sans-serif;
+  list-style: none;
+  text-decoration: none;
+  font-family: "Poppins", sans-serif;
+}
+
+html {
+  font-size: 10px;
+}
+
+body {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 100vh;
+}
+
+
+/* ===== =====>>  Main-Container Css  <<===== =====  */
+.container {
+  position: relative;
+  display: grid;
+  gap: 20px;
+  grid-template-columns: 2fr 1fr;
+  width: 85%;
+  height: 90vh;
+  background: var(--glass-bg);
+  padding: 1.5rem;
+  
+}
+.container > .card {
+  border: 1px black solid;
+  padding: 10px;
+}
+
