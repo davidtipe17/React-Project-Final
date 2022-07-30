@@ -1,40 +1,38 @@
-
 * {
   padding: 0;
   margin: 0;
-  font-size: 14px;
-  font-family: sans-serif;
-  list-style: none;
-  text-decoration: none;
-  font-family: "Poppins", sans-serif;
 }
-
-html {
-  font-size: 10px;
-}
-
 body {
   display: flex;
   justify-content: center;
-  align-items: center;
-  min-height: 100vh;
+  margin-top: 40px;
 }
 
+.container-content {
+  width: 85vw;
+  height: 100vh;
+}
+.margintoplateraltwo {
+  margin-top: 10rem;
+}
 
-/* ===== =====>>  Main-Container Css  <<===== =====  */
-.container {
+.container-imagenprofile {
   position: relative;
-  display: grid;
-  gap: 20px;
-  grid-template-columns: 2fr 1fr;
-  width: 85%;
-  height: 90vh;
-  background: var(--glass-bg);
-  padding: 1.5rem;
-  
 }
-.container > .card {
-  border: 1px black solid;
-  padding: 10px;
+.container-fondo-profile-edit {
+  background-color: white;
+  border: solid black 1px;
+  width: 10px;
+  height: 26px;
+  top: 7%;
+  position: absolute;
+  left: calc(23% - 1px);
 }
+.iconrelative {
+  position: absolute;
+  top: 8%;
+  left: calc(30% - 1px);
+  cursor: pointer;
 
+  /* background-color: black; */
+}

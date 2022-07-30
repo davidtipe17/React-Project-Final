@@ -1,0 +1,21 @@
+* {
+  padding: 0;
+  margin: 0;
+}
+body {
+  display: flex;
+  justify-content: center;
+  margin-top: 40px;
+}
+
+.container-content {
+  width: 70vw;
+  height: 100vh;
+  
+}
+.list-group-icon-payment-inferior{
+  list-style: none;
+}
+.list-group-icon-payment-inferior > * {
+  margin: 1px;
+}

@@ -3,8 +3,8 @@
     border: 0;
     box-sizing: border-box;
 }
-.container-fluid{
-    background-color: #780000;
+.container-fluid2{
+    background-color: #bf9595;
     display: flex;  
     width: 100vw;
     justify-content: center;
@@ -12,7 +12,6 @@
 .container-fluid .row{
     width: 70vw;
     font-size: 13px;
-    
 }
 img{
     width: 150px;
