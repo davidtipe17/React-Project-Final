@@ -1,0 +1,34 @@
+.FormAddTicket-container{
+    width: 70%;
+}
+.FormAddTicket-Background{
+    background-color: #454d66;
+    height: 40vh;
+}
+.FormAddTicket-container h2{
+    color: white;
+}
+.FormAddTicket-container .first-p{
+    color: white;
+}
+.FormAddTicket-card-container{
+    width: 90%;
+}
+
+.FormAddTicket-SecondPart .first-card{
+    width: 45%;
+    border: 2px solid #c7417b ;
+}
+.FormAddTicket-SecondPart .first-card i{
+    font-size: 5em;
+    color: #c7417b;
+}
+.FormAddTicket-FifthPart .fifth-card{
+    width: 80%;
+    border: 2px solid #c7417b;
+}
+.FormAddTicket-FifthPart .fifth-card i{
+    font-size: 5em;
+    color: #c7417b;
+    
+}

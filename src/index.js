@@ -12,12 +12,13 @@ import Chasupport from "./components/Chasupport";
 
 import Filtertecnicos from "./components/Filtertecnicos";
 import Questionandanswer from "./components/Questionandanswer";
+import MyTickets from "./components/MyTickets";
 
 const root = ReactDOM.createRoot(document.getElementById("root"));
 root.render(
   <React.StrictMode>
     <App />
-    <Questionandanswer />
+    <MyTickets/>
   </React.StrictMode>
 );
 // If you want to start measuring performance in your app, pass a function
