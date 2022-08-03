@@ -3,7 +3,7 @@ import "../.././css/profile.css";
 
 const Profile = () => {
   return (
-    <div>
+    <div className="container-total-profile">
       <div className="container-content ">
         <div className="row justify-content-between">
           <div className="col-md-8 ">

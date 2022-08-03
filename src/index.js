@@ -9,7 +9,7 @@ import "bootstrap/dist/css/bootstrap.min.css";
 import Profile from "./components/Profile";
 import Checkoutpago from "./components/Checkoutpago";
 import Chasupport from "./components/Chasupport";
-
+import Login from "./components/Login";
 import Filtertecnicos from "./components/Filtertecnicos";
 import Questionandanswer from "./components/Questionandanswer";
 
@@ -17,7 +17,7 @@ const root = ReactDOM.createRoot(document.getElementById("root"));
 root.render(
   <React.StrictMode>
     <App />
-    <Questionandanswer />
+    <Login/>
   </React.StrictMode>
 );
 // If you want to start measuring performance in your app, pass a function

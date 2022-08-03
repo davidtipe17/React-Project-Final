@@ -2,8 +2,12 @@ import "../.././css/Filtertecnicos.css";
 import imagenprofile from "../../assets/img/profile.png";
 const Filtertecnicos = () => {
   return (
-    <div> 
-      <ul class="nav nav-pills mb-3 border border-dark" id="pills-tab" role="tablist">
+    <div>
+      <ul
+        class="nav nav-pills mb-3 border border-dark"
+        id="pills-tab"
+        role="tablist"
+      >
         <li class="nav-item" role="presentation">
           <button
             class="nav-link active"
@@ -319,9 +323,9 @@ const Filtertecnicos = () => {
                 </div>
                 <div className="row">
                   <div className="col">
-                  <div class="input-group mb-3">
+                    <div class="input-group mb-3">
                       <span class="input-group-text" id="basic-addon1">
-                      <i class="fa-solid fa-dollar-sign"></i>
+                        <i class="fa-solid fa-dollar-sign"></i>
                       </span>
                       <input
                         type="text"
@@ -342,7 +346,7 @@ const Filtertecnicos = () => {
                   <div className="col border border-light">
                     <div class="input-group mb-3">
                       <span class="input-group-text" id="basic-addon1">
-                      <i class="fa-solid fa-dollar-sign"></i>
+                        <i class="fa-solid fa-dollar-sign"></i>
                       </span>
                       <input
                         type="text"
@@ -535,7 +539,7 @@ const Filtertecnicos = () => {
           </div>
         </div>
       </div>
-      </div>
+    </div>
   );
 };
 
