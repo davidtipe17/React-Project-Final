@@ -131,8 +131,8 @@ const QuestionAndAnswer = () => {
                   </ul>
                   <font>
                     By signing up, you agree to our{" "}
-                    <a href="">Terms and Conditions</a> and{" "}
-                    <a href="">Privacy Policy.</a>
+                    <a href="#">Terms and Conditions</a> and{" "}
+                    <a href="#">Privacy Policy.</a>
                   </font>
                   <ul className="mt-3">
                     <li className="list-style-none">
