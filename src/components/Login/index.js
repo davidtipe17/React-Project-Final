@@ -1,4 +1,7 @@
-
+import "../.././css/login.css";
+import LogoFacebook from "../.././assets/img/facebook.svg"
+import LogoGoogle from "../.././assets/img/google.svg"
+import ImagesLateral from "../.././assets/img/login.svg"
 
 const Login = () => {
   return (
@@ -9,11 +12,11 @@ const Login = () => {
             <h1 className="title">Registrando</h1>
             <div className="social-login">
               <div className="social-login-element">
-                <img src="/images/google.svg" alt="google-image" />
+                <img src={LogoGoogle}alt="google-image" />
                 <span>Google</span>
               </div>
               <div className="social-login-element">
-                <img src="/images/facebook.svg" alt="facebook-image" />
+                <img src={LogoFacebook}alt="facebook-image" />
                 <span>Facebook</span>
               </div>
             </div>
@@ -59,7 +62,7 @@ const Login = () => {
             </form>
           </div>
 
-          <img className="image-container" src="/images/login.svg" alt="" />
+          <img className="image-container" src={ImagesLateral}alt="" />
         </div>
       </main>
     </div>
