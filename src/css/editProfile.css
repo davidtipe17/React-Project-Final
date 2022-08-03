@@ -1,0 +1,25 @@
+.fatherEditProfile{
+   
+    min-height: 100vh;
+}
+.containerEditProfile{
+    background-color: #454d66;
+    min-height: 100vh;
+}
+.containerEditProfile .navigationBarEdit button{
+    margin-top: 10px;
+    text-align: left;
+    color: white;
+    border: 1px solid white;
+}
+.containerEditProfile .nav-pills .nav-link.active, .nav-pills .show>.nav-link{
+    background: none;
+    text-align: left;
+    background-color: #c7417b;
+
+}
+
+.bodyEditProfile{
+    background-color: whitesmoke;
+    min-height: 100vh;
+}

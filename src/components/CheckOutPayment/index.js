@@ -6,7 +6,7 @@ import "../.././css/checkoutpayment.css";
 
 const Checkoutpago = () => {
   return (
-    <div>
+    <div className="containerCheckoutPagoPrincipal">
       <div className="container-content ">
         <div className="row justify-content-between">
           {/* FIRST COLUMN */}

@@ -2,12 +2,12 @@
   padding: 0;
   margin: 0;
 }
-body {
+
+.containerPrincipalFilter{
   display: flex;
   justify-content: center;
   margin-top: 40px;
 }
-
 .container-content {
 
   height: 100vh;

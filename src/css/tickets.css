@@ -1,0 +1,26 @@
+
+.tickets-container{
+    background-color: whitesmoke;
+    height: 68vh;
+    
+}
+.tickets-container .cardHeader  h2{
+    font-weight: 700;
+} 
+.tickets-container .card{
+    background-color: #454d66;
+}
+.filtro button{
+    background-color: #c7417b;
+    color: white;
+}
+.tickets-list{
+    height: 40vh;
+}
+.tickets-list .btn-publicarProyecto{
+    background-color: #c7417b;
+    color: white;
+}
+li .nav-link{
+    color: white;
+}

@@ -1,0 +1,37 @@
+*{
+    border: 0;
+    padding: 0;
+    box-sizing: border-box;    
+}
+.home{
+    font-family: 'Cinzel', serif;
+}
+.carousel-item img{
+    height: 75vh;
+}
+.info{
+    width: 70%;
+}
+.info-title{
+    font-weight: 800;
+}
+.icon{
+    text-align: center;
+    font-size: 2.5em;
+}
+.info h4{
+    text-align: center;
+    font-weight: 600;
+}
+
+
+/* 3 section barra de suscripcion  */
+
+.bar-suscribe{
+    background-color: yellow;
+    font-weight: 800;
+}
+.suscribe-group input{
+    border-radius: 20px;
+    
+}

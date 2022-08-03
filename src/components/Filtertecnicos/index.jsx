@@ -2,7 +2,7 @@ import "../.././css/Filtertecnicos.css";
 import imagenprofile from "../../assets/img/profile.png";
 const Filtertecnicos = () => {
   return (
-    <div>
+    <div className="containerPrincipalFilter">
       <ul
         class="nav nav-pills mb-3 border border-dark"
         id="pills-tab"
