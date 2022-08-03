@@ -1,0 +1,28 @@
+.accordion-body-one > ul > .list-style-none {
+  list-style: none;
+}
+.supportNav-tab {
+  background-color: #1f2836;
+}
+.nav-link {
+    color: white;
+}
+.usersupport-icon {
+
+   text-align: center;
+   font-size: 100px;
+   color: #1f2836;;
+}
+
+.hover-button-contactuse {
+    cursor: pointer;
+}
+.hover-button-contactuse:hover {
+    cursor: pointer;
+    background-color: #1a6df39e;
+    color: white;
+  
+}
+.container-content-principal{
+    width: 40vw;
+}

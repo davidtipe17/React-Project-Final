@@ -70,81 +70,41 @@ This section has moved here: [https://facebook.github.io/create-react-app/docs/d
 This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
 
 
-<div className="col-8  ">
-            <div className="col-12 mb-5 ">
-              <div className="row">
-                <div className=" col-4 d-flex p-3 card">
-                  <div className="" style={{ height: "500px" }}>
-                    <div className="mb-auto">
-                      <img
-                        src={imagenprofile}
-                        alt="profile"
-                        style={{ width: "250px", height: "250px" }}
-                      />
-                      <div className="referencia-Info">
-                        <div className="p-2">Flex item</div>
-                        <div className="p-2">Flex item</div>
-                        <div className="p-2">Flex item</div>
-                        <div className="p-2">Flex item</div>
-                        <div className="p-2">Flex item</div>
-                      </div>
-                    </div>
+<div class="row">
+                          <div class="col">
+                            <div class="mb-4">
+                              <div class="form-check">
+                                <input
+                                  class="form-check-input"
+                                  type="radio"
+                                  name="flexRadioDefault"
+                                  id="flexRadioDefault2"
+                                  checked
+                                />
+                                <label
+                                  class="form-check-label"
+                                  for="flexRadioDefault2"
+                                >
+                                  Bank deposit
+                                </label>
+                              </div>
+                            </div>
+                          </div>
+                          <div class="col d-flex justify-content-end">
+                            <div class="mb-4">
+                              <label
+                                for="exampleFormControlInput1"
+                                class="form-label"
+                              >
+                                <i class="fa-solid fa-building-columns"></i>
+                              </label>
+                            </div>
+                          </div>
+                          </ContextAwareToggle>
+                        </Card.Header>
+                        <Accordion.Collapse eventKey="0">
+                          <Card.Body>Hello! I'm the body</Card.Body>
+                        </Accordion.Collapse>
+                      </Card>
+                    </Accordion>
                   </div>
-                </div>
-                <div className="col-8 d-flex card  p-3">
-                  <div className="d-flex mb-3">
-                    <div className="p-2">
-                      <h4 className="name-js">Arturo Chaparro</h4>
-                    </div>
-                    <div className="p-2">
-                      <h4 className="correo-js">@arturochaparro</h4>
-                    </div>
-                    <div className="ms-auto p-2">
-                      <button type="button" className="btn btn-primary">
-                        Primary
-                      </button>
-                    </div>
-                  </div>
-                  <div className="d-flex mb-3">
-                    <div className="p-2">
-                      <h4 className="name-js">Profesion</h4>
-                    </div>
-                  </div>
-                  <div className="d-flex mb-3">
-                    <div className="p-2">
-                      <h4 className="name-js">Recomendado</h4>
-                    </div>
-                    <div className="p-2">
-                      <h4 className="correo-js">cobro</h4>
-                    </div>
-                  </div>
-                  <div className="d-flex flex-wrap">
-                    <div className="p-2">
-                      <h4 className="name-js">TRABJOOO COMPLETO</h4>
-                    </div>
-                    <div className="p-2">
-                      <h4 className="correo-js">ITEM 2</h4>
-                    </div>
-                    <div className="ms-auto p-2">
-                      <button type="button" className="btn btn-primary">
-                        ITEM 3
-                      </button>
-                    </div>
-                    <div className="ms-auto p-2">
-                      <button type="button" className="btn btn-primary">
-                        ITEM 4
-                      </button>
-                    </div>
-                  </div>
-                  <div className="d-flex justify-content-start">
-                    <div className="p-2">
-                      <h3 className="name-js">Description</h3>
-                    </div>
-                  </div>
-                  <div className="d-flex justify-content-start">
-                    <div className="p-2">
-                      <p className="description">Description</p>
-                    </div>
-                  </div>
-                </div>
-              </div>

@@ -1,5 +1,6 @@
 import imagenprofile from "../../assets/img/profile.png";
 import "../.././css/profile.css";
+
 const Profile = () => {
   return (
     <div>

@@ -1,49 +1,22 @@
-import Accordion from 'react-bootstrap/Accordion';
-import { useAccordionButton } from 'react-bootstrap/AccordionButton';
-import Card from 'react-bootstrap/Card';
+const Chasupport = () => {
+return (
+<div>
 
-function ContextAwareToggle({ children, eventKey, callback }) {
-  const { activeEventKey } = useContext(AccordionContext);
+<ul class="nav nav-pills mb-3" id="pills-tab" role="tablist">
+  <li class="nav-item" role="presentation">
+    <button class="nav-link active" id="pills-home-tab" data-bs-toggle="pill" data-bs-target="#pills-home" type="button" role="tab" aria-controls="pills-home" aria-selected="true">Home</button>
+  </li>
+  <li class="nav-item" role="presentation">
+    <button class="nav-link" id="pills-profile-tab" data-bs-toggle="pill" data-bs-target="#pills-profile" type="button" role="tab" aria-controls="pills-profile" aria-selected="false">Profile</button>
+  </li>
+</ul>
+<div class="tab-content" id="pills-tabContent">
+  <div class="tab-pane fade show active" id="pills-home" role="tabpanel" aria-labelledby="pills-home-tab" tabindex="0">A</div>
+  <div class="tab-pane fade" id="pills-profile" role="tabpanel" aria-labelledby="pills-profile-tab" tabindex="0">BB</div>
+</div>
 
-  const decoratedOnClick = useAccordionButton(
-    eventKey,
-    () => callback && callback(eventKey),
-  );
+</div>
+);
 
-  const isCurrentEventKey = activeEventKey === eventKey;
-
-  return (
-    <button
-      type="button"
-      style={{ backgroundColor: isCurrentEventKey ? 'pink' : 'lavender' }}
-      onClick={decoratedOnClick}
-    >
-      {children}
-    </button>
-  );
 }
-
-function Example() {
-  return (
-    <Accordion defaultActiveKey="0">
-      <Card>
-        <Card.Header>
-          <ContextAwareToggle eventKey="0">Click me!</ContextAwareToggle>
-        </Card.Header>
-        <Accordion.Collapse eventKey="0">
-          <Card.Body>Hello! I'm the body</Card.Body>
-        </Accordion.Collapse>
-      </Card>
-      <Card>
-        <Card.Header>
-          <ContextAwareToggle eventKey="1">Click me!</ContextAwareToggle>
-        </Card.Header>
-        <Accordion.Collapse eventKey="1">
-          <Card.Body>Hello! I'm another body</Card.Body>
-        </Accordion.Collapse>
-      </Card>
-    </Accordion>
-  );
-}
-
-export default Example;
+export default Chasupport;

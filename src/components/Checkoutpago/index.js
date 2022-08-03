@@ -4,31 +4,6 @@ import iconscheckoutpagomastercard from "../../assets/img2/mastercard.svg";
 import iconscheckoutpagovisa from "../../assets/img2/visa.svg";
 import "../.././css/checkoutpayment.css";
 
-import Accordion from 'react-bootstrap/Accordion';
-import { useAccordionButton } from 'react-bootstrap/AccordionButton';
-import Card from 'react-bootstrap/Card';
-
-function ContextAwareToggle({ children, eventKey, callback }) {
-  const { activeEventKey } = useContext(AccordionContext);
-
-  const decoratedOnClick = useAccordionButton(
-    eventKey,
-    () => callback && callback(eventKey),
-  );
-
-  const isCurrentEventKey = activeEventKey === eventKey;
-
-  return (
-    <button
-      type="button"
-      style={{ backgroundColor: isCurrentEventKey ? 'pink' : 'lavender' }}
-      onClick={decoratedOnClick}
-    >
-      {children}
-    </button>
-  );
-}
-
 const Checkoutpago = () => {
   return (
     <div>
@@ -214,29 +189,145 @@ const Checkoutpago = () => {
                     </div>
                   </div>
 
-                  <Accordion defaultActiveKey="0">
-      <Card>
-        <Card.Header>
-          <ContextAwareToggle eventKey="0">Click me!</ContextAwareToggle>
-        </Card.Header>
-        <Accordion.Collapse eventKey="0">
-          <Card.Body>Hello! I'm the body</Card.Body>
-        </Accordion.Collapse>
-      </Card>
-      <Card>
-        <Card.Header>
-          <ContextAwareToggle eventKey="1">Click me!</ContextAwareToggle>
-        </Card.Header>
-        <Accordion.Collapse eventKey="1">
-          <Card.Body>Hello! I'm another body</Card.Body>
-        </Accordion.Collapse>
-      </Card>
-    </Accordion>
-
-
-
-
-
+                  <div
+                    class="accordion accordion-flush row"
+                    id="accordionFlushExample"
+                  >
+                    <div class="accordion-item col-12 p-2">
+                      <div className="row">
+                        <h6 class="accordion-header" id="flush-headingOne">
+                          <label
+                            for="exampleFormControlInput1"
+                            class="form-label"
+                          >
+                            Bank deposit
+                          </label>
+                          <button
+                            className="accordion-button collapsed"
+                            type="button"
+                            data-bs-toggle="collapse"
+                            data-bs-target="#flush-collapseOne"
+                            aria-expanded="false"
+                            aria-controls="flush-collapseOne"
+                          >
+                            <i class="fa-solid fa-building-columns"></i>
+                          </button>
+                        </h6>
+                      </div>
+                      <div
+                        id="flush-collapseOne"
+                        class="accordion-collapse collapse row"
+                        aria-labelledby="flush-headingOne"
+                        data-bs-parent="#accordionFlushExample"
+                      >
+                        <div class="accordion-body">
+                          <div class="mb-3">
+                            <label
+                              for="formGroupExampleInput"
+                              class="form-label"
+                            >
+                              Example label
+                            </label>
+                            <input
+                              type="text"
+                              class="form-control"
+                              id="formGroupExampleInput"
+                              placeholder="Example input placeholder"
+                            />
+                          </div>
+                          <div class="mb-3">
+                            <label
+                              for="formGroupExampleInput"
+                              class="form-label"
+                            >
+                              <h6>Bank Information</h6>
+                            </label>
+                            <p>
+                              A/C Name: Freelancer International Pty Ltd
+                              Account#: 3301399083 Bank Name: SILICON VALLEY
+                              BANK Branch Address: 3003 TASMAN DRIVE, SANTA
+                              CLARA, CA 95054 ABA/Routing Number: 121140399
+                              Swift Code: SVBKUS6S
+                            </p>
+                          </div>
+                          <div class="mb-3">
+                            <label
+                              for="formGroupExampleInput"
+                              class="form-label"
+                            >
+                              <h6>Bank Information</h6>
+                            </label>
+                            <p>
+                              A/C Name: Freelancer International Pty Ltd
+                              Account#: 3301399083 Bank Name: SILICON VALLEY
+                              BANK Branch Address: 3003 TASMAN DRIVE, SANTA
+                              CLARA, CA 95054 ABA/Routing Number: 121140399
+                              Swift Code: SVBKUS6S
+                              <br />
+                              <br />
+                              <p>
+                                Lorem ipsum dolor sit amet consectetur,
+                                adipisicing elit. Quibusdam ipsum quos obcaecati
+                                corrupti sequi earum enim nam qui commodi,
+                                eligendi ex, in alias repudiandae nisi eos rem
+                                explicabo! Incidunt, impedit.
+                              </p>
+                            </p>
+                          </div>
+                          <div class="mb-3">
+                            <label
+                              for="formGroupExampleInput"
+                              class="form-label"
+                            >
+                              Example label
+                            </label>
+                            <input
+                              type="text"
+                              class="form-control"
+                              id="formGroupExampleInput"
+                              placeholder="Example input placeholder"
+                            />
+                          </div>
+                          <div class="mb-3">
+                            <label
+                              for="formGroupExampleInput"
+                              class="form-label"
+                            >
+                              Example label
+                            </label>
+                            <input
+                              type="text"
+                              class="form-control"
+                              id="formGroupExampleInput"
+                              placeholder="Example input placeholder"
+                            />
+                          </div>
+                          <div class="mb-3">
+                            <label
+                              for="formGroupExampleInput"
+                              class="form-label"
+                            >
+                              Example label
+                            </label>
+                            <input
+                              type="text"
+                              class="form-control"
+                              id="formGroupExampleInput"
+                              placeholder="Example input placeholder"
+                            />
+                          </div>
+                          <div className="mt-5 p-0">
+                            Note: Any transaction fees charged by your bank will
+                            be deducted from the total transfer amount. Funds
+                            will be credited to your balance on the next
+                            business day after the funds are received by
+                            Freelancer's bank. If you have any questions please
+                            contact <a href="">Online Support</a> 
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
                 </div>
               </div>
             </div>

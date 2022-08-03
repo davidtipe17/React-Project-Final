@@ -1,0 +1,28 @@
+* {
+  padding: 0;
+  margin: 0;
+}
+body {
+  display: flex;
+  justify-content: center;
+  margin-top: 40px;
+}
+
+.container-content {
+
+  height: 100vh;
+}
+
+.coloriconheart {
+  color: fuchsia;
+}
+.row-contenedor-mylist {
+  border: 1px black solid;
+}
+.input-group-text{
+    background-color: white;
+}
+.span-dolar-input{
+    width: 9%;
+    text-align: center;
+}
