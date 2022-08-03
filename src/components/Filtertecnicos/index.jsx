@@ -1,6 +1,6 @@
 import "../.././css/Filtertecnicos.css";
 import imagenprofile from "../../assets/img/profile.png";
-const Filtertecnicos = () => {
+const FilterTecnicos = () => {
   return (
     <div className="containerPrincipalFilter">
       <ul
@@ -543,4 +543,4 @@ const Filtertecnicos = () => {
   );
 };
 
-export default Filtertecnicos;
+export default FilterTecnicos;

@@ -1,3 +1,4 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&display=swap');
 
 :root {
     --login-bg:#f1eded;
@@ -10,7 +11,7 @@
 body {
     height: 100vh;
     font-family: 'Poppins', sans-serif;
-    background-image: url("../images/loginBackground.png");
+    background-image: url(".././assets/img/loginBackground.png");
     background-repeat:no-repeat;
     background-size: cover;
 }

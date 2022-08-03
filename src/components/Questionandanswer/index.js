@@ -1,6 +1,6 @@
 import "../.././css/Questionandanswer.css";
 
-const Questionandanswer = () => {
+const QuestionAndAnswer = () => {
   return (
     <div className="container-content-principal">
       <div className="row d-flex ">
@@ -337,4 +337,4 @@ const Questionandanswer = () => {
     </div>
   );
 };
-export default Questionandanswer;
+export default QuestionAndAnswer;

@@ -4,7 +4,7 @@ import iconscheckoutpagomastercard from "../../assets/img2/mastercard.svg";
 import iconscheckoutpagovisa from "../../assets/img2/visa.svg";
 import "../.././css/checkoutpayment.css";
 
-const Checkoutpago = () => {
+const CheckOutPayment = () => {
   return (
     <div className="containerCheckoutPagoPrincipal">
       <div className="container-content ">
@@ -506,4 +506,4 @@ const Checkoutpago = () => {
     </div>
   );
 };
-export default Checkoutpago;
+export default CheckOutPayment;
