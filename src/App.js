@@ -1,12 +1,13 @@
-import './App.css';
+import { ThemeProvider } from "@mui/material";
+import Router from "./router";
 
 
-function App() {
+const App = () => {
   return (
-    <div className="App">
-    
-    </div>
+    <ThemeProvider >
+      <Router />
+    </ThemeProvider>
   );
-}
+};
 
 export default App;
