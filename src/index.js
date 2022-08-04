@@ -12,11 +12,15 @@ import FilterTecnicos from "./components/FilterTecnicos";
 import QuestionAndAnswer from "./components/QuestionAndAnswer";
 import MyTickets from "./components/MyTickets";
 
+import {BrowserRouter} from "react-router-dom";
+
 const root = ReactDOM.createRoot(document.getElementById("root"));
 root.render(
   <React.StrictMode>
-    <App />
-    <Login />
+    <BrowserRouter>
+      <App />
+      <Login />
+    </BrowserRouter>
   </React.StrictMode>
 );
 reportWebVitals();
