@@ -1,0 +1,1 @@
+export const config = 'https://static.rviewer.io/challenges/datasets/dreadful-tomatoes/data.json';

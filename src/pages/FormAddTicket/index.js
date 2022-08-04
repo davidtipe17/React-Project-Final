@@ -11,7 +11,6 @@ const FormAddTicket = () => {
         setdisplayChangeButton("d-none");
     }
     const viewThirdPart = () => {
-
     }
     return (
         <div>
