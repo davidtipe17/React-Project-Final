@@ -10,14 +10,14 @@
 .usersupport-icon {
 
    text-align: center;
-   font-size: 100px;
+   font-size: 6em;
    color: #1f2836;;
 }
 
-.hover-button-contactuse {
+.responsive-support-client-icon-description {
     cursor: pointer;
 }
-.hover-button-contactuse:hover {
+.responsive-support-client-icon-description:hover {
     cursor: pointer;
     background-color: #1a6df39e;
     color: white;
@@ -26,3 +26,33 @@
 .container-content-principal{
     width: 40vw;
 }
+
+
+/* @media screen and (max-width: 1024px) {
+  html {
+    font-size: 9px;
+  }
+} */
+
+/* @media screen and (max-width: 900px) {
+  html {
+    font-size: 8px;
+  }
+} */
+
+@media screen and (max-width: 1200px) {
+
+  /* ===== =====>>  Container Css Start  <<===== ===== */
+.container-content-principal {
+ width: 70vw;
+ font-size: 1em;
+  }
+.titlesupport-client {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+}
+
+}
+
+

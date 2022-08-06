@@ -23,3 +23,12 @@
     background-color: whitesmoke;
     min-height: 100vh;
 }
+
+@media screen and (max-width: 1200px) {
+
+    /* ===== =====>>  Container Css Start  <<===== ===== */
+    .firstcolumn-responsive-marginbootum{
+        margin-bottom: 1em !important;
+
+    }
+  }

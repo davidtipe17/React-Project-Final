@@ -21,7 +21,7 @@ const Footer = () => {
                 <a href="#"></a>
               </div>
             </div>
-            <div claclassNamess="col-3 pt-4">
+            <div className="col-3 pt-4">
               <p className="fw-bold">About us</p>
               <div>
                 <a href="#">Company</a>

@@ -1,26 +1,40 @@
+.tickets-container {
+  background-color: whitesmoke;
+  height: 68vh;
+  width: 40vw;
+}
+.tickets-container .cardHeader h2 {
+  font-weight: 700;
+}
+.tickets-container .card {
+  background-color: #454d66;
+}
+.filtro button {
+  background-color: #c7417b;
+  color: white;
+}
+.tickets-list {
+  height: 45vh;
+}
+.tickets-list .btn-publicarProyecto {
+  background-color: #c7417b;
+  color: white;
+}
+li .nav-link {
+  color: white;
+}
+@media screen and (max-width: 1200px) {
+  /* ===== =====>>  Container Css Start  <<===== ===== */
 
-.tickets-container{
+  .tickets-container {
+    margin-top: 0 !important;
+    margin-bottom: 0 !important;
     background-color: whitesmoke;
-    height: 68vh;
+    height: 100vh;
     
+  }
+.tickets-title-responsive{
+    text-align: center;
 }
-.tickets-container .cardHeader  h2{
-    font-weight: 700;
-} 
-.tickets-container .card{
-    background-color: #454d66;
-}
-.filtro button{
-    background-color: #c7417b;
-    color: white;
-}
-.tickets-list{
-    height: 40vh;
-}
-.tickets-list .btn-publicarProyecto{
-    background-color: #c7417b;
-    color: white;
-}
-li .nav-link{
-    color: white;
+
 }

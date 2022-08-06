@@ -4,40 +4,8 @@ const QuestionAndAnswer = () => {
   return (
     <div className="container-content-principal">
       <div className="row d-flex ">
-        <div className="col-8 d-flex justify-content-start">
+        <div className=" titlesupport-client ">
           <h2>Cliente Help Center</h2>
-        </div>
-        <div className="col-4 d-flex justify-content-end">
-          <ul class="nav nav-pills mb-3 " id="pills-tab" role="tablist">
-            <li class="nav-item" role="presentation">
-              <button
-                class="nav-link active rounded-5"
-                id="pills-home-tab"
-                data-bs-toggle="pill"
-                data-bs-target="#pills-home"
-                type="button"
-                role="tab"
-                aria-controls="pills-home"
-                aria-selected="true"
-              >
-                Home
-              </button>
-            </li>
-            <li class="nav-item" role="presentation">
-              <button
-                class="nav-link rounded-5"
-                id="pills-profile-tab"
-                data-bs-toggle="pill"
-                data-bs-target="#pills-profile"
-                type="button"
-                role="tab"
-                aria-controls="pills-profile"
-                aria-selected="false"
-              >
-                Profile
-              </button>
-            </li>
-          </ul>
         </div>
       </div>
       <div className="row mb-4">
@@ -318,13 +286,13 @@ const QuestionAndAnswer = () => {
           </button>
         </div>
       </div>
-      <div className="row d-flex justify-content-center  mt-3 ">
-        <div className="col-5 card justify-content-center text-center hover-button-contactuse">
-          <div className="row justify-content-center  card-body mt-5 mb-5">
-            <div className="col-3 usersupport-icon me-2 card-body">
-              <i class="fa-solid fa-user-gear"></i>
+      <div className=" row  mt-5 mb-5 ">
+        <div className="col-12 card responsive-support-client-icon-description">
+          <div className="row justify-content-center ">
+            <div className="col-sm-3  mt-5 mb-5  usersupport-icon me-2 text-center">
+              <i class="fa-solid fa-user-gear "></i>
             </div>
-            <div className="col-6  d-flex flex-column card-body text-center justify-content-center ">
+            <div className="col-sm-4  mt-5 mb-5  text-center">
               <h3>Contac Us</h3>
               <p>
                 Still have questions? Our awesome Customer Support Team is ready
@@ -337,4 +305,5 @@ const QuestionAndAnswer = () => {
     </div>
   );
 };
+
 export default QuestionAndAnswer;

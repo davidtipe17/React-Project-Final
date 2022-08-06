@@ -32,3 +32,14 @@
     color: #c7417b;
     
 }
+
+@media screen and (max-width: 1200px) {
+    /* ===== =====>>  Container Css Start  <<===== ===== */
+  
+    .first-card, .fifth-card {
+        width: 100% !important;
+        text-align: center;
+    }
+    
+  
+  }

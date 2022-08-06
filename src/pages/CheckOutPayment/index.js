@@ -135,16 +135,16 @@ const CheckOutPayment = () => {
                     <div className="col">
                       <ul className="d-flex flex-row justify-content-start p-0 list-group-icon-payment-inferior">
                         <li>
-                          <img src={iconscheckoutpagoAE} alt="" />
+                          <img className="img-card-bank" src={iconscheckoutpagoAE} alt="" />
                         </li>
                         <li>
-                          <img src={iconscheckoutpagojcb} alt="" />
+                          <img className="img-card-bank" src={iconscheckoutpagojcb} alt="" />
                         </li>
                         <li>
-                          <img src={iconscheckoutpagomastercard} alt="" />
+                          <img className="img-card-bank" src={iconscheckoutpagomastercard} alt="" />
                         </li>
                         <li>
-                          <img src={iconscheckoutpagovisa} alt="" />
+                          <img className="img-card-bank" src={iconscheckoutpagovisa} alt="" />
                         </li>
                       </ul>
                     </div>
@@ -335,7 +335,7 @@ const CheckOutPayment = () => {
             {/* SECOND MODULO FOR THE FIRST COLUMN */}
           </div>
           {/* SECOND COLUMN */}
-          <div className="col-4 ">
+          <div className="col-md-4 ">
             <div className="row card mt-5 mb-5">
               <div class="col-12  mb-1">
                 <div className="row">
@@ -483,16 +483,16 @@ const CheckOutPayment = () => {
                     <div className="col">
                       <ul className="d-flex flex-row justify-content-around p-0 list-group-icon-payment-inferior">
                         <li>
-                          <img src={iconscheckoutpagoAE} alt="" />
+                          <img className="img-card-bank" src={iconscheckoutpagoAE} alt="" />
                         </li>
                         <li>
-                          <img src={iconscheckoutpagojcb} alt="" />
+                          <img className="img-card-bank" src={iconscheckoutpagojcb} alt="" />
                         </li>
                         <li>
-                          <img src={iconscheckoutpagomastercard} alt="" />
+                          <img  className="img-card-bank" src={iconscheckoutpagomastercard} alt="" />
                         </li>
                         <li>
-                          <img src={iconscheckoutpagovisa} alt="" />
+                          <img  className="img-card-bank" src={iconscheckoutpagovisa} alt="" />
                         </li>
                       </ul>
                     </div>

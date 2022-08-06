@@ -1,4 +1,4 @@
-import { config } from "../services/config.js";
+import { config } from "./config";
 
 export const searchTickets = async () => {  
 

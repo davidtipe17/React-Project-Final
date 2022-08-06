@@ -1,16 +1,31 @@
+import { useState, useEffect } from "react";
+import { searchTickets } from "../../services";
+
 import "../.././css/Filtertecnicos.css";
 import imagenprofile from "../../assets/img/profile.png";
+
 const FilterTecnicos = () => {
+  const [ticketList, setTicketList] = useState([]);
+
+  const fetchTickets = async () => {
+    const data = await searchTickets();
+    setTicketList(data);
+    console.log("probando",data);
+  };
+
+  useEffect(() => {
+    fetchTickets();
+  }, []);
   return (
     <div className="containerPrincipalFilter">
       <ul
-        class="nav nav-pills mb-3 border border-dark"
+        className="nav nav-pills mb-3 border border-dark"
         id="pills-tab"
         role="tablist"
       >
-        <li class="nav-item" role="presentation">
+        <li className="nav-item" role="presentation">
           <button
-            class="nav-link active"
+            className="nav-link active"
             id="pills-home-tab"
             data-bs-toggle="pill"
             data-bs-target="#pills-home"
@@ -22,48 +37,51 @@ const FilterTecnicos = () => {
             Tecnicos
           </button>
         </li>
-        <li class="nav-item" role="presentation">
+        <li className="nav-item" role="presentation">
           <button
-            class="nav-link"
+            className="nav-link"
             id="pills-profile-tab"
             data-bs-toggle="pill"
             data-bs-target="#pills-profile"
             type="button"
             role="tab"
             aria-controls="pills-profile"
-            aria-selected="false"
           >
             Tickets
           </button>
         </li>
       </ul>
-      <div class="tab-content" id="pills-tabContent">
+      <div className="tab-content" id="pills-tabContent">
         <div
-          class="tab-pane fade show active"
+          className="tab-pane fade show active"
           id="pills-home"
           role="tabpanel"
           aria-labelledby="pills-home-tab"
-          tabindex="0"
+          tabIndex="0"
         >
+          
           <div className="container-content">
-            <div class="row d-flex flex-row justify-content-between">
-              <div class="col-3 card p-3">
+            <div className="row d-flex flex-row justify-content-between">
+              <div className="col-3 card p-3">
                 <div className="row">
                   <div className="col-12">
-                    <h4 class="fw-semibold"> Filters</h4>
+                    <h4 className="fw-semibold"> Filters</h4>
                   </div>
                 </div>
                 <div className="row">
                   <div className="col-12">
-                    <h6 class="fw-semibold"> Tarifa </h6>
+                    <h6 className="fw-semibold"> Tarifa </h6>
                   </div>
                 </div>
                 <div className="row">
                   <div className="col-4">
-                    <label for="exampleFormControlInput1" class="form-label">
+                    <label
+                      for="exampleFormControlInput1"
+                      className="form-label"
+                    >
                       min
                     </label>
-                    <div class="input-group flex-nowrap border border-black">
+                    <div className="input-group flex-nowrap border border-black">
                       <span>$</span>
                       &nbsp;
                       <input
@@ -74,18 +92,24 @@ const FilterTecnicos = () => {
                     </div>
                   </div>
                   <div className="col-3">
-                    <label for="exampleFormControlInput1" class="form-label">
+                    <label
+                      for="exampleFormControlInput1"
+                      className="form-label"
+                    >
                       .
                     </label>
-                    <div class="input-group flex-nowrap">
-                      <h7 className="fw-norma">to</h7>
+                    <div className="input-group flex-nowrap">
+                      <h6 className="fw-norma">to</h6>
                     </div>
                   </div>
                   <div className="col-4">
-                    <label for="exampleFormControlInput1" class="form-label">
+                    <label
+                      for="exampleFormControlInput1"
+                      className="form-label"
+                    >
                       min
                     </label>
-                    <div class="input-group flex-nowrap border border-black">
+                    <div className="input-group flex-nowrap border border-black">
                       <span>$</span>
                       &nbsp;
                       <input
@@ -98,18 +122,18 @@ const FilterTecnicos = () => {
                 </div>
                 <div className="row mt-2">
                   <div className="col-12">
-                    <h6 class="fw-semibold"> Skills </h6>
+                    <h6 className="fw-semibold"> Skills </h6>
                   </div>
                 </div>
                 <div className="row ">
                   <div className="col border border-light">
-                    <div class="input-group mb-3">
-                      <span class="input-group-text" id="basic-addon1">
-                        <i class="fa-solid fa-magnifying-glass"></i>
+                    <div className="input-group mb-3">
+                      <span className="input-group-text" id="basic-addon1">
+                        <i className="fa-solid fa-magnifying-glass"></i>
                       </span>
                       <input
                         type="text"
-                        class="form-control"
+                        className="form-control"
                         placeholder="Search Skills"
                         aria-label="Username"
                         aria-describedby="basic-addon1"
@@ -119,27 +143,33 @@ const FilterTecnicos = () => {
                 </div>
                 <div className="row">
                   <div className="col">
-                    <div class="form-check">
+                    <div className="form-check">
                       <input
-                        class="form-check-input"
+                        className="form-check-input"
                         type="checkbox"
                         value=""
                         id="flexCheckChecked"
                         checked
                       />
-                      <label class="form-check-label" for="flexCheckChecked">
+                      <label
+                        className="form-check-label"
+                        for="flexCheckChecked"
+                      >
                         Skill 1
                       </label>
                     </div>
-                    <div class="form-check">
+                    <div className="form-check">
                       <input
-                        class="form-check-input"
+                        className="form-check-input"
                         type="checkbox"
                         value=""
                         id="flexCheckChecked"
                         checked
                       />
-                      <label class="form-check-label" for="flexCheckChecked">
+                      <label
+                        className="form-check-label"
+                        for="flexCheckChecked"
+                      >
                         Skill 2
                       </label>
                     </div>
@@ -147,18 +177,18 @@ const FilterTecnicos = () => {
                 </div>
                 <div className="row mt-2">
                   <div className="col">
-                    <h6 class="fw-semibold"> Skills </h6>
+                    <h6 className="fw-semibold"> Skills </h6>
                   </div>
                 </div>
                 <div className="row ">
                   <div className="col border border-light">
-                    <div class="input-group mb-3">
-                      <span class="input-group-text" id="basic-addon1">
-                        <i class="fa-solid fa-magnifying-glass"></i>
+                    <div className="input-group mb-3">
+                      <span className="input-group-text" id="basic-addon1">
+                        <i className="fa-solid fa-magnifying-glass"></i>
                       </span>
                       <input
                         type="text"
-                        class="form-control"
+                        className="form-control"
                         placeholder="Search Skills"
                         aria-label="Username"
                         aria-describedby="basic-addon1"
@@ -171,16 +201,16 @@ const FilterTecnicos = () => {
                     <label htmlFor="row">
                       <h6>Online</h6>
                     </label>
-                    <div class="form-check form-switch">
+                    <div className="form-check form-switch">
                       <input
-                        class="form-check-input"
+                        className="form-check-input"
                         type="checkbox"
                         role="switch"
                         id="flexSwitchCheckChecked"
                         checked
                       />
                       <label
-                        class="form-check-label"
+                        className="form-check-label"
                         for="flexSwitchCheckChecked"
                       >
                         Tecnicos Online
@@ -190,7 +220,7 @@ const FilterTecnicos = () => {
                 </div>
               </div>
 
-              <div class="col-8 card">
+              <div className="col-8 card">
                 <div className="row">
                   <div className="card-header d-flex justify-content-between ">
                     <div className="card-component-firstheader d-flex justify-content-around align-items-center text-center">
@@ -203,19 +233,19 @@ const FilterTecnicos = () => {
                         results
                       </span>
                       &nbsp;&nbsp;
-                      <div class="d-grid gap-2 d-md-block">
-                        <button class="btn " type="button">
-                          <i class="fa-solid fa-less-than"></i>
+                      <div className="d-grid gap-2 d-md-block">
+                        <button className="btn " type="button">
+                          <i className="fa-solid fa-less-than"></i>
                         </button>
                         &nbsp;
-                        <button class="btn" type="button">
-                          <i class="fa-solid fa-greater-than"></i>
+                        <button className="btn" type="button">
+                          <i className="fa-solid fa-greater-than"></i>
                         </button>
                       </div>
                     </div>
                     <div className="row-contenedor-mylist">
                       <button className="btn" type="button">
-                        <i class="fa-solid fa-heart coloriconheart"></i>
+                        <i className="fa-solid fa-heart coloriconheart"></i>
                         &nbsp;
                         <b>My List</b>
                       </button>
@@ -234,11 +264,11 @@ const FilterTecnicos = () => {
                     <div className="col-6">
                       <div className="row">
                         <div className="col">
-                          <div class="row mt-2">
-                            <div class="col">col</div>
-                            <div class="col">col</div>
-                            <div class="col">col</div>
-                            <div class="col">col</div>
+                          <div className="row mt-2">
+                            <div className="col">col</div>
+                            <div className="col">col</div>
+                            <div className="col">col</div>
+                            <div className="col">col</div>
                           </div>
                         </div>
                       </div>
@@ -282,12 +312,12 @@ const FilterTecnicos = () => {
                       <div className="row mt-3 ">
                         <div className="col d-flex flex-column">
                           <div className=" d-flex justify-content-end">
-                            <i class="fa-solid fa-heart coloriconheart "></i>
+                            <i className="fa-solid fa-heart coloriconheart "></i>
                           </div>
                           <div className="mt-3 d-flex justify-content-end">
                             <button
                               type="button"
-                              class="btn btn-primary  rounded-1"
+                              className="btn btn-primary  rounded-1"
                             >
                               Primary
                             </button>
@@ -300,36 +330,37 @@ const FilterTecnicos = () => {
               </div>
             </div>
           </div>
+
         </div>
         <div
-          class="tab-pane fade"
+          className="tab-pane fade"
           id="pills-profile"
           role="tabpanel"
           aria-labelledby="pills-profile-tab"
-          tabindex="0"
+          tabIndex="0"
         >
           <div className="container-content">
-            <div class="row d-flex flex-row justify-content-between">
-              <div class="col-3 card p-3">
+            <div className="row d-flex flex-row justify-content-between">
+              <div className="col-3 card p-3">
                 <div className="row">
                   <div className="col-12">
-                    <h4 class="fw-semibold"> Filters</h4>
+                    <h4 className="fw-semibold"> Filters</h4>
                   </div>
                 </div>
                 <div className="row">
                   <div className="col-12">
-                    <h6 class="fw-semibold"> Min </h6>
+                    <h6 className="fw-semibold"> Min </h6>
                   </div>
                 </div>
                 <div className="row">
                   <div className="col">
-                    <div class="input-group mb-3">
-                      <span class="input-group-text" id="basic-addon1">
-                        <i class="fa-solid fa-dollar-sign"></i>
+                    <div className="input-group mb-3">
+                      <span className="input-group-text" id="basic-addon1">
+                        <i className="fa-solid fa-dollar-sign"></i>
                       </span>
                       <input
                         type="text"
-                        class="form-control"
+                        className="form-control"
                         placeholder="Search Skills"
                         aria-label="Username"
                         aria-describedby="basic-addon1"
@@ -339,18 +370,18 @@ const FilterTecnicos = () => {
                 </div>
                 <div className="row mt-2">
                   <div className="col-12">
-                    <h6 class="fw-semibold"> Max </h6>
+                    <h6 className="fw-semibold"> Max </h6>
                   </div>
                 </div>
                 <div className="row ">
                   <div className="col border border-light">
-                    <div class="input-group mb-3">
-                      <span class="input-group-text" id="basic-addon1">
-                        <i class="fa-solid fa-dollar-sign"></i>
+                    <div className="input-group mb-3">
+                      <span className="input-group-text" id="basic-addon1">
+                        <i className="fa-solid fa-dollar-sign"></i>
                       </span>
                       <input
                         type="text"
-                        class="form-control"
+                        className="form-control"
                         placeholder="Search Skills"
                         aria-label="Username"
                         aria-describedby="basic-addon1"
@@ -360,18 +391,18 @@ const FilterTecnicos = () => {
                 </div>
                 <div className="row mt-2">
                   <div className="col">
-                    <h6 class="fw-semibold"> Skills </h6>
+                    <h6 className="fw-semibold"> Skills </h6>
                   </div>
                 </div>
                 <div className="row ">
                   <div className="col border border-light">
-                    <div class="input-group mb-3">
-                      <span class="input-group-text" id="basic-addon1">
-                        <i class="fa-solid fa-magnifying-glass"></i>
+                    <div className="input-group mb-3">
+                      <span className="input-group-text" id="basic-addon1">
+                        <i className="fa-solid fa-magnifying-glass"></i>
                       </span>
                       <input
                         type="text"
-                        class="form-control"
+                        className="form-control"
                         placeholder="Search Skills"
                         aria-label="Username"
                         aria-describedby="basic-addon1"
@@ -381,59 +412,70 @@ const FilterTecnicos = () => {
                 </div>
                 <div className="row">
                   <div className="col">
-                    <div class="form-check">
+                    <div className="form-check">
                       <input
-                        class="form-check-input"
+                        className="form-check-input"
                         type="checkbox"
                         value=""
                         id="flexCheckChecked"
                         checked
                       />
-                      <label class="form-check-label" for="flexCheckChecked">
+                      <label
+                        className="form-check-label"
+                        for="flexCheckChecked"
+                      >
                         Skill 1
                       </label>
                     </div>
-                    <div class="form-check">
+                    <div className="form-check">
                       <input
-                        class="form-check-input"
+                        className="form-check-input"
                         type="checkbox"
                         value=""
                         id="flexCheckChecked"
                         checked
                       />
-                      <label class="form-check-label" for="flexCheckChecked">
+                      <label
+                        className="form-check-label"
+                        for="flexCheckChecked"
+                      >
                         Skill 2
                       </label>
                     </div>
-                    <div class="form-check">
+                    <div className="form-check">
                       <input
-                        class="form-check-input"
+                        className="form-check-input"
                         type="checkbox"
                         value=""
                         id="flexCheckChecked"
                         checked
                       />
-                      <label class="form-check-label" for="flexCheckChecked">
+                      <label
+                        className="form-check-label"
+                        for="flexCheckChecked"
+                      >
                         Skill 3
                       </label>
                     </div>
-                    <div class="form-check">
+                    <div className="form-check">
                       <input
-                        class="form-check-input"
+                        className="form-check-input"
                         type="checkbox"
                         value=""
                         id="flexCheckChecked"
                         checked
                       />
-                      <label class="form-check-label" for="flexCheckChecked">
+                      <label
+                        className="form-check-label"
+                        for="flexCheckChecked"
+                      >
                         Skill 4
                       </label>
                     </div>
                   </div>
                 </div>
               </div>
-
-              <div class="col-8 card">
+              <div className="col-8 card">
                 <div className="row">
                   <div className="card-header d-flex justify-content-between ">
                     <div className="card-component-firstheader d-flex justify-content-around align-items-center text-center">
@@ -446,94 +488,78 @@ const FilterTecnicos = () => {
                         results
                       </span>
                       &nbsp;&nbsp;
-                      <div class="d-grid gap-2 d-md-block">
-                        <button class="btn " type="button">
-                          <i class="fa-solid fa-less-than"></i>
+                      <div className="d-grid gap-2 d-md-block">
+                        <button className="btn " type="button">
+                          <i className="fa-solid fa-less-than"></i>
                         </button>
                         &nbsp;
-                        <button class="btn" type="button">
-                          <i class="fa-solid fa-greater-than"></i>
+                        <button className="btn" type="button">
+                          <i className="fa-solid fa-greater-than"></i>
                         </button>
                       </div>
                     </div>
                     <div className="row-contenedor-mylist">
                       <button className="btn" type="button">
-                        <i class="fa-solid fa-heart coloriconheart"></i>
+                        <i className="fa-solid fa-heart coloriconheart"></i>
                         &nbsp;
                         <b>My List</b>
                       </button>
                     </div>
                   </div>
                 </div>
-
-                <div className="card-body">
-                  <div className="row">
-                    <div className="col-6">
+                {ticketList.length > 0 &&
+                  ticketList.map((user, index) => (
+                    <div key={index} user={user} className="card-body">
                       <div className="row">
-                        <div className="col">
-                          <div class="row mt-2">
-                            <div class="col">col</div>
-                            <div class="col">col</div>
-                            <div class="col">col</div>
-                            <div class="col">col</div>
+                        <div className="col-12">
+                          <div className="row d-flex justify-content-between">
+                            <div className="col-5">
+                              <h5>{user.title}</h5>
+                              <span>Bubget $10 - 30 USD</span>
+                            </div>
+                            <div className="col-4">
+                              <h5>{user.price} USD</h5>
+                              <span>average bid</span>
+                            </div>
                           </div>
-                        </div>
-                      </div>
-                      <div className="row">
-                        <div className="col">Estrellas</div>
-                        <div className="col">Banderas</div>
-                        <div className="col">Estrellas</div>
-                        <div className="col">Banderas</div>
-                      </div>
-                      <div className="row">
-                        <div className="col">Software Engineer</div>
-                      </div>
-                      <div className="row">
-                        <div className="col">
-                          <p>
-                            Lorem ipsum dolor sit, amet consectetur adipisicing
-                            elit. Repellat magni laudantium aliquid ut nulla.
-                            Quaerat, velit iste sequi numquam ut quam veniam ab
-                            quasi unde consectetur optio veritatis, aliquam
-                            ipsam?
-                          </p>
-                        </div>
-                      </div>
-                      <div className="row mb-5">
-                        <div className="col">Especialidad</div>
-                        <div className="col">Especialidad</div>
-                        <div className="col">Especialidad</div>
-                      </div>
-                    </div>
-                    <div className="col-6 d-flex flex-column justify-content-evenly">
-                      <div className="row mt-3">
-                        <div className="col d-flex justify-content-end">
-                          <h6>$80 USD</h6>
-                        </div>
-                      </div>
-                      <div className="row mt-3 ">
-                        <div className="col d-flex justify-content-end">
-                          <span>Por hora</span>
-                        </div>
-                      </div>
-                      <div className="row mt-3 ">
-                        <div className="col d-flex flex-column">
-                          <div className=" d-flex justify-content-end">
-                            <i class="fa-solid fa-heart coloriconheart "></i>
+                          <div className="row mt-4">
+                            <div className="col">
+                              <p>
+                                Lorem ipsum dolor sit, amet consectetur
+                                adipisicing elit. Repellat magni laudantium
+                                aliquid ut nulla. Quaerat, velit iste sequi
+                                numquam ut quam veniam ab quasi unde consectetur
+                                optio veritatis, aliquam ipsam?
+                              </p>
+                            </div>
                           </div>
-                          <div className="mt-3 d-flex justify-content-end">
-                            <button
-                              type="button"
-                              class="btn btn-primary  rounded-1"
-                            >
-                              Primary
-                            </button>
+                          <div className="row">
+                            <div className="col-12">
+                              <ul className=" d-flex flex-row justify-center-start">
+                                <li>PHP</li>
+                                <li className="ms-4">JavaScript</li>
+                                <li className="ms-4">WordPress</li>
+                                <li className="ms-4">Css</li>
+                                <li className="ms-4">Html</li>
+                              </ul>
+                            </div>
+                          </div>
+                          <div className="row d-flex justify-content-between">
+                            <div className="col-3">Cantidad de Mensajes</div>
+                            <div className="col-3">
+                              {user.createdAt}
+                             
+                            </div>
+                            <div className="col-3 text-bg-success" >
+                            <span>
+                                {user.state}
+                              </span>
+                            </div>
                           </div>
                         </div>
                       </div>
                     </div>
-                  </div>
-                </div>
+                  ))}
               </div>
             </div>
           </div>
