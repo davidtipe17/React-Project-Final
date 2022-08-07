@@ -2,12 +2,12 @@ import "../../css/editProfile.css";
 const EditProfile = () => {
   return (
     <div>
-      <div className="container fatherEditProfile">
+      <div className="container-fluid fatherEditProfile">
         <div className="containerEditProfile rounded-1">
           <div className="row">
-            <div className="col-sm-3 mt-5 firstcolumn-responsive-marginbootum">
+            <div className="col-sm-3 mt-5">
               <div
-                class="nav flex-column nav-pills me-3 navigationBarEdit mx-3 "
+                class="nav d-flex flex-sm-column  nav-pills navigationBarEdit mx-3 "
                 id="v-pills-tab"
                 role="tablist"
                 aria-orientation="vertical"
@@ -78,7 +78,7 @@ const EditProfile = () => {
                     <div className="card-body">
                       <div className="card py-5 px-3 rounded-0">
                         <h4 className="mb-3">Nombre</h4>
-                        <div className="row">
+                        <div className="row w-100">
                           <div className="col-6">
                             <h5 clas>Primer Nombre</h5>
                             <input

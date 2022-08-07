@@ -21,7 +21,7 @@ const Router = () => {
   return (
     <BrowserRouter>
       <Routes>
-        <Route path="/" element={<Chasupport/>} />
+        <Route path="/" element={<EditProfile/>} />
       
       </Routes>
     </BrowserRouter>
