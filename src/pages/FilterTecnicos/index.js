@@ -10,14 +10,16 @@ const FilterTecnicos = () => {
   const fetchTickets = async () => {
     const data = await searchTickets();
     setTicketList(data);
-    console.log("probando",data);
+    console.log("probando", data);
   };
 
   useEffect(() => {
     fetchTickets();
   }, []);
   return (
-    <div className="containerPrincipalFilter">
+    <div>
+      <div className="containerPrincipalFilter">
+        </div>  
       <ul
         className="nav nav-pills mb-3 border border-dark"
         id="pills-tab"
@@ -59,7 +61,6 @@ const FilterTecnicos = () => {
           aria-labelledby="pills-home-tab"
           tabIndex="0"
         >
-          
           <div className="container-content">
             <div className="row d-flex flex-row justify-content-between">
               <div className="col-3 card p-3">
@@ -71,53 +72,6 @@ const FilterTecnicos = () => {
                 <div className="row">
                   <div className="col-12">
                     <h6 className="fw-semibold"> Tarifa </h6>
-                  </div>
-                </div>
-                <div className="row">
-                  <div className="col-4">
-                    <label
-                      for="exampleFormControlInput1"
-                      className="form-label"
-                    >
-                      min
-                    </label>
-                    <div className="input-group flex-nowrap border border-black">
-                      <span>$</span>
-                      &nbsp;
-                      <input
-                        type="text"
-                        placeholder="0"
-                        className="border border-light btn-filter-lateral"
-                      />
-                    </div>
-                  </div>
-                  <div className="col-3">
-                    <label
-                      for="exampleFormControlInput1"
-                      className="form-label"
-                    >
-                      .
-                    </label>
-                    <div className="input-group flex-nowrap">
-                      <h6 className="fw-norma">to</h6>
-                    </div>
-                  </div>
-                  <div className="col-4">
-                    <label
-                      for="exampleFormControlInput1"
-                      className="form-label"
-                    >
-                      min
-                    </label>
-                    <div className="input-group flex-nowrap border border-black">
-                      <span>$</span>
-                      &nbsp;
-                      <input
-                        type="text"
-                        placeholder="0"
-                        className="border border-light btn-filter-lateral"
-                      />
-                    </div>
                   </div>
                 </div>
                 <div className="row mt-2">
@@ -175,27 +129,6 @@ const FilterTecnicos = () => {
                     </div>
                   </div>
                 </div>
-                <div className="row mt-2">
-                  <div className="col">
-                    <h6 className="fw-semibold"> Skills </h6>
-                  </div>
-                </div>
-                <div className="row ">
-                  <div className="col border border-light">
-                    <div className="input-group mb-3">
-                      <span className="input-group-text" id="basic-addon1">
-                        <i className="fa-solid fa-magnifying-glass"></i>
-                      </span>
-                      <input
-                        type="text"
-                        className="form-control"
-                        placeholder="Search Skills"
-                        aria-label="Username"
-                        aria-describedby="basic-addon1"
-                      />
-                    </div>
-                  </div>
-                </div>
                 <div className="row mt-1">
                   <div className="col">
                     <label htmlFor="row">
@@ -207,7 +140,6 @@ const FilterTecnicos = () => {
                         type="checkbox"
                         role="switch"
                         id="flexSwitchCheckChecked"
-                        checked
                       />
                       <label
                         className="form-check-label"
@@ -330,7 +262,6 @@ const FilterTecnicos = () => {
               </div>
             </div>
           </div>
-
         </div>
         <div
           className="tab-pane fade"
@@ -546,14 +477,9 @@ const FilterTecnicos = () => {
                           </div>
                           <div className="row d-flex justify-content-between">
                             <div className="col-3">Cantidad de Mensajes</div>
-                            <div className="col-3">
-                              {user.createdAt}
-                             
-                            </div>
-                            <div className="col-3 text-bg-success" >
-                            <span>
-                                {user.state}
-                              </span>
+                            <div className="col-3">{user.createdAt}</div>
+                            <div className="col-3 text-bg-success">
+                              <span>{user.state}</span>
                             </div>
                           </div>
                         </div>
