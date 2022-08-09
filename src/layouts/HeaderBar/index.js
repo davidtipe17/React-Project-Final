@@ -8,7 +8,7 @@ import Menu from "@mui/material/Menu";
 import MenuIcon from "@mui/icons-material/Menu";
 import Container from "@mui/material/Container";
 import Avatar from "@mui/material/Avatar";
-
+import Button from "@mui/material/Button";
 import Tooltip from "@mui/material/Tooltip";
 import MenuItem from "@mui/material/MenuItem";
 import Support from "../.././assets/img/support.svg";
@@ -28,9 +28,17 @@ import PaymentIcon from "@mui/icons-material/Payment";
 const pages = ["Dashboard", "My Tickets", "Inbox"];
 
 const ResponsiveAppBar = () => {
-  const [anchorElNav, setAnchorElNav] = React.useState(null);
-  const [anchorElUser, setAnchorElUser] = React.useState(null);
 
+  const history = useNavigate();
+  const { user, logout, isAuth } = useContext(AuthContext);
+
+  const [anchorElNav, setAnchorElNav] = useState(null);
+  const [anchorElUser, setAnchorElUser] = useState(null);
+  
+  if (!isAuth()) {
+		return <Navigate to="/login" />;
+	}
+  
   const handleOpenNavMenu = (event) => {
     setAnchorElNav(event.currentTarget);
   };
@@ -43,31 +51,7 @@ const ResponsiveAppBar = () => {
   const handleCloseUserMenu = () => {
     setAnchorElUser(null);
   };
-
-  const history = useNavigate();
-
-  const linkdashboard = () => {
-    history("/MyTickets");
-  };
-  const link = {
-    1: linkdashboard,
-  };
-  console.log("link", link[1]);
-
-  const handleClickProfile = () => {
-    history("/profile");
-  };
-  console.log(handleClickProfile);
-  const handleClickPayment = () => {
-    history("/checkoutpayment");
-  };
-  const handleClickLogout = () => {
-    history();
-  };
-  const handleClickSupport = () => {
-    history("/questions");
-  };
-
+  
   return (
     <Container>
       <Box
