@@ -15,11 +15,9 @@ const Login = () => {
     const data = new FormData(event.currentTarget);
     login(data.get("correo"), data.get("pass"));
   }
-
   if(isAuth()){
     return <Navigate to="/profile"/>;
   }
-
   return (
     <div>
       <main>

@@ -8,13 +8,8 @@ import Menu from "@mui/material/Menu";
 import MenuIcon from "@mui/icons-material/Menu";
 import Container from "@mui/material/Container";
 import Avatar from "@mui/material/Avatar";
-<<<<<<< HEAD
-
-=======
 import { useState, useContext } from "react";
 import { AuthContext } from "../../context";
-import Button from "@mui/material/Button";
->>>>>>> cfa7b9a0ba7900c95debc35d897ae1a19b5f0c71
 import Tooltip from "@mui/material/Tooltip";
 import MenuItem from "@mui/material/MenuItem";
 import Support from "../.././assets/img/support.svg";
@@ -23,7 +18,6 @@ import { Outlet, Navigate, useNavigate } from "react-router-dom";
 import MenuList from "@mui/material/MenuList";
 import Divider from "@mui/material/Divider";
 import Button from "@mui/material/Button";
-
 import ListItemText from "@mui/material/ListItemText";
 import ListItemIcon from "@mui/material/ListItemIcon";
 import LogoutIcon from "@mui/icons-material/Logout";
@@ -34,17 +28,16 @@ import PaymentIcon from "@mui/icons-material/Payment";
 const pages = ["Dashboard", "My Tickets", "Inbox"];
 
 const ResponsiveAppBar = () => {
-
   const history = useNavigate();
   const { user, logout, isAuth } = useContext(AuthContext);
 
   const [anchorElNav, setAnchorElNav] = useState(null);
   const [anchorElUser, setAnchorElUser] = useState(null);
-  
+
   if (!isAuth()) {
-		return <Navigate to="/login" />;
-	}
-  
+    return <Navigate to="/login" />;
+  }
+
   const handleOpenNavMenu = (event) => {
     setAnchorElNav(event.currentTarget);
   };
@@ -57,35 +50,7 @@ const ResponsiveAppBar = () => {
   const handleCloseUserMenu = () => {
     setAnchorElUser(null);
   };
-<<<<<<< HEAD
 
-  const history = useNavigate();
-
-  const linkdashboard = () => {
-    history("/MyTickets");
-  };
-  const link = {
-    1: linkdashboard,
-  };
-  console.log("link", link[1]);
-
-  const handleClickProfile = () => {
-    history("/profile");
-  };
-  console.log(handleClickProfile);
-  const handleClickPayment = () => {
-    history("/checkoutpayment");
-  };
-  const handleClickLogout = () => {
-    history();
-  };
-  const handleClickSupport = () => {
-    history("/questions");
-  };
-
-=======
-  
->>>>>>> cfa7b9a0ba7900c95debc35d897ae1a19b5f0c71
   return (
     <Container>
       <Box
@@ -110,7 +75,9 @@ const ResponsiveAppBar = () => {
               >
                 <img src={Support} alt="" />
               </ImageListItem>
-
+                  <Typography variant="h6" noWrap component="div">
+                    {user.name}
+                  </Typography>
               <Box sx={{ flexGrow: 1, display: { xs: "flex", md: "none" } }}>
                 <IconButton
                   size="large"
@@ -141,7 +108,7 @@ const ResponsiveAppBar = () => {
                   }}
                 >
                   {pages.map((page, index) => (
-                    <MenuItem key={page} index={index} onClick={link[1]}>
+                    <MenuItem key={page} index={index}>
                       <Typography textAlign="center">{page}</Typography>
                     </MenuItem>
                   ))}
@@ -163,7 +130,6 @@ const ResponsiveAppBar = () => {
               </Box>
               <Box
                 sx={{
-
                   margin: 1,
                   flexGrow: 1,
                   display: { xs: "none", md: "flex" },
@@ -225,14 +191,14 @@ const ResponsiveAppBar = () => {
                       </ListItemIcon>
                       <ListItemText>Add Funds</ListItemText>
                     </MenuItem>
-                      <MenuItem onClick={logout}>
-                          <ListItemIcon>
-                            <LogoutIcon fontSize="small" />
-                          </ListItemIcon>
-                          <ListItemText>Logout</ListItemText>
-                      </MenuItem>
+                    <MenuItem onClick={logout}>
+                      <ListItemIcon>
+                        <LogoutIcon fontSize="small" />
+                      </ListItemIcon>
+                      <ListItemText>Logout</ListItemText>
+                    </MenuItem>
                     <Divider />
-                    <MenuItem onClick={() =>history("/questions")}>
+                    <MenuItem onClick={() => history("/questions")}>
                       <ListItemIcon>
                         <SupportAgentIcon fontSize="small" />
                       </ListItemIcon>
