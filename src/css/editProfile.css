@@ -1,11 +1,11 @@
 .fatherEditProfile{
-   
     min-height: 100vh;
 }
 .containerEditProfile{
     background-color: #454d66;
     min-height: 100vh;
 }
+
 .containerEditProfile .navigationBarEdit button{
     margin-top: 10px;
     text-align: left;
@@ -24,11 +24,45 @@
     min-height: 100vh;
 }
 
+/*quitar borde blanco*/
+.containerEditProfile>.row{
+    margin:auto;
+}
+
+.card-responsive {
+    width: 100% !important;
+
+
+}
+
+
 @media screen and (max-width: 1200px) {
 
     /* ===== =====>>  Container Css Start  <<===== ===== */
-    .firstcolumn-responsive-marginbootum{
-        margin-bottom: 1em !important;
-
+    .firstcolumn-responsive-marginbootom{
+        margin-bottom: 5em !important;
+       
     }
+    
+    .fatherEditProfile{
+        min-height: 100vh;
+        padding: 0 !important;
+    }
+
+
+
+    .nav-link {
+        margin-right: 1em;
+    }
+
+  
+    
   }
+
+@media screen and (max-width: 767px) {
+
+    .container-fluid .row{
+        width: 100% !important;
+    
+    }
+}

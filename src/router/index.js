@@ -11,7 +11,7 @@ import {
   Login,
   Profile,
   QuestionAndAnswer,
-  EditProfile,
+  EditProfile,ñ
 } from "../pages";
 
 import { HeaderBar } from "../layouts";
@@ -22,18 +22,14 @@ const Router = () => {
       <Routes>
         <Route path="/" element={<Home />} />
 
-       
-
-        <Route element={<HeaderBar />}>
-          <Route path="/profile" element={<Profile />} />
-          <Route path="/tickets" element={<MyTickets />} />
-          <Route path="/questions" element={<QuestionAndAnswer />} />
-          <Route path="/filters" element={<FilterTecnicos />} />
-          <Route path="/form" element={<FormAddTicket />} />
-          <Route path="/contact" element={<EditProfile />} />
-          <Route path="/chatsupport" element={<Chasupport />} />
-          <Route path="/checkoutpayment" element={<CheckOutPayment />} />
-        </Route>
+        <Route path="/profile" element={<Profile />} />
+        <Route path="/tickets" element={<MyTickets />} />
+        <Route path="/questions" element={<QuestionAndAnswer />} />
+        <Route path="/filters" element={<FilterTecnicos />} />
+        <Route path="/form" element={<FormAddTicket />} />
+        <Route path="/contact" element={<EditProfile />} />
+        <Route path="/chatsupport" element={<Chasupport />}  />
+        <Route path="/checkoutpayment" element={< CheckOutPayment/>} />
       </Routes>
     </BrowserRouter>
   );

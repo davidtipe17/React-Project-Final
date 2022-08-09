@@ -145,7 +145,6 @@ const ResponsiveAppBar = () => {
               </Box>
               <Box
                 sx={{
-
                   margin: 1,
                   flexGrow: 1,
                   display: { xs: "none", md: "flex" },

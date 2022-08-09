@@ -28,3 +28,13 @@ body{
     width: 9%;
     text-align: center;
 }
+
+@media screen and (max-width: 1200px) {
+
+  .btn-responsive {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  }
+
+  }
