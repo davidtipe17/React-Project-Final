@@ -8,7 +8,13 @@ import Menu from "@mui/material/Menu";
 import MenuIcon from "@mui/icons-material/Menu";
 import Container from "@mui/material/Container";
 import Avatar from "@mui/material/Avatar";
+<<<<<<< HEAD
 
+=======
+import { useState, useContext } from "react";
+import { AuthContext } from "../../context";
+import Button from "@mui/material/Button";
+>>>>>>> cfa7b9a0ba7900c95debc35d897ae1a19b5f0c71
 import Tooltip from "@mui/material/Tooltip";
 import MenuItem from "@mui/material/MenuItem";
 import Support from "../.././assets/img/support.svg";
@@ -28,9 +34,17 @@ import PaymentIcon from "@mui/icons-material/Payment";
 const pages = ["Dashboard", "My Tickets", "Inbox"];
 
 const ResponsiveAppBar = () => {
-  const [anchorElNav, setAnchorElNav] = React.useState(null);
-  const [anchorElUser, setAnchorElUser] = React.useState(null);
 
+  const history = useNavigate();
+  const { user, logout, isAuth } = useContext(AuthContext);
+
+  const [anchorElNav, setAnchorElNav] = useState(null);
+  const [anchorElUser, setAnchorElUser] = useState(null);
+  
+  if (!isAuth()) {
+		return <Navigate to="/login" />;
+	}
+  
   const handleOpenNavMenu = (event) => {
     setAnchorElNav(event.currentTarget);
   };
@@ -43,6 +57,7 @@ const ResponsiveAppBar = () => {
   const handleCloseUserMenu = () => {
     setAnchorElUser(null);
   };
+<<<<<<< HEAD
 
   const history = useNavigate();
 
@@ -68,6 +83,9 @@ const ResponsiveAppBar = () => {
     history("/questions");
   };
 
+=======
+  
+>>>>>>> cfa7b9a0ba7900c95debc35d897ae1a19b5f0c71
   return (
     <Container>
       <Box
@@ -195,26 +213,26 @@ const ResponsiveAppBar = () => {
                   onClick={handleCloseUserMenu}
                 >
                   <MenuList onClick={handleCloseUserMenu}>
-                    <MenuItem onClick={handleClickProfile}>
+                    <MenuItem onClick={() => history("/profile")}>
                       <ListItemIcon>
                         <SwitchAccountIcon fontSize="small" />
                       </ListItemIcon>
                       <ListItemText>Profile</ListItemText>
                     </MenuItem>
-                    <MenuItem onClick={handleClickPayment}>
+                    <MenuItem onClick={() => history("/checkoutpayment")}>
                       <ListItemIcon>
                         <PaymentIcon fontSize="small" />
                       </ListItemIcon>
                       <ListItemText>Add Funds</ListItemText>
                     </MenuItem>
-                    <MenuItem onClick={handleClickLogout}>
-                      <ListItemIcon>
-                        <LogoutIcon fontSize="small" />
-                      </ListItemIcon>
-                      <ListItemText>Logout</ListItemText>
-                    </MenuItem>
+                      <MenuItem onClick={logout}>
+                          <ListItemIcon>
+                            <LogoutIcon fontSize="small" />
+                          </ListItemIcon>
+                          <ListItemText>Logout</ListItemText>
+                      </MenuItem>
                     <Divider />
-                    <MenuItem onClick={handleClickSupport}>
+                    <MenuItem onClick={() =>history("/questions")}>
                       <ListItemIcon>
                         <SupportAgentIcon fontSize="small" />
                       </ListItemIcon>
