@@ -3,7 +3,7 @@ import "../../css/tickets.css";
 const MyTickets = () => {
   return (
     <div>
-      <div className="container  tickets-container mt-5">
+      <div className="container-md  tickets-container mt-5">
         <div className="cardHeader row justify-content-between py-3">
             <div className="col-sm-3">
             <h2 className="tickets-title-responsive">Tickets</h2>
