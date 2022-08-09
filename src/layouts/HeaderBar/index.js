@@ -8,6 +8,8 @@ import Menu from "@mui/material/Menu";
 import MenuIcon from "@mui/icons-material/Menu";
 import Container from "@mui/material/Container";
 import Avatar from "@mui/material/Avatar";
+import { useState, useContext } from "react";
+import { AuthContext } from "../../context";
 import Button from "@mui/material/Button";
 import Tooltip from "@mui/material/Tooltip";
 import MenuItem from "@mui/material/MenuItem";
@@ -27,8 +29,19 @@ const pages = ["Dashboard", "My Tickets", "Inbox"];
 const settings = ["Profile", "Support", "Add Funds", "Logout"];
 
 const ResponsiveAppBar = () => {
-  const [anchorElNav, setAnchorElNav] = React.useState(null);
-  const [anchorElUser, setAnchorElUser] = React.useState(null);
+
+  const history = useNavigate();
+  const { user, logout, isAuth } = useContext(AuthContext);
+
+  const [anchorElNav, setAnchorElNav] = useState(null);
+  const [anchorElUser, setAnchorElUser] = useState(null);
+  
+  if (!isAuth()) {
+		return <Navigate to="/" />;
+	}
+  
+
+  
 
   const handleOpenNavMenu = (event) => {
     setAnchorElNav(event.currentTarget);
@@ -43,7 +56,7 @@ const ResponsiveAppBar = () => {
     setAnchorElUser(null);
   };
 
-  const history = useNavigate();
+  
 
   const handleClickProfile = () => {
     history("/profile");
