@@ -12,12 +12,11 @@ export const searchTickets = async () => {
 };
 
 export const getUser = async () => {
-  try {
-    const response = await fetch(Url_User);
-    const data = await response.json();
-
-    return data;
-  } catch (error) {
-    return error;
-  }
-};
+    try {
+        const response = await fetch(Url_User);
+        const data = await response.json();
+        return data;
+    } catch (error) {
+        return error;
+    }
+}
