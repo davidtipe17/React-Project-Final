@@ -4,14 +4,18 @@ import { getUser } from "../services";
 export const AuthContext = createContext();
 
 export const AuthProvider = ({children}) => {
+    const userStorage = JSON.parse(localStorage.getItem("helpCenter.user"))|| {};
     const [user, setUser] = 
-        useState(JSON.parse(localStorage.getItem("helpCenter.user"))) || [];
+        useState(userStorage) ;
 
-    const login = async (correo, pass) => {
+    const login = async (correo, pass) =>{ 
         const dataUser = await getUser();
-        const authUser = dataUser.find(async  user =>{
-            return user.correo === correo && user.contrasena === pass;
-        });
+        const authUser = dataUser.find(
+            (user) =>{
+                return user.correo === correo && user.contrasena === pass
+            
+            }
+        );
 
         if(authUser !== undefined){
             localStorage.setItem("helpCenter.user", JSON.stringify(authUser));
@@ -23,7 +27,7 @@ export const AuthProvider = ({children}) => {
 
     const logout = () => {
         localStorage.removeItem("helpCenter.user");
-        setUser([]);
+        setUser({});
         window.location.href = "/login";
     }
 

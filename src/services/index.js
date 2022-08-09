@@ -16,6 +16,7 @@ export const getUser = async () => {
     try {
         const response = await fetch(Url_User);
         const data = await response.json();
+        console.log(data);
         return data;
     } catch (error) {
         return error;
