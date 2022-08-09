@@ -8,7 +8,7 @@ import Menu from "@mui/material/Menu";
 import MenuIcon from "@mui/icons-material/Menu";
 import Container from "@mui/material/Container";
 import Avatar from "@mui/material/Avatar";
-import Button from "@mui/material/Button";
+
 import Tooltip from "@mui/material/Tooltip";
 import MenuItem from "@mui/material/MenuItem";
 import Support from "../.././assets/img/support.svg";
@@ -16,6 +16,8 @@ import ImageListItem from "@mui/material/ImageListItem";
 import { Outlet, Navigate, useNavigate } from "react-router-dom";
 import MenuList from "@mui/material/MenuList";
 import Divider from "@mui/material/Divider";
+import Button from "@mui/material/Button";
+
 import ListItemText from "@mui/material/ListItemText";
 import ListItemIcon from "@mui/material/ListItemIcon";
 import LogoutIcon from "@mui/icons-material/Logout";
@@ -24,7 +26,6 @@ import SupportAgentIcon from "@mui/icons-material/SupportAgent";
 import PaymentIcon from "@mui/icons-material/Payment";
 
 const pages = ["Dashboard", "My Tickets", "Inbox"];
-const settings = ["Profile", "Support", "Add Funds", "Logout"];
 
 const ResponsiveAppBar = () => {
   const [anchorElNav, setAnchorElNav] = React.useState(null);
@@ -45,9 +46,18 @@ const ResponsiveAppBar = () => {
 
   const history = useNavigate();
 
+  const linkdashboard = () => {
+    history("/MyTickets");
+  };
+  const link = {
+    1: linkdashboard,
+  };
+  console.log("link", link[1]);
+
   const handleClickProfile = () => {
     history("/profile");
   };
+  console.log(handleClickProfile);
   const handleClickPayment = () => {
     history("/checkoutpayment");
   };
@@ -112,8 +122,8 @@ const ResponsiveAppBar = () => {
                     display: { xs: "block", md: "none" },
                   }}
                 >
-                  {pages.map((page) => (
-                    <MenuItem key={page} onClick={handleCloseNavMenu}>
+                  {pages.map((page, index) => (
+                    <MenuItem key={page} index={index} onClick={link[1]}>
                       <Typography textAlign="center">{page}</Typography>
                     </MenuItem>
                   ))}
@@ -133,16 +143,29 @@ const ResponsiveAppBar = () => {
               >
                 <img src={Support} alt="" />
               </Box>
-              <Box sx={{ flexGrow: 1, display: { xs: "none", md: "flex" } }}>
-                {pages.map((page) => (
-                  <Button
-                    key={page}
-                    onClick={handleCloseNavMenu}
-                    sx={{ my: 2, color: "white", display: "block" }}
-                  >
-                    {page}
-                  </Button>
-                ))}
+              <Box
+                sx={{
+
+                  margin: 1,
+                  flexGrow: 1,
+                  display: { xs: "none", md: "flex" },
+                }}
+              >
+                <Button
+                  sx={{ margin: 1, border: "solid white", color: "red" }}
+                  variant="text"
+                >
+                  Text
+                </Button>
+                <Button sx={{ margin: 1 }} variant="text">
+                  Text
+                </Button>
+                <Button sx={{ margin: 1 }} variant="text">
+                  Text
+                </Button>
+                <Button sx={{ margin: 1 }} variant="text">
+                  Text
+                </Button>
               </Box>
 
               <Box sx={{ flexGrow: 0 }}>
