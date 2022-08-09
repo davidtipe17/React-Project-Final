@@ -19,10 +19,10 @@ const QuestionAndAnswer = () => {
         </div>
       </div>
       <div className="supportNav-tab">
-        <ul class="nav nav-pills mb-3" id="pills-tab" role="tablist">
-          <li class="nav-item" role="presentation">
+        <ul className="nav nav-pills mb-3" id="pills-tab" role="tablist">
+          <li className="nav-item" role="presentation">
             <button
-              class="nav-link active"
+              className="nav-link active"
               id="pills-home-tab"
               data-bs-toggle="pill"
               data-bs-target="#pills-home"
@@ -34,9 +34,9 @@ const QuestionAndAnswer = () => {
               General
             </button>
           </li>
-          <li class="nav-item" role="presentation">
+          <li className="nav-item" role="presentation">
             <button
-              class="nav-link"
+              className="nav-link"
               id="pills-profile-tab"
               data-bs-toggle="pill"
               data-bs-target="#pills-profile"
@@ -50,19 +50,19 @@ const QuestionAndAnswer = () => {
           </li>
         </ul>
       </div>
-      <div class="tab-content" id="pills-tabContent">
+      <div className="tab-content" id="pills-tabContent">
         <div
-          class="tab-pane fade show active"
+          className="tab-pane fade show active"
           id="pills-home"
           role="tabpanel"
           aria-labelledby="pills-home-tab"
           tabindex="0"
         >
-          <div class="accordion accordion-flush" id="accordionFlushExample">
-            <div class="accordion-item">
-              <h2 class="accordion-header" id="flush-headingOne">
+          <div className="accordion accordion-flush" id="accordionFlushExample">
+            <div className="accordion-item">
+              <h2 className="accordion-header" id="flush-headingOne">
                 <button
-                  class="accordion-button collapsed"
+                  className="accordion-button collapsed"
                   type="button"
                   data-bs-toggle="collapse"
                   data-bs-target="#flush-collapseOne"
@@ -74,11 +74,11 @@ const QuestionAndAnswer = () => {
               </h2>
               <div
                 id="flush-collapseOne"
-                class="accordion-collapse collapse"
+                className="accordion-collapse collapse"
                 aria-labelledby="flush-headingOne"
                 data-bs-parent="#accordionFlushExample"
               >
-                <div class="accordion-body accordion-body-one">
+                <div className="accordion-body accordion-body-one">
                   <h3>Getting started on Support.com</h3>
                   <p>
                     Support.com allows clients and freelancers to work together
@@ -126,10 +126,10 @@ const QuestionAndAnswer = () => {
                 </div>
               </div>
             </div>
-            <div class="accordion-item">
-              <h2 class="accordion-header" id="flush-headingTwo">
+            <div className="accordion-item">
+              <h2 className="accordion-header" id="flush-headingTwo">
                 <button
-                  class="accordion-button collapsed"
+                  className="accordion-button collapsed"
                   type="button"
                   data-bs-toggle="collapse"
                   data-bs-target="#flush-collapseTwo"
@@ -141,22 +141,22 @@ const QuestionAndAnswer = () => {
               </h2>
               <div
                 id="flush-collapseTwo"
-                class="accordion-collapse collapse"
+                className="accordion-collapse collapse"
                 aria-labelledby="flush-headingTwo"
                 data-bs-parent="#accordionFlushExample"
               >
-                <div class="accordion-body">
+                <div className="accordion-body">
                   Placeholder content for this accordion, which is intended to
-                  demonstrate the <code>.accordion-flush</code> class. This is
+                  demonstrate the <code>.accordion-flush</code> className. This is
                   the second item's accordion body. Let's imagine this being
                   filled with some actual content.
                 </div>
               </div>
             </div>
-            <div class="accordion-item">
-              <h2 class="accordion-header" id="flush-headingThree">
+            <div className="accordion-item">
+              <h2 className="accordion-header" id="flush-headingThree">
                 <button
-                  class="accordion-button collapsed"
+                  className="accordion-button collapsed"
                   type="button"
                   data-bs-toggle="collapse"
                   data-bs-target="#flush-collapseThree"
@@ -168,13 +168,13 @@ const QuestionAndAnswer = () => {
               </h2>
               <div
                 id="flush-collapseThree"
-                class="accordion-collapse collapse"
+                className="accordion-collapse collapse"
                 aria-labelledby="flush-headingThree"
                 data-bs-parent="#accordionFlushExample"
               >
-                <div class="accordion-body">
+                <div className="accordion-body">
                   Placeholder content for this accordion, which is intended to
-                  demonstrate the <code>.accordion-flush</code> class. This is
+                  demonstrate the <code>.accordion-flush</code> className. This is
                   the third item's accordion body. Nothing more exciting
                   happening here in terms of content, but just filling up the
                   space to make it look, at least at first glance, a bit more
@@ -186,17 +186,17 @@ const QuestionAndAnswer = () => {
           </div>
         </div>
         <div
-          class="tab-pane fade"
+          className="tab-pane fade"
           id="pills-profile"
           role="tabpanel"
           aria-labelledby="pills-profile-tab"
           tabindex="0"
         >
-          <div class="accordion accordion-flush" id="accordionFlushExample">
-            <div class="accordion-item">
-              <h2 class="accordion-header" id="flush-headingOne">
+          <div className="accordion accordion-flush" id="accordionFlushExample">
+            <div className="accordion-item">
+              <h2 className="accordion-header" id="flush-headingOne">
                 <button
-                  class="accordion-button collapsed"
+                  className="accordion-button collapsed"
                   type="button"
                   data-bs-toggle="collapse"
                   data-bs-target="#flush-collapseOne"
@@ -208,21 +208,21 @@ const QuestionAndAnswer = () => {
               </h2>
               <div
                 id="flush-collapseOne"
-                class="accordion-collapse collapse"
+                className="accordion-collapse collapse"
                 aria-labelledby="flush-headingOne"
                 data-bs-parent="#accordionFlushExample"
               >
-                <div class="accordion-body">
+                <div className="accordion-body">
                   Placeholder content for this accordion, which is intended to
-                  demonstrate the <code>.accordion-flush</code> class. This is
+                  demonstrate the <code>.accordion-flush</code> className. This is
                   the first item's accordion body.
                 </div>
               </div>
             </div>
-            <div class="accordion-item">
-              <h2 class="accordion-header" id="flush-headingTwo">
+            <div className="accordion-item">
+              <h2 className="accordion-header" id="flush-headingTwo">
                 <button
-                  class="accordion-button collapsed"
+                  className="accordion-button collapsed"
                   type="button"
                   data-bs-toggle="collapse"
                   data-bs-target="#flush-collapseTwo"
@@ -234,22 +234,22 @@ const QuestionAndAnswer = () => {
               </h2>
               <div
                 id="flush-collapseTwo"
-                class="accordion-collapse collapse"
+                className="accordion-collapse collapse"
                 aria-labelledby="flush-headingTwo"
                 data-bs-parent="#accordionFlushExample"
               >
-                <div class="accordion-body">
+                <div className="accordion-body">
                   Placeholder content for this accordion, which is intended to
-                  demonstrate the <code>.accordion-flush</code> class. This is
+                  demonstrate the <code>.accordion-flush</code> className. This is
                   the second item's accordion body. Let's imagine this being
                   filled with some actual content.
                 </div>
               </div>
             </div>
-            <div class="accordion-item">
-              <h2 class="accordion-header" id="flush-headingThree">
+            <div className="accordion-item">
+              <h2 className="accordion-header" id="flush-headingThree">
                 <button
-                  class="accordion-button collapsed"
+                  className="accordion-button collapsed"
                   type="button"
                   data-bs-toggle="collapse"
                   data-bs-target="#flush-collapseThree"
@@ -261,13 +261,13 @@ const QuestionAndAnswer = () => {
               </h2>
               <div
                 id="flush-collapseThree"
-                class="accordion-collapse collapse"
+                className="accordion-collapse collapse"
                 aria-labelledby="flush-headingThree"
                 data-bs-parent="#accordionFlushExample"
               >
-                <div class="accordion-body">
+                <div className="accordion-body">
                   Placeholder content for this accordion, which is intended to
-                  demonstrate the <code>.accordion-flush</code> class. This is
+                  demonstrate the <code>.accordion-flush</code> className. This is
                   the third item's accordion body. Nothing more exciting
                   happening here in terms of content, but just filling up the
                   space to make it look, at least at first glance, a bit more
@@ -290,7 +290,7 @@ const QuestionAndAnswer = () => {
         <div className="col-12 card responsive-support-client-icon-description">
           <div className="row justify-content-center ">
             <div className="col-sm-3  mt-5 mb-5  usersupport-icon me-2 text-center">
-              <i class="fa-solid fa-user-gear "></i>
+              <i className="fa-solid fa-user-gear "></i>
             </div>
             <div className="col-sm-4  mt-5 mb-5  text-center">
               <h3>Contac Us</h3>
