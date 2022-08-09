@@ -151,18 +151,21 @@ const ResponsiveAppBar = () => {
                 }}
               >
                 <Button
-                  sx={{ margin: 1, border: "solid white", color: "red" }}
+                  sx={{ margin: 0.5, color: "white", }}
+                  variant="text"
+                >
+                  Dasboard
+                </Button>
+                <Button
+                  sx={{ margin: 0.5, color: "white",}}
                   variant="text"
                 >
                   Text
                 </Button>
-                <Button sx={{ margin: 1 }} variant="text">
-                  Text
-                </Button>
-                <Button sx={{ margin: 1 }} variant="text">
-                  Text
-                </Button>
-                <Button sx={{ margin: 1 }} variant="text">
+                <Button
+                  sx={{ margin: 0.5, color: "white",}}
+                  variant="text"
+                >
                   Text
                 </Button>
               </Box>

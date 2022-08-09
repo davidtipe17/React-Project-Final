@@ -22,14 +22,19 @@ const Router = () => {
       <Routes>
         <Route path="/" element={<Home />} />
 
-        <Route path="/profile" element={<Profile />} />
-        <Route path="/tickets" element={<MyTickets />} />
-        <Route path="/questions" element={<QuestionAndAnswer />} />
-        <Route path="/filters" element={<FilterTecnicos />} />
-        <Route path="/form" element={<FormAddTicket />} />
-        <Route path="/contact" element={<EditProfile />} />
-        <Route path="/chatsupport" element={<Chasupport />}  />
-        <Route path="/checkoutpayment" element={< CheckOutPayment/>} />
+
+       
+
+        <Route element={<HeaderBar />}>
+          <Route path="/profile" element={<Profile />} />
+          <Route path="/tickets" element={<MyTickets />} />
+          <Route path="/questions" element={<QuestionAndAnswer />} />
+          <Route path="/filters" element={<FilterTecnicos />} />
+          <Route path="/form" element={<FormAddTicket />} />
+          <Route path="/contact" element={<EditProfile />} />
+          <Route path="/chatsupport" element={<Chasupport />} />
+          <Route path="/checkoutpayment" element={<CheckOutPayment />} />
+        </Route>
       </Routes>
     </BrowserRouter>
   );
