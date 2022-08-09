@@ -37,12 +37,9 @@ const ResponsiveAppBar = () => {
   const [anchorElUser, setAnchorElUser] = useState(null);
   
   if (!isAuth()) {
-		return <Navigate to="/" />;
+		return <Navigate to="/login" />;
 	}
   
-
-  
-
   const handleOpenNavMenu = (event) => {
     setAnchorElNav(event.currentTarget);
   };
@@ -55,22 +52,7 @@ const ResponsiveAppBar = () => {
   const handleCloseUserMenu = () => {
     setAnchorElUser(null);
   };
-
   
-
-  const handleClickProfile = () => {
-    history("/profile");
-  };
-  const handleClickPayment = () => {
-    history("/checkoutpayment");
-  };
-  const handleClickLogout = () => {
-    history();
-  };
-  const handleClickSupport = () => {
-    history("/questions");
-  };
-
   return (
     <Container>
       <Box
@@ -185,26 +167,26 @@ const ResponsiveAppBar = () => {
                   onClick={handleCloseUserMenu}
                 >
                   <MenuList onClick={handleCloseUserMenu}>
-                    <MenuItem onClick={handleClickProfile}>
+                    <MenuItem onClick={() => history("/profile")}>
                       <ListItemIcon>
                         <SwitchAccountIcon fontSize="small" />
                       </ListItemIcon>
                       <ListItemText>Profile</ListItemText>
                     </MenuItem>
-                    <MenuItem onClick={handleClickPayment}>
+                    <MenuItem onClick={() => history("/checkoutpayment")}>
                       <ListItemIcon>
                         <PaymentIcon fontSize="small" />
                       </ListItemIcon>
                       <ListItemText>Add Funds</ListItemText>
                     </MenuItem>
-                    <MenuItem onClick={handleClickLogout}>
-                      <ListItemIcon>
-                        <LogoutIcon fontSize="small" />
-                      </ListItemIcon>
-                      <ListItemText>Logout</ListItemText>
-                    </MenuItem>
+                      <MenuItem onClick={logout}>
+                          <ListItemIcon>
+                            <LogoutIcon fontSize="small" />
+                          </ListItemIcon>
+                          <ListItemText>Logout</ListItemText>
+                      </MenuItem>
                     <Divider />
-                    <MenuItem onClick={handleClickSupport}>
+                    <MenuItem onClick={() =>history("/questions")}>
                       <ListItemIcon>
                         <SupportAgentIcon fontSize="small" />
                       </ListItemIcon>

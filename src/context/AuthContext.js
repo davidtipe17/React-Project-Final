@@ -4,10 +4,8 @@ import { getUser } from "../services";
 export const AuthContext = createContext();
 
 export const AuthProvider = ({children}) => {
-
-    const userStorage =JSON.parse(localStorage.getItem("helpCenter.user")) || [];
-
-    const [user, setUser] = useState(userStorage);
+    const [user, setUser] = 
+        useState(JSON.parse(localStorage.getItem("helpCenter.user"))) || [];
 
     const login = async (correo, pass) => {
         const dataUser = await getUser();
@@ -26,7 +24,7 @@ export const AuthProvider = ({children}) => {
     const logout = () => {
         localStorage.removeItem("helpCenter.user");
         setUser([]);
-        window.location.href = "/home";
+        window.location.href = "/login";
     }
 
     const isAuth = () => {
