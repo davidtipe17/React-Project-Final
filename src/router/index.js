@@ -11,7 +11,7 @@ import {
   Login,
   Profile,
   QuestionAndAnswer,
-  EditProfile,
+  EditProfile,ñ
 } from "../pages";
 
 const Router = () => {
@@ -27,7 +27,7 @@ const Router = () => {
         <Route path="/form" element={<FormAddTicket />} />
         <Route path="/contact" element={<EditProfile />} />
         <Route path="/chatsupport" element={<Chasupport />}  />
-        <Route path="/checoutpayment" element={< CheckOutPayment/>} />
+        <Route path="/checkoutpayment" element={< CheckOutPayment/>} />
       </Routes>
     </BrowserRouter>
   );

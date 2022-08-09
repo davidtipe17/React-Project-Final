@@ -7,7 +7,7 @@
     font-family: 'Cinzel', serif;
 }
 .carousel-item img{
-    height: 75vh;
+    max-height: 75vh;
 }
 .info{
     width: 70%;
