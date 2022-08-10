@@ -24,8 +24,11 @@ import LogoutIcon from "@mui/icons-material/Logout";
 import SwitchAccountIcon from "@mui/icons-material/SwitchAccount";
 import SupportAgentIcon from "@mui/icons-material/SupportAgent";
 import PaymentIcon from "@mui/icons-material/Payment";
+import MarkUnreadChatAltIcon from '@mui/icons-material/MarkUnreadChatAlt';
+import WorkOutlineIcon from '@mui/icons-material/WorkOutline';
+import LocalGroceryStoreRoundedIcon from '@mui/icons-material/LocalGroceryStoreRounded';
+import LineAxisRoundedIcon from '@mui/icons-material/LineAxisRounded';
 
-const pages = ["Dashboard", "My Tickets", "Inbox"];
 
 const ResponsiveAppBar = () => {
   const history = useNavigate();
@@ -75,9 +78,7 @@ const ResponsiveAppBar = () => {
               >
                 <img src={Support} alt="" />
               </ImageListItem>
-                  <Typography variant="h6" noWrap component="div">
-                    {user.name}
-                  </Typography>
+
               <Box sx={{ flexGrow: 1, display: { xs: "flex", md: "none" } }}>
                 <IconButton
                   size="large"
@@ -99,7 +100,7 @@ const ResponsiveAppBar = () => {
                   keepMounted
                   transformOrigin={{
                     vertical: "top",
-                    horizontal: "left",
+                    horizontal: "center",
                   }}
                   open={Boolean(anchorElNav)}
                   onClose={handleCloseNavMenu}
@@ -107,11 +108,30 @@ const ResponsiveAppBar = () => {
                     display: { xs: "block", md: "none" },
                   }}
                 >
-                  {pages.map((page, index) => (
-                    <MenuItem key={page} index={index}>
-                      <Typography textAlign="center">{page}</Typography>
+                  <MenuList sx={{
+                   
+                  }}>
+                    <MenuItem >
+                      <ListItemIcon>
+                        <LineAxisRoundedIcon fontSize="small" />
+                      </ListItemIcon>
                     </MenuItem>
-                  ))}
+                    <MenuItem onClick={() => history("/tickets")}>
+                      <ListItemIcon>
+                        <WorkOutlineIcon fontSize="small" />
+                      </ListItemIcon>
+                    </MenuItem>
+                    <MenuItem onClick={() => history("/filters")}>
+                      <ListItemIcon>
+                        <LocalGroceryStoreRoundedIcon fontSize="small" />
+                      </ListItemIcon>
+                    </MenuItem>
+                    <MenuItem onClick={() => history("/chatsupport")}>
+                      <ListItemIcon>
+                        <MarkUnreadChatAltIcon fontSize="small" />
+                      </ListItemIcon>
+                    </MenuItem>
+                  </MenuList>
                 </Menu>
               </Box>
               <Box
@@ -135,20 +155,17 @@ const ResponsiveAppBar = () => {
                   display: { xs: "none", md: "flex" },
                 }}
               >
-                <Button
-                  sx={{ margin: 1, border: "solid white", color: "red" }}
-                  variant="text"
-                >
-                  Text
+                <Button sx={{ margin: 0.4, color: "white" }} variant="text">
+                  DashBoard
                 </Button>
-                <Button sx={{ margin: 1 }} variant="text">
-                  Text
+                <Button onClick={() => history("/tickets")} sx={{ margin: 0.4, color: "white" }} variant="text">
+                  My Tickets
                 </Button>
-                <Button sx={{ margin: 1 }} variant="text">
-                  Text
+                <Button onClick={() => history("/filters")} sx={{ margin: 0.4, color: "white" }} variant="text">
+                  Browser
                 </Button>
-                <Button sx={{ margin: 1 }} variant="text">
-                  Text
+                <Button onClick={() => history("/chatsupport")} sx={{ margin: 0.4, color: "white" }} variant="text">
+                  Mi Imbox
                 </Button>
               </Box>
 
@@ -161,7 +178,7 @@ const ResponsiveAppBar = () => {
                     />
                   </IconButton>
                 </Tooltip>
-                <Box></Box>
+
                 <Menu
                   sx={{ mt: "45px" }}
                   id="menu-appbar"
@@ -179,6 +196,9 @@ const ResponsiveAppBar = () => {
                   onClick={handleCloseUserMenu}
                 >
                   <MenuList onClick={handleCloseUserMenu}>
+                    <MenuItem variant="h6" noWrap component="h5">
+                      {user.name + " " + user.apellido}
+                    </MenuItem>
                     <MenuItem onClick={() => history("/profile")}>
                       <ListItemIcon>
                         <SwitchAccountIcon fontSize="small" />

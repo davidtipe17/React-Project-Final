@@ -9,3 +9,4 @@ export { default as Login} from "./Login";
 export { default as MyTickets} from "./MyTickets";
 export { default as Profile} from "./Profile";
 export { default as QuestionAndAnswer} from "./QuestionAndAnswer";
+export {default as SignUp} from "./SignUp";
