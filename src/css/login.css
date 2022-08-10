@@ -1,4 +1,3 @@
-/* @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&display=swap');
 
 :root {
     --login-bg:#f1eded;
@@ -8,22 +7,23 @@
     --image-bg:  #efc1c1 ;
 }
 
-body {
+.login-container-total {
     height: 100vh;
+    width: 100%;
     font-family: 'Poppins', sans-serif;
     background-image: url(".././assets/img/loginBackground.png");
     background-repeat:no-repeat;
     background-size: cover;
 }
 
-main {
+.login-container-main {
     display: flex;
    justify-content: center;
     
-} */
+} 
 
 
-/* .login-container {
+.login-container-tridcontainer {
     margin-top: 60px;
     height: 43.75em;
     width: 60em;
@@ -33,7 +33,7 @@ main {
     overflow: hidden;
 }
 
-.login-info-container {
+.login-information-container {
 
     width: 50%;
     display: flex;
@@ -185,7 +185,7 @@ main {
         margin: 0;
     }
 }
- */
+ 
 
 
 

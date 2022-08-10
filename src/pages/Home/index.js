@@ -3,11 +3,14 @@ import slide2 from "../../assets/images/slide2.jpeg";
 import slide3 from "../../assets/images/slide3.jpeg";
 import slide4 from "../../assets/images/slide4.jpeg";
 import slide5 from "../../assets/images/slide5.jpeg";
-
 import "../../css/home.css";
+
 const Home = () => {
+
+
   return (
     <div>
+        
       <header className="home">
         {/* carousel */}
         <div className="carousel">

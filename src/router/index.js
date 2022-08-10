@@ -11,14 +11,16 @@ import {
   Login,
   Profile,
   QuestionAndAnswer,
-  EditProfile,ñ
+  EditProfile,
 } from "../pages";
+
+import { HeaderBar, HeaderBarPublic } from "../layouts";
 
 const Router = () => {
   return (
     <BrowserRouter>
       <Routes>
-        
+        <Route element={<HeaderBarPublic/>}>
         <Route path="/" element={<Home />} />
         <Route path="/profile" element={<Profile />} />
         <Route path="/tickets" element={<MyTickets />} />
@@ -27,7 +29,7 @@ const Router = () => {
         <Route path="/form" element={<FormAddTicket />} />
         <Route path="/contact" element={<EditProfile />} />
         <Route path="/chatsupport" element={<Chasupport />}  />
-        <Route path="/checkoutpayment" element={< CheckOutPayment/>} />
+        <Route path="/checoutpayment" element={< CheckOutPayment/>} />
       </Routes>
     </BrowserRouter>
   );

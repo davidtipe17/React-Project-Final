@@ -5,9 +5,15 @@ const EditProfile = () => {
       <div className="container-fluid fatherEditProfile">
         <div className="containerEditProfile rounded-1">
           <div className="row">
+<<<<<<< HEAD
             <div className="col-md-3 mt-5 mb-3">
               <div
                 class="nav d-flex flex-md-column justify-content-center nav-pills navigationBarEdit mx-3 "
+=======
+            <div className="col-sm-3 mt-5">
+              <div
+                class="nav d-flex flex-sm-column  nav-pills navigationBarEdit mx-3 "
+>>>>>>> 77927a20611b30d11eac9334e92439c2c3b90ec4
                 id="v-pills-tab"
                 role="tablist"
                 aria-orientation="vertical"
@@ -82,8 +88,13 @@ const EditProfile = () => {
                     <div className="card-body">
                       <div className="card py-5 px-3 rounded-0">
                         <h4 className="mb-3">Nombre</h4>
+<<<<<<< HEAD
                         <div className="row w-100 d-flex">
                           <div className="col-md-6 mb-3">
+=======
+                        <div className="row w-100">
+                          <div className="col-6">
+>>>>>>> 77927a20611b30d11eac9334e92439c2c3b90ec4
                             <h5 clas>Primer Nombre</h5>
                             <input
                               className="form-control"
