@@ -8,12 +8,8 @@ import Menu from "@mui/material/Menu";
 import MenuIcon from "@mui/icons-material/Menu";
 import Container from "@mui/material/Container";
 import Avatar from "@mui/material/Avatar";
-<<<<<<< HEAD
-
-=======
 import { useState, useContext } from "react";
 import { AuthContext } from "../../context";
->>>>>>> 77927a20611b30d11eac9334e92439c2c3b90ec4
 import Tooltip from "@mui/material/Tooltip";
 import MenuItem from "@mui/material/MenuItem";
 import Support from "../.././assets/img/support.svg";
@@ -35,10 +31,6 @@ import LineAxisRoundedIcon from '@mui/icons-material/LineAxisRounded';
 
 
 const ResponsiveAppBar = () => {
-<<<<<<< HEAD
-  const [anchorElNav, setAnchorElNav] = React.useState(null);
-  const [anchorElUser, setAnchorElUser] = React.useState(null);
-=======
   const history = useNavigate();
   const { user, logout, isAuth } = useContext(AuthContext);
 
@@ -48,7 +40,6 @@ const ResponsiveAppBar = () => {
   if (!isAuth()) {
     return <Navigate to="/login" />;
   }
->>>>>>> 77927a20611b30d11eac9334e92439c2c3b90ec4
 
   const handleOpenNavMenu = (event) => {
     setAnchorElNav(event.currentTarget);
@@ -63,33 +54,6 @@ const ResponsiveAppBar = () => {
     setAnchorElUser(null);
   };
 
-<<<<<<< HEAD
-  const history = useNavigate();
-
-  const linkdashboard = () => {
-    history("/MyTickets");
-  };
-  const link = {
-    1: linkdashboard,
-  };
-  console.log("link", link[1]);
-
-  const handleClickProfile = () => {
-    history("/profile");
-  };
-  console.log(handleClickProfile);
-  const handleClickPayment = () => {
-    history("/checkoutpayment");
-  };
-  const handleClickLogout = () => {
-    history();
-  };
-  const handleClickSupport = () => {
-    history("/questions");
-  };
-
-=======
->>>>>>> 77927a20611b30d11eac9334e92439c2c3b90ec4
   return (
     <Container>
       <Box
@@ -232,14 +196,10 @@ const ResponsiveAppBar = () => {
                   onClick={handleCloseUserMenu}
                 >
                   <MenuList onClick={handleCloseUserMenu}>
-<<<<<<< HEAD
-                    <MenuItem onClick={handleClickProfile}>
-=======
                     <MenuItem variant="h6" noWrap component="h5">
                       {user.name + " " + user.apellido}
                     </MenuItem>
                     <MenuItem onClick={() => history("/profile")}>
->>>>>>> 77927a20611b30d11eac9334e92439c2c3b90ec4
                       <ListItemIcon>
                         <SwitchAccountIcon fontSize="small" />
                       </ListItemIcon>
@@ -251,22 +211,14 @@ const ResponsiveAppBar = () => {
                       </ListItemIcon>
                       <ListItemText>Add Funds</ListItemText>
                     </MenuItem>
-<<<<<<< HEAD
-                    <MenuItem onClick={handleClickLogout}>
-=======
                     <MenuItem onClick={logout}>
->>>>>>> 77927a20611b30d11eac9334e92439c2c3b90ec4
                       <ListItemIcon>
                         <LogoutIcon fontSize="small" />
                       </ListItemIcon>
                       <ListItemText>Logout</ListItemText>
                     </MenuItem>
                     <Divider />
-<<<<<<< HEAD
-                    <MenuItem onClick={handleClickSupport}>
-=======
                     <MenuItem onClick={() => history("/questions")}>
->>>>>>> 77927a20611b30d11eac9334e92439c2c3b90ec4
                       <ListItemIcon>
                         <SupportAgentIcon fontSize="small" />
                       </ListItemIcon>
