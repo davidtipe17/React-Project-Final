@@ -1,5 +1,5 @@
 import { useContext } from "react";
-import { AuthContext } from "../../context";
+import { AuthContext } from "../../context/AuthContext.js";
 import { Navigate } from "react-router-dom";
 import "../.././css/login.css";
 import LogoFacebook from "../.././assets/img/facebook.svg";

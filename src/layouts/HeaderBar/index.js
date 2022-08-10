@@ -9,7 +9,7 @@ import MenuIcon from "@mui/icons-material/Menu";
 import Container from "@mui/material/Container";
 import Avatar from "@mui/material/Avatar";
 import { useState, useContext } from "react";
-import { AuthContext } from "../../context";
+import { AuthContext } from "../../context/AuthContext.js";
 import Tooltip from "@mui/material/Tooltip";
 import MenuItem from "@mui/material/MenuItem";
 import Support from "../.././assets/img/support.svg";
@@ -205,7 +205,7 @@ const ResponsiveAppBar = () => {
                       </ListItemIcon>
                       <ListItemText>Profile</ListItemText>
                     </MenuItem>
-                    <MenuItem onClick={handleClickPayment}>
+                    <MenuItem onClick={() => history("/checkoutpayment")}>
                       <ListItemIcon>
                         <PaymentIcon fontSize="small" />
                       </ListItemIcon>
