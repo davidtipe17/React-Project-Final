@@ -1,4 +1,4 @@
-import { config, Url_User } from "./config";
+import { config } from "./config";
 
 export const searchTickets = async () => {  
 
@@ -7,16 +7,6 @@ export const searchTickets = async () => {
         const data = await response.json();
         return data;
 
-    } catch (error) {
-        return error;
-    }
-}
-
-export const getUser = async () => {
-    try {
-        const response = await fetch(Url_User);
-        const data = await response.json();
-        return data;
     } catch (error) {
         return error;
     }

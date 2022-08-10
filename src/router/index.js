@@ -11,7 +11,7 @@ import {
   Login,
   Profile,
   QuestionAndAnswer,
-  EditProfile,ñ
+  EditProfile,
 } from "../pages";
 
 import { HeaderBar } from "../layouts";
@@ -22,7 +22,7 @@ const Router = () => {
       <Routes>
         <Route path="/" element={<Home />} />
 
-        <Route path="/login" element={<Login />} />
+       
 
         <Route element={<HeaderBar />}>
           <Route path="/profile" element={<Profile />} />

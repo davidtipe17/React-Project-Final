@@ -622,7 +622,7 @@ const Profile = () => {
             {/* CUADRO PARA EDITAR EDUCATION */}
           </div>
           {/* COLUMN TWO */}
-          <div className="col-md-3">
+          <div className="col-3">
             <div className="row">
               <div className="col-12 card justify-content-center margintoplateraltwo">
                 <div className="row">
