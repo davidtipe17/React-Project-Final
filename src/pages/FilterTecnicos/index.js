@@ -1,5 +1,6 @@
 import { useState, useEffect } from "react";
 import { searchTickets } from "../../services";
+import { searchUsers} from "../../services";
 
 import "../.././css/Filtertecnicos.css";
 import imagenprofile from "../../assets/img/profile.png";
@@ -7,17 +8,35 @@ import imagenprofile from "../../assets/img/profile.png";
 const FilterTecnicos = () => {
   const [ticketList, setTicketList] = useState([]);
 
+  const [usersList, setUserList] = useState([]);
+
+
   const fetchTickets = async () => {
     const data = await searchTickets();
     setTicketList(data);
     console.log("probando", data);
+
   };
+
+  const fetchUsers = async () => {
+    const data = await searchUsers();
+    setUserList(data);
+    console.log("probando", data);
+    
+  };
+
+
+
 
   useEffect(() => {
     fetchTickets();
+    fetchUsers();
   }, []);
   return (
+
+
     <div>
+      
       <div className="containerPrincipalFilter">
         </div>  
       <ul
@@ -184,7 +203,12 @@ const FilterTecnicos = () => {
                     </div>
                   </div>
                 </div>
-                <div className="card-body">
+                
+                {usersList.length > 0 &&
+                  usersList.map((user, index) => (
+
+
+                <div className="card-body border-bottom">
                   <div className="row">
                     <div className="col-md-3 d-flex justify-content-center">
                       <img
@@ -196,35 +220,50 @@ const FilterTecnicos = () => {
                     <div className="col-md-6">
                       <div className="row">
                         <div className="col">
-                          <div className="row mt-2">
-                            <div className="col">col</div>
-                            <div className="col">col</div>
-                            <div className="col">col</div>
-                            <div className="col">col</div>
+                          <div className="row mt-4 mb-2">
+                            <div className="col">
+                
+                             <strong class="h5">{user.name + " " + Array.from(user.apellido)[0] + "." }</strong> 
+
+                            </div>
+                            <div className="col">@usuario</div>
+                            <div className="col-1">o</div>
+                            <div className="col-1">o</div>
+                         
                           </div>
+                       
                         </div>
                       </div>
                       <div className="row">
-                        <div className="col">Estrellas</div>
+                        <div className="col-md-4">
+                          <i class="fa-solid fa-star"></i>
+                          <i class="fa-solid fa-star"></i>
+                          <i class="fa-solid fa-star"></i>
+                          <i class="fa-solid fa-star"></i>
+                          <i class="fa-solid fa-star"></i>
+
+                        </div>
                         <div className="col">Banderas</div>
-                        <div className="col">Estrellas</div>
-                        <div className="col">Banderas</div>
+                        <div className="col">
+                          Estrellas
+                        </div>
+                        <div className="col">
+                        <i class="flag flag-united-states"></i>
+                        </div>
                       </div>
                       <div className="row">
-                        <div className="col">Software Engineer</div>
+                        <div className="col">
+                          <strong>{user.role}</strong>
+                        </div>
                       </div>
                       <div className="row">
                         <div className="col">
                           <p>
-                            Lorem ipsum dolor sit, amet consectetur adipisicing
-                            elit. Repellat magni laudantium aliquid ut nulla.
-                            Quaerat, velit iste sequi numquam ut quam veniam ab
-                            quasi unde consectetur optio veritatis, aliquam
-                            ipsam?
+                            {user.descripcion}           
                           </p>
                         </div>
                       </div>
-                      <div className="row mb-5">
+                      <div className="row mb-4">
                         <div className="col">Especialidad</div>
                         <div className="col">Especialidad</div>
                         <div className="col">Especialidad</div>
@@ -232,15 +271,12 @@ const FilterTecnicos = () => {
                     </div>
                     <div className="col-md-3 d-flex flex-column justify-content-evenly">
                       <div className="row mt-3">
-                        <div className="col d-flex justify-content-end">
-                          <h6>$80 USD</h6>
+                        <div className="col d-flex flex-column">
+                          <h6 className="d-flex justify-content-end">$80 USD</h6>
+                          <span className="d-flex justify-content-end">Por hora</span>
                         </div>
                       </div>
-                      <div className="row mt-3 ">
-                        <div className="col d-flex justify-content-end">
-                          <span>Por hora</span>
-                        </div>
-                      </div>
+                     
                       <div className="row mt-3 ">
                         <div className="col d-flex flex-column">
                           <div className=" d-flex justify-content-end">
@@ -251,14 +287,14 @@ const FilterTecnicos = () => {
                               type="button"
                               className="btn btn-primary  rounded-1"
                             >
-                              Primary
+                              Contactar
                             </button>
                           </div>
                         </div>
                       </div>
                     </div>
                   </div>
-                </div>
+                </div>))}
               </div>
             </div>
           </div>
@@ -440,7 +476,7 @@ const FilterTecnicos = () => {
                 </div>
                 {ticketList.length > 0 &&
                   ticketList.map((user, index) => (
-                    <div key={index} user={user} className="card-body">
+                    <div key={index} user={user} className="card-body border-bottom">
                       <div className="row">
                         <div className="col-12">
                           <div className="row d-flex justify-content-between">
