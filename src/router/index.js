@@ -12,18 +12,20 @@ import {
   Profile,
   QuestionAndAnswer,
   EditProfile,
+  SignUp,
 } from "../pages";
 
-import { HeaderBar } from "../layouts";
+import { HeaderBar, HeaderBarPublic } from "../layouts";
 
 const Router = () => {
   return (
     <BrowserRouter>
       <Routes>
+        <Route element={<HeaderBarPublic/>}>
         <Route path="/" element={<Home />} />
-
-       
-
+        <Route path="/login" element={<Login />} />
+        <Route path="/signup" element={<SignUp />} />
+        </Route>
         <Route element={<HeaderBar />}>
           <Route path="/profile" element={<Profile />} />
           <Route path="/tickets" element={<MyTickets />} />

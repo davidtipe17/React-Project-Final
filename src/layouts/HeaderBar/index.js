@@ -8,7 +8,12 @@ import Menu from "@mui/material/Menu";
 import MenuIcon from "@mui/icons-material/Menu";
 import Container from "@mui/material/Container";
 import Avatar from "@mui/material/Avatar";
+<<<<<<< HEAD
 
+=======
+import { useState, useContext } from "react";
+import { AuthContext } from "../../context";
+>>>>>>> 77927a20611b30d11eac9334e92439c2c3b90ec4
 import Tooltip from "@mui/material/Tooltip";
 import MenuItem from "@mui/material/MenuItem";
 import Support from "../.././assets/img/support.svg";
@@ -17,19 +22,33 @@ import { Outlet, Navigate, useNavigate } from "react-router-dom";
 import MenuList from "@mui/material/MenuList";
 import Divider from "@mui/material/Divider";
 import Button from "@mui/material/Button";
-
 import ListItemText from "@mui/material/ListItemText";
 import ListItemIcon from "@mui/material/ListItemIcon";
 import LogoutIcon from "@mui/icons-material/Logout";
 import SwitchAccountIcon from "@mui/icons-material/SwitchAccount";
 import SupportAgentIcon from "@mui/icons-material/SupportAgent";
 import PaymentIcon from "@mui/icons-material/Payment";
+import MarkUnreadChatAltIcon from '@mui/icons-material/MarkUnreadChatAlt';
+import WorkOutlineIcon from '@mui/icons-material/WorkOutline';
+import LocalGroceryStoreRoundedIcon from '@mui/icons-material/LocalGroceryStoreRounded';
+import LineAxisRoundedIcon from '@mui/icons-material/LineAxisRounded';
 
-const pages = ["Dashboard", "My Tickets", "Inbox"];
 
 const ResponsiveAppBar = () => {
+<<<<<<< HEAD
   const [anchorElNav, setAnchorElNav] = React.useState(null);
   const [anchorElUser, setAnchorElUser] = React.useState(null);
+=======
+  const history = useNavigate();
+  const { user, logout, isAuth } = useContext(AuthContext);
+
+  const [anchorElNav, setAnchorElNav] = useState(null);
+  const [anchorElUser, setAnchorElUser] = useState(null);
+
+  if (!isAuth()) {
+    return <Navigate to="/login" />;
+  }
+>>>>>>> 77927a20611b30d11eac9334e92439c2c3b90ec4
 
   const handleOpenNavMenu = (event) => {
     setAnchorElNav(event.currentTarget);
@@ -44,6 +63,7 @@ const ResponsiveAppBar = () => {
     setAnchorElUser(null);
   };
 
+<<<<<<< HEAD
   const history = useNavigate();
 
   const linkdashboard = () => {
@@ -68,6 +88,8 @@ const ResponsiveAppBar = () => {
     history("/questions");
   };
 
+=======
+>>>>>>> 77927a20611b30d11eac9334e92439c2c3b90ec4
   return (
     <Container>
       <Box
@@ -114,7 +136,7 @@ const ResponsiveAppBar = () => {
                   keepMounted
                   transformOrigin={{
                     vertical: "top",
-                    horizontal: "left",
+                    horizontal: "center",
                   }}
                   open={Boolean(anchorElNav)}
                   onClose={handleCloseNavMenu}
@@ -122,11 +144,30 @@ const ResponsiveAppBar = () => {
                     display: { xs: "block", md: "none" },
                   }}
                 >
-                  {pages.map((page, index) => (
-                    <MenuItem key={page} index={index} onClick={link[1]}>
-                      <Typography textAlign="center">{page}</Typography>
+                  <MenuList sx={{
+                   
+                  }}>
+                    <MenuItem >
+                      <ListItemIcon>
+                        <LineAxisRoundedIcon fontSize="small" />
+                      </ListItemIcon>
                     </MenuItem>
-                  ))}
+                    <MenuItem onClick={() => history("/tickets")}>
+                      <ListItemIcon>
+                        <WorkOutlineIcon fontSize="small" />
+                      </ListItemIcon>
+                    </MenuItem>
+                    <MenuItem onClick={() => history("/filters")}>
+                      <ListItemIcon>
+                        <LocalGroceryStoreRoundedIcon fontSize="small" />
+                      </ListItemIcon>
+                    </MenuItem>
+                    <MenuItem onClick={() => history("/chatsupport")}>
+                      <ListItemIcon>
+                        <MarkUnreadChatAltIcon fontSize="small" />
+                      </ListItemIcon>
+                    </MenuItem>
+                  </MenuList>
                 </Menu>
               </Box>
               <Box
@@ -145,26 +186,22 @@ const ResponsiveAppBar = () => {
               </Box>
               <Box
                 sx={{
-
                   margin: 1,
                   flexGrow: 1,
                   display: { xs: "none", md: "flex" },
                 }}
               >
-                <Button
-                  sx={{ margin: 1, border: "solid white", color: "red" }}
-                  variant="text"
-                >
-                  Text
+                <Button sx={{ margin: 0.4, color: "white" }} variant="text">
+                  DashBoard
                 </Button>
-                <Button sx={{ margin: 1 }} variant="text">
-                  Text
+                <Button onClick={() => history("/tickets")} sx={{ margin: 0.4, color: "white" }} variant="text">
+                  My Tickets
                 </Button>
-                <Button sx={{ margin: 1 }} variant="text">
-                  Text
+                <Button onClick={() => history("/filters")} sx={{ margin: 0.4, color: "white" }} variant="text">
+                  Browser
                 </Button>
-                <Button sx={{ margin: 1 }} variant="text">
-                  Text
+                <Button onClick={() => history("/chatsupport")} sx={{ margin: 0.4, color: "white" }} variant="text">
+                  Mi Imbox
                 </Button>
               </Box>
 
@@ -177,7 +214,7 @@ const ResponsiveAppBar = () => {
                     />
                   </IconButton>
                 </Tooltip>
-                <Box></Box>
+
                 <Menu
                   sx={{ mt: "45px" }}
                   id="menu-appbar"
@@ -195,7 +232,14 @@ const ResponsiveAppBar = () => {
                   onClick={handleCloseUserMenu}
                 >
                   <MenuList onClick={handleCloseUserMenu}>
+<<<<<<< HEAD
                     <MenuItem onClick={handleClickProfile}>
+=======
+                    <MenuItem variant="h6" noWrap component="h5">
+                      {user.name + " " + user.apellido}
+                    </MenuItem>
+                    <MenuItem onClick={() => history("/profile")}>
+>>>>>>> 77927a20611b30d11eac9334e92439c2c3b90ec4
                       <ListItemIcon>
                         <SwitchAccountIcon fontSize="small" />
                       </ListItemIcon>
@@ -207,14 +251,22 @@ const ResponsiveAppBar = () => {
                       </ListItemIcon>
                       <ListItemText>Add Funds</ListItemText>
                     </MenuItem>
+<<<<<<< HEAD
                     <MenuItem onClick={handleClickLogout}>
+=======
+                    <MenuItem onClick={logout}>
+>>>>>>> 77927a20611b30d11eac9334e92439c2c3b90ec4
                       <ListItemIcon>
                         <LogoutIcon fontSize="small" />
                       </ListItemIcon>
                       <ListItemText>Logout</ListItemText>
                     </MenuItem>
                     <Divider />
+<<<<<<< HEAD
                     <MenuItem onClick={handleClickSupport}>
+=======
+                    <MenuItem onClick={() => history("/questions")}>
+>>>>>>> 77927a20611b30d11eac9334e92439c2c3b90ec4
                       <ListItemIcon>
                         <SupportAgentIcon fontSize="small" />
                       </ListItemIcon>
