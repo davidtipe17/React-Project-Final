@@ -1,4 +1,5 @@
-import * as React from 'react';
+import { useState } from 'react';
+import { createUser } from '../../services';
 import Avatar from '@mui/material/Avatar';
 import Button from '@mui/material/Button';
 import CssBaseline from '@mui/material/CssBaseline';
@@ -9,6 +10,7 @@ import Box from '@mui/material/Box';
 import LockOutlinedIcon from '@mui/icons-material/LockOutlined';
 import Typography from '@mui/material/Typography';
 import Container from '@mui/material/Container';
+
 
 
 function Copyright(props) {
@@ -27,14 +29,29 @@ function Copyright(props) {
 
 
 export default function SignUp() {
+
+  const [newUser, setNewUser] =useState({});
+
   const handleSubmit = (event) => {
     event.preventDefault();
     const data = new FormData(event.currentTarget);
-    console.log({
-      email: data.get('email'),
-      password: data.get('password'),
+    setNewUser({
+      name: data.get('firstname'),
+      apellido: data.get('apellido'),
+      celular: data.get('celular'),
+      profesion: data.get('profesion'),
+      correo: data.get('correo'),
+      contrasena: data.get('contrasena'),
     });
+    console.log("usuario nuevo", newUser);
   };
+
+  async function addUser(){
+    const res = await createUser(newUser);
+    if(res){
+      alert("usuario creado con exito");
+    }
+  }
 
   return (
    
@@ -59,10 +76,10 @@ export default function SignUp() {
               <Grid item xs={12} sm={6}>
                 <TextField
                   autoComplete="given-name"
-                  name="firstName"
+                  name="firstname"
                   required
                   fullWidth
-                  id="firstName"
+                  id="firstname"
                   label="First Name"
                   autoFocus
                 />
@@ -71,20 +88,20 @@ export default function SignUp() {
                 <TextField
                   required
                   fullWidth
-                  id="lastName"
+                  id="apellido"
                   label="Last Name"
-                  name="lastName"
+                  name="apellido"
                   autoComplete="family-name"
                 />
               </Grid>
               <Grid item xs={12} sm={6}>
                 <TextField
                   autoComplete="given-name"
-                  name="firstName"
+                  name="celular"
                   required
                   fullWidth
-                  id="firstName"
-                  label="Number"
+                  id="celular"
+                  label="celular"
                   autoFocus
                 />
               </Grid>
@@ -92,9 +109,9 @@ export default function SignUp() {
                 <TextField
                   required
                   fullWidth
-                  id="lastName"
+                  id="profesion"
                   label="Profesion"
-                  name="lastName"
+                  name="profesion"
                   autoComplete="family-name"
                 />
               </Grid>
@@ -102,9 +119,9 @@ export default function SignUp() {
                 <TextField
                   required
                   fullWidth
-                  id="email"
-                  label="Email Address"
-                  name="email"
+                  id="correo"
+                  label="correo"
+                  name="correo"
                   autoComplete="email"
                 />
               </Grid>
@@ -112,16 +129,17 @@ export default function SignUp() {
                 <TextField
                   required
                   fullWidth
-                  name="password"
+                  name="contrasena"
                   label="Password"
                   type="password"
-                  id="password"
+                  id="contrasena"
                   autoComplete="new-password"
                 />
               </Grid>
             
             </Grid>
             <Button
+              onClick={addUser}
               type="submit"
               fullWidth
               variant="contained"
