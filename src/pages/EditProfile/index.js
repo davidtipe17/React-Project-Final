@@ -1,17 +1,21 @@
 import "../../css/editProfile.css";
 const EditProfile = () => {
-  return (
+
+
+
+   return (
     <div>
       <div className="container-fluid fatherEditProfile">
         <div className="containerEditProfile rounded-1">
           <div className="row">
-            <div className="col-sm-3 mt-5">
+            <div className="col-md-3 mt-5 mb-3">
               <div
-                class="nav d-flex flex-sm-column  nav-pills navigationBarEdit mx-3 "
+                class="nav d-flex flex-md-column justify-content-center nav-pills navigationBarEdit mx-3 "
                 id="v-pills-tab"
                 role="tablist"
                 aria-orientation="vertical"
               >
+               
                 <button
                   className="nav-link active"
                   id="v-pills-home-tab"
@@ -60,9 +64,12 @@ const EditProfile = () => {
                 >
                   Confianza y Verificacion
                 </button>
+              
+
+                
               </div>
             </div>
-            <div className="col-sm-9 bodyEditProfile pb-5">
+            <div className="col-md-9 bodyEditProfile pb-5">
               <div className="tab-content" id="v-pills-tabContent">
                 <div
                   className="tab-pane fade show active"
@@ -78,8 +85,8 @@ const EditProfile = () => {
                     <div className="card-body">
                       <div className="card py-5 px-3 rounded-0">
                         <h4 className="mb-3">Nombre</h4>
-                        <div className="row w-100">
-                          <div className="col-6">
+                        <div className="row w-100 d-flex">
+                          <div className="col-md-6 mb-3">
                             <h5 clas>Primer Nombre</h5>
                             <input
                               className="form-control"
@@ -88,7 +95,7 @@ const EditProfile = () => {
                               id=""
                             />
                           </div>
-                          <div className="col-6">
+                          <div className="col-md-6 mb-3">
                             <h5>Apellido</h5>
                             <input
                               className="form-control"
@@ -132,7 +139,8 @@ const EditProfile = () => {
                       <div className="card py-5 px-3 rounded-0">
                         <h4 className="mb-3">Cambiar Contraseña</h4>
                         <h5 clas>Contraseña</h5>
-                        <div class="input-group mb-3 w-50">
+                        <div class="col-md-6">
+                          <div class="input-group mb-3">
                           <input
                             type="text"
                             class="form-control"
@@ -145,9 +153,11 @@ const EditProfile = () => {
                           >
                             <i class="fa-solid fa-eye-low-vision"></i>
                           </span>
+                        </div>
                         </div>
                         <h5 clas>Nueva Contraseña</h5>
-                        <div class="input-group mb-3 w-50">
+                        <div class="col-md-6">
+                          <div class="input-group mb-3">
                           <input
                             type="text"
                             class="form-control"
@@ -161,8 +171,11 @@ const EditProfile = () => {
                             <i class="fa-solid fa-eye-low-vision"></i>
                           </span>
                         </div>
+                        </div>
+                        
                         <h5 clas>Confirmar Contraseña</h5>
-                        <div class="input-group mb-3 w-50">
+                        <div class="col-md-6">
+                          <div class="input-group mb-3">
                           <input
                             type="text"
                             class="form-control"
@@ -176,6 +189,8 @@ const EditProfile = () => {
                             <i class="fa-solid fa-eye-low-vision"></i>
                           </span>
                         </div>
+                        </div>
+                       
                         {/* guardar cambios */}
                         <hr />
                         <button className="py-3 rounded btn btn-primary">
@@ -200,7 +215,7 @@ const EditProfile = () => {
                       <div className="card py-4 px-3 rounded-0">
                         <div className="card px-3 rounded-0">
                           <h4 className="mb-3 mt-3">Métodos de pago</h4>
-                          <button className="w-25 rounded py-1 border border-dark mb-4">
+                          <button className="col-md-3 rounded py-1 border border-dark mb-4">
                             + Añadir método de pago
                           </button>
                         </div>
@@ -209,15 +224,19 @@ const EditProfile = () => {
                             Configuración de finanzas
                           </h4>
                           <h5>Mi moneda</h5>
-                          <select
-                            className="form-select w-50"
+
+                          <div class="col-md-6">
+                            <select
+                            className="form-select"
                             aria-label="Default select example"
                           >
                             <option selected>Selecciona una moneda</option>
                             <option value="1">Sol Peruano</option>
                             <option value="2">Inti</option>
                             <option value="3">Bolivar</option>
-                          </select>
+                           </select>
+                          </div>
+
                         </div>
                         {/* guardar cambios */}
                         <hr />
@@ -260,9 +279,11 @@ const EditProfile = () => {
                           <h5>Mi moneda</h5>
                         </div>
                         <div className="card px-3 py-4 rounded-0">
-                          <div className="d-flex justify-content-between">
-                            <h5>Direccion de correo electrónico</h5>
-                            <div>
+                          <div className="row d-flex justify-content-between card-responsive">
+                            <div class="col-md-6">
+                               <h5>Direccion de correo electrónico</h5>
+                            </div>
+                            <div class="col-md-3">
                               <span className="visually-hidden">
                                 Verificado &nbsp;
                               </span>
@@ -272,10 +293,13 @@ const EditProfile = () => {
                             </div>
                           </div>
                         </div>
+
                         <div className="card px-3 py-4 rounded-0">
-                          <div className="d-flex justify-content-between">
-                            <h5>Número de télefono</h5>
-                            <div>
+                          <div className="row d-flex justify-content-between card-responsive">
+                            <div class="col-md-6">
+                              <h5>Número de télefono</h5>
+                            </div>
+                            <div class="col-md-3">
                               <span className="visually-hidden">
                                 Verificado &nbsp;
                               </span>
@@ -286,9 +310,11 @@ const EditProfile = () => {
                           </div>
                         </div>
                         <div className="card px-3 py-4 rounded-0">
-                          <div className="d-flex justify-content-between">
-                            <h5>Facebook</h5>
-                            <div>
+                          <div className="row d-flex justify-content-between card-responsive">
+                            <div class="col-md-6">
+                               <h5>Facebook</h5>
+                            </div>
+                            <div class="col-md-3">
                               <span className="visually-hidden">
                                 Verificado &nbsp;
                               </span>
@@ -299,9 +325,11 @@ const EditProfile = () => {
                           </div>
                         </div>
                         <div className="card px-3 py-4 rounded-0">
-                          <div className="d-flex justify-content-between">
-                            <h5>Linkedin</h5>
-                            <div>
+                          <div className="row d-flex justify-content-between card-responsive">
+                            <div class="col-md-6">
+                               <h5>Linkedin</h5>
+                            </div>
+                            <div class="col-md-3">
                               <span className="visually-hidden">
                                 Verificado &nbsp;
                               </span>
@@ -312,9 +340,11 @@ const EditProfile = () => {
                           </div>
                         </div>
                         <div className="card px-3 py-4 rounded-0">
-                          <div className="d-flex justify-content-between">
-                            <h5>Autenticar Tarjeta de Crédito o Debito</h5>
-                            <div>
+                          <div className="row d-flex justify-content-between card-responsive">
+                            <div class="col-md-6">
+                              <h5>Autenticar Tarjeta de Crédito o Debito</h5>
+                            </div>
+                            <div class="col-md-3">
                               <span className="visually-hidden">
                                 Verificado &nbsp;
                               </span>

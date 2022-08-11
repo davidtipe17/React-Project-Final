@@ -12,6 +12,7 @@ const Login = () => {
   const handleSubmit = (event) => {
     event.preventDefault();
     const data = new FormData(event.currentTarget);
+    console.log(data);
     login(data.get("correo"), data.get("pass"));
   };
   if (isAuth()) {

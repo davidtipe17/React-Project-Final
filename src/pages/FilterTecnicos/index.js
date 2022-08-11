@@ -6,9 +6,10 @@ import imagenprofile from "../../assets/img/profile.png";
 
 const FilterTecnicos = () => {
   const [ticketList, setTicketList] = useState([]);
-
+  console.log("tickets", ticketList);
   const fetchTickets = async () => {
-    const data = await searchTickets();
+  const data = await searchTickets();
+
     setTicketList(data);
     console.log("probando", data);
   };
@@ -18,8 +19,7 @@ const FilterTecnicos = () => {
   }, []);
   return (
     <div>
-      <div className="containerPrincipalFilter">
-        </div>  
+      <div className="containerPrincipalFilter"></div>
       <ul
         className="nav nav-pills mb-3 border border-dark"
         id="pills-tab"
@@ -63,7 +63,7 @@ const FilterTecnicos = () => {
         >
           <div className="container-content">
             <div className="row d-flex flex-row justify-content-between">
-              <div className="col-3 card p-3">
+              <div className="col-md-3 card p-3 mb-3">
                 <div className="row">
                   <div className="col-12">
                     <h4 className="fw-semibold"> Filters</h4>
@@ -152,7 +152,7 @@ const FilterTecnicos = () => {
                 </div>
               </div>
 
-              <div className="col-8 card">
+              <div className="col-md-8 card mb-3">
                 <div className="row">
                   <div className="card-header d-flex justify-content-between ">
                     <div className="card-component-firstheader d-flex justify-content-around align-items-center text-center">
@@ -175,7 +175,7 @@ const FilterTecnicos = () => {
                         </button>
                       </div>
                     </div>
-                    <div className="row-contenedor-mylist">
+                    <div className="row-contenedor-mylist btn-responsive">
                       <button className="btn" type="button">
                         <i className="fa-solid fa-heart coloriconheart"></i>
                         &nbsp;
@@ -186,14 +186,14 @@ const FilterTecnicos = () => {
                 </div>
                 <div className="card-body">
                   <div className="row">
-                    <div className="col-3 d-flex justify-content-center">
+                    <div className="col-md-3 d-flex justify-content-center">
                       <img
                         className="card-img m-auto"
                         src={imagenprofile}
                         alt="profile"
                       />
                     </div>
-                    <div className="col-6">
+                    <div className="col-md-6">
                       <div className="row">
                         <div className="col">
                           <div className="row mt-2">
@@ -230,7 +230,7 @@ const FilterTecnicos = () => {
                         <div className="col">Especialidad</div>
                       </div>
                     </div>
-                    <div className="col-3 d-flex flex-column justify-content-evenly">
+                    <div className="col-md-3 d-flex flex-column justify-content-evenly">
                       <div className="row mt-3">
                         <div className="col d-flex justify-content-end">
                           <h6>$80 USD</h6>
@@ -272,7 +272,7 @@ const FilterTecnicos = () => {
         >
           <div className="container-content">
             <div className="row d-flex flex-row justify-content-between">
-              <div className="col-3 card p-3">
+              <div className="col-md-3 card p-3">
                 <div className="row">
                   <div className="col-12">
                     <h4 className="fw-semibold"> Filters</h4>
@@ -406,7 +406,7 @@ const FilterTecnicos = () => {
                   </div>
                 </div>
               </div>
-              <div className="col-8 card">
+              <div className="col-md-8 card">
                 <div className="row">
                   <div className="card-header d-flex justify-content-between ">
                     <div className="card-component-firstheader d-flex justify-content-around align-items-center text-center">
@@ -476,9 +476,9 @@ const FilterTecnicos = () => {
                             </div>
                           </div>
                           <div className="row d-flex justify-content-between">
-                            <div className="col-3">Cantidad de Mensajes</div>
-                            <div className="col-3">{user.createdAt}</div>
-                            <div className="col-3 text-bg-success">
+                            <div className="col-md-3">Cantidad de Mensajes</div>
+                            <div className="col-md-3">{user.createdAt}</div>
+                            <div className="col-md-3 text-bg-success">
                               <span>{user.state}</span>
                             </div>
                           </div>

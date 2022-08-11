@@ -20,3 +20,21 @@ export const getUser = async () => {
     return error;
   }
 };
+export const updateUser = async (id, profesion) => {
+    
+  try {
+      const response = await fetch(Url_User + "/" + id , {
+          method: "PUT",
+          body: JSON.stringify({
+            profesion: profesion,
+          }),
+          headers: {
+              "Content-type": "application/json",
+          },
+      });
+      console.log(response)
+      return response.ok;
+  } catch (error) {
+      return error;
+  }
+};
