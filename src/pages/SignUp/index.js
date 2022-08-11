@@ -1,5 +1,5 @@
 import { useState } from 'react';
-import { createUser } from '../../services';
+import Services from '../../services';
 import Avatar from '@mui/material/Avatar';
 import Button from '@mui/material/Button';
 import CssBaseline from '@mui/material/CssBaseline';
@@ -47,7 +47,7 @@ export default function SignUp() {
   };
 
   async function addUser(){
-    const res = await createUser(newUser);
+    const res = await Services.createUser(newUser);
     if(res){
       alert("usuario creado con exito");
     }

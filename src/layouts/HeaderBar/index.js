@@ -24,11 +24,10 @@ import LogoutIcon from "@mui/icons-material/Logout";
 import SwitchAccountIcon from "@mui/icons-material/SwitchAccount";
 import SupportAgentIcon from "@mui/icons-material/SupportAgent";
 import PaymentIcon from "@mui/icons-material/Payment";
-import MarkUnreadChatAltIcon from '@mui/icons-material/MarkUnreadChatAlt';
-import WorkOutlineIcon from '@mui/icons-material/WorkOutline';
-import LocalGroceryStoreRoundedIcon from '@mui/icons-material/LocalGroceryStoreRounded';
-import LineAxisRoundedIcon from '@mui/icons-material/LineAxisRounded';
-
+import MarkUnreadChatAltIcon from "@mui/icons-material/MarkUnreadChatAlt";
+import WorkOutlineIcon from "@mui/icons-material/WorkOutline";
+import LocalGroceryStoreRoundedIcon from "@mui/icons-material/LocalGroceryStoreRounded";
+import LineAxisRoundedIcon from "@mui/icons-material/LineAxisRounded";
 
 const ResponsiveAppBar = () => {
   const history = useNavigate();
@@ -108,10 +107,8 @@ const ResponsiveAppBar = () => {
                     display: { xs: "block", md: "none" },
                   }}
                 >
-                  <MenuList sx={{
-                   
-                  }}>
-                    <MenuItem >
+                  <MenuList sx={{}}>
+                    <MenuItem>
                       <ListItemIcon>
                         <LineAxisRoundedIcon fontSize="small" />
                       </ListItemIcon>
@@ -158,18 +155,38 @@ const ResponsiveAppBar = () => {
                 <Button sx={{ margin: 0.4, color: "white" }} variant="text">
                   DashBoard
                 </Button>
-                <Button onClick={() => history("/tickets")} sx={{ margin: 0.4, color: "white" }} variant="text">
+                <Button
+                  onClick={() => history("/tickets")}
+                  sx={{ margin: 0.4, color: "white" }}
+                  variant="text"
+                >
                   My Tickets
                 </Button>
-                <Button onClick={() => history("/filters")} sx={{ margin: 0.4, color: "white" }} variant="text">
+                <Button
+                  onClick={() => history("/filters")}
+                  sx={{ margin: 0.4, color: "white" }}
+                  variant="text"
+                >
                   Browser
                 </Button>
-                <Button onClick={() => history("/chatsupport")} sx={{ margin: 0.4, color: "white" }} variant="text">
+                <Button
+                  onClick={() => history("/chatsupport")}
+                  sx={{ margin: 0.4, color: "white" }}
+                  variant="text"
+                >
                   Mi Imbox
                 </Button>
               </Box>
 
-              <Box sx={{ flexGrow: 0 }}>
+              <Box sx={{ flexGrow: 0, display: "flex" }}>
+                <Box sx={{ mr: 20 }}>
+                  <Typography>
+                    <Button sx={{ backgroundColor: "red" }} variant="contained">
+                      Post a Ticket
+                    </Button>
+                  </Typography>
+                </Box>
+
                 <Tooltip title="Open settings">
                   <IconButton onClick={handleOpenUserMenu} sx={{ p: 0 }}>
                     <Avatar

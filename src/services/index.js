@@ -1,6 +1,6 @@
 import { config, Url_User } from "./config";
 
-export const createTicket = async (newTicket) => {
+ const createTicket = async (newTicket) => {
   try {
     const response = await fetch(config ,{
       method: "POST",
@@ -21,7 +21,7 @@ export const createTicket = async (newTicket) => {
   }
 }
 
-export const searchTickets = async () => {
+ const searchTickets = async () => {
   try {
     const response = await fetch(config);
     const data = await response.json();
@@ -32,7 +32,7 @@ export const searchTickets = async () => {
   }
 };
 
-export const getUser = async () => {
+ const getUser = async () => {
   try {
     const response = await fetch(Url_User);
     const data = await response.json();
@@ -41,7 +41,7 @@ export const getUser = async () => {
     return error;
   }
 };
-export const updateUser = async (id, profesion) => {
+ const updateUser = async (id, profesion) => {
     
   try {
       const response = await fetch(Url_User + "/" + id , {
@@ -60,7 +60,7 @@ export const updateUser = async (id, profesion) => {
   }
 };
 
-export const createUser = async (newUser) => {
+ const createUser = async (newUser) => {
     try {
         const response = await fetch(Url_User, {
             method: "POST",
@@ -81,3 +81,12 @@ export const createUser = async (newUser) => {
         return error
     }
 }
+
+const Services = {
+  updateUser,
+  createTicket,
+  searchTickets,
+  createUser,
+}
+
+export default Services;

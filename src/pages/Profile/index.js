@@ -2,13 +2,14 @@ import imagenprofile from "../../assets/img/profile.png";
 import "../.././css/profile.css";
 import { useContext, useEffect, useState } from "react";
 import { AuthContext } from "../../context";
-import { updateUser } from "../../services";
+import Services from "../../services";
 import Swal from "sweetalert2";
 
 const Profile = () => {
-  const { user } = useContext(AuthContext);
+  const { user, updateUserAuth } = useContext(AuthContext);
 
   // console.log(userlist);
+  // const [userProfile, setUserProfile] = useState(user);
 
   const editUser = async () => {
     const response = await Swal.fire({
@@ -22,7 +23,10 @@ const Profile = () => {
         }
       },
     });
-    await updateUser(user.id, response.value);
+    await Services.updateUser(user.id, response.value);
+    updateUserAuth({ ...user, profesion: response.value });
+    // setUser({ ...user, profesion: response.value });
+    // setUserProfile({ ...userProfile, profesion: response.value });
   };
 
   return (
@@ -661,7 +665,7 @@ const Profile = () => {
                               <h5>{user.company}</h5>
                             </div>
                           </div>
-                       
+
                           <div className="row">
                             <div className="col">
                               <span>{user.start} - </span>

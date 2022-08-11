@@ -1,5 +1,5 @@
 import { createContext, useState } from "react";
-import { getUser } from "../services";
+import Services from "../services";
 // nota
 export const AuthContext = createContext();
 
@@ -8,7 +8,7 @@ export const AuthProvider = ({ children }) => {
   const [user, setUser] = useState(userStorage);
 
   const login = async (correo, pass) => {
-    const dataUser = await getUser();
+    const dataUser = await Services.getUser();
     const authUser = dataUser.find((user) => {
       return user.correo === correo && user.contrasena === pass;
     });
@@ -20,7 +20,10 @@ export const AuthProvider = ({ children }) => {
     }
     return false;
   };
-
+  const updateUserAuth = (nuser) => {
+    setUser(nuser);
+    localStorage.setItem("helpCenter.user", JSON.stringify(nuser));
+  };
   const logout = () => {
     localStorage.removeItem("helpCenter.user");
     setUser({});
@@ -31,7 +34,9 @@ export const AuthProvider = ({ children }) => {
     return user.name ? true : false;
   };
   return (
-    <AuthContext.Provider value={{ user, login, logout, isAuth }}>
+    <AuthContext.Provider
+      value={{ user, updateUserAuth, login, logout, isAuth }}
+    >
       {children}
     </AuthContext.Provider>
   );

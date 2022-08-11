@@ -1,5 +1,5 @@
 import { useState, useEffect } from "react";
-import { searchTickets } from "../../services";
+import Services from "../../services";
 
 import "../.././css/Filtertecnicos.css";
 import imagenprofile from "../../assets/img/profile.png";
@@ -8,7 +8,7 @@ const FilterTecnicos = () => {
   const [ticketList, setTicketList] = useState([]);
   console.log("tickets", ticketList);
   const fetchTickets = async () => {
-  const data = await searchTickets();
+  const data = await Services.searchTickets();
 
     setTicketList(data);
     console.log("probando", data);
