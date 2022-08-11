@@ -2,7 +2,7 @@ import imagenprofile from "../../assets/img/profile.png";
 import "../.././css/profile.css";
 import { useContext, useEffect, useState } from "react";
 import { AuthContext } from "../../context";
-import Services from "../../services";
+import { updateUser } from "../../services";
 import Swal from "sweetalert2";
 
 const Profile = () => {
@@ -23,10 +23,8 @@ const Profile = () => {
         }
       },
     });
-    await Services.updateUser(user.id, response.value);
+    await updateUser(user.id, response.value);
     updateUserAuth({ ...user, profesion: response.value });
-    // setUser({ ...user, profesion: response.value });
-    // setUserProfile({ ...userProfile, profesion: response.value });
   };
 
   return (
