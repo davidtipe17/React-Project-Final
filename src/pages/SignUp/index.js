@@ -35,16 +35,15 @@ export default function SignUp() {
   const handleSubmit = (event) => {
     event.preventDefault();
     const data = new FormData(event.currentTarget);
-    const objectData = {
+    setNewUser({
       name: data.get('firstname'),
       apellido: data.get('apellido'),
       celular: data.get('celular'),
       profesion: data.get('profesion'),
       correo: data.get('correo'),
       contrasena: data.get('contrasena'),
-    }
-    setNewUser(objectData);
-    console.log(newUser);
+    });
+    console.log("usuario nuevo", newUser);
   };
 
   async function addUser(){

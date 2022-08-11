@@ -1,17 +1,8 @@
 import { useState } from "react";
 import "../../css/FormAddTicket.css";
 const FormAddTicket = () => {
-  const [displayChangeButton, setdisplayChangeButton] = useState("");
-  const [displayChange, setdisplayChange] = useState("d-none");
-  const [displayChangeSecondButton, setdisplayChangeSecondButton] =
-    useState("");
-  const [displaySecondChange, setdisplaySecondChange] = useState("");
+  
 
-  const viewSecondPart = () => {
-    setdisplayChange("d-block");
-    setdisplayChangeButton("d-none");
-  };
-  const viewThirdPart = () => {};
   return (
     <div>
       <div className="container FormAddTicket-container">
@@ -46,17 +37,9 @@ const FormAddTicket = () => {
                     id="formFile"
                   />
                 </div>
-                <button
-                  type="button"
-                  className={`btn btn-success rounded-0 px-4 ${displayChangeButton}`}
-                  onClick={viewSecondPart}
-                >
-                  Next
-                </button>
               </div>
-              {/* segunda Parte */}
               <div
-                className={`p-3 FormAddTicket-SecondPart ${displayChange} mt-5`}
+                className="p-3 FormAddTicket-SecondPart  mt-5"
               >
                 <h5 className="mx-3">¿Comó te gustaria hacerlo?</h5>
                 <div className="card first-card d-flex m-auto rounded-0 shadow-sm mt-5">
@@ -74,17 +57,9 @@ const FormAddTicket = () => {
                     </div>
                   </div>
                 </div>
-                <button
-                  type="button"
-                  className={`btn btn-success rounded-0 px-4 ${displayChangeSecondButton}`}
-                  onClick={viewThirdPart}
-                >
-                  Next
-                </button>
               </div>
-              {/* Tercera Parte */}
               <div
-                className={`p-3 FormAddTicket-ThirdPart ${displaySecondChange} mt-5`}
+                className="p-3 FormAddTicket-ThirdPart mt-5"
               >
                 <h5 className="mx-3">¿Cual es tu presupuesto?</h5>
                 <div className="row my-5">
@@ -111,17 +86,9 @@ const FormAddTicket = () => {
                     </select>
                   </div>
                 </div>
-                <button
-                  type="button"
-                  className={`btn btn-success rounded-0 px-4 ${displayChangeSecondButton}`}
-                  onClick={viewThirdPart}
-                >
-                  Next
-                </button>
               </div>
-              {/* Cuarta Parte */}
               <div
-                className={`p-3 FormAddTicket-SecondPart ${displayChange} mt-5`}
+                className={`p-3 FormAddTicket-SecondPart mt-5`}
               >
                 <h5 className="mx-3">¿Comó te gustaria hacerlo?</h5>
                 <div className="card first-card d-flex m-auto rounded-0 shadow-sm mt-5">
@@ -139,17 +106,9 @@ const FormAddTicket = () => {
                     </div>
                   </div>
                 </div>
-                <button
-                  type="button"
-                  className={`btn btn-success rounded-0 px-4 ${displayChangeSecondButton}`}
-                  onClick={viewThirdPart}
-                >
-                  Next
-                </button>
               </div>
-              {/* Quinta Parte */}
               <div
-                className={`p-3 FormAddTicket-FifthPart ${displayChange} mt-5`}
+                className="p-3 FormAddTicket-FifthPart mt-5"
               >
                 <h5 className="mx-3">¿Son correctos estos detalles?</h5>
                 <div className="card fifth-card d-flex m-auto rounded-0 shadow-sm my-5 py-4">
@@ -169,7 +128,7 @@ const FormAddTicket = () => {
                 </div>
                 <button
                   type="button"
-                  className="btn btn-success rounded-0 px-40 py-3 "
+                  className="btn btn-success rounded-0 px-4 py-3 "
                 >
                   Si, Publicar Mi Solucitud
                 </button>
