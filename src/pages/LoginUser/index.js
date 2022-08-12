@@ -7,34 +7,15 @@ import LogoGoogle from "../.././assets/img/google.svg";
 import ImagesLateral from "../.././assets/img/login.svg";
 import { FormloginUser } from "../../components";
 
-const Login = () => {
+const LoginUser = () => {
   const { login, isAuth } = useContext(AuthContext);
-const {userlogin, setUserLogin} = useState({
 
-  correo: "",
-  contrasena: "",
-})
-const handleSubmit = async (event) => {
-  event.preventDefault();
-  const data = new FormData(event.currentTarget);
-  console.log(data);
-  await login(data.get("correo"), data.get("pass"));
-};
-// const logueando =  async () => {
-//   const res = await login(userlogin)
-//   console.log(res)
-// }
-//   const handleSubmit = (event) => {
-//     event.preventDefault();
-    
-//   };
-//   const handleInputChange = (event) => {                                                                                     
-//     const { name, value } = event.target;
-//     setUserLogin({
-//       ...userlogin,
-//       [name]: value,
-//     });
-//   };
+  const handleSubmit = async (event) => {
+    event.preventDefault();
+    const data = new FormData(event.currentTarget);
+    console.log(data);
+    await login(data.get("correo"), data.get("pass"));
+  };
   if (isAuth()) {
     return <Navigate to="/profile" />;
   }
@@ -65,4 +46,4 @@ const handleSubmit = async (event) => {
   );
 };
 
-export default Login;
+export default LoginUser;

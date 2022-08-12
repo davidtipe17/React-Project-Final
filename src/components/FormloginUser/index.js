@@ -24,7 +24,7 @@ const FormloginUser = ({handleSubmit}) => {
                     name="pass"
                     type="password"
                     className="form-control"
-                    placeholder="*****"
+                    placeholder="Contraseña"
                     aria-label="Username"
                     aria-describedby="basic-addon1"
                 />

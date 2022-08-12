@@ -6,3 +6,4 @@ export { default as EditUpdateProfile } from "./EditUpdateProfile";
 export { default as EditPassword } from "./EditPassword";
 export {default as CardTecnico} from "./CardTecnico"
 export {default as CardTickets} from "./CardTickets"
+export {default as FormUserRegister} from "./FormUserRegister";
