@@ -1,15 +1,12 @@
-import imagenprofile from "../../assets/img/profile.png";
-import "../.././css/profile.css";
-import { useContext, useEffect, useState } from "react";
+import { useContext } from "react";
 import { AuthContext } from "../../context";
 import { updateUser } from "../../services";
 import Swal from "sweetalert2";
+import "../.././css/profile.css";
+import imagenprofile from "../../assets/img/profile.png";
 
 const Profile = () => {
   const { user, updateUserAuth } = useContext(AuthContext);
-
-  // console.log(userlist);
-  // const [userProfile, setUserProfile] = useState(user);
 
   const editUser = async () => {
     const response = await Swal.fire({
@@ -23,10 +20,10 @@ const Profile = () => {
         }
       },
     });
-    await updateUser(user.id, response.value);
-    updateUserAuth({ ...user, profesion: response.value });
+    const userMockapi = await updateUser(user.id, response.value);
+    console.log("userMockapi", userMockapi);
+    updateUserAuth(userMockapi);
   };
-
   return (
     <div className="container-total-profile">
       <div className="container-content ">
@@ -663,7 +660,6 @@ const Profile = () => {
                               <h5>{user.company}</h5>
                             </div>
                           </div>
-
                           <div className="row">
                             <div className="col">
                               <span>{user.start} - </span>
