@@ -1,4 +1,4 @@
-import { useContext } from "react";
+import { useContext, useState } from "react";
 import { AuthContext } from "../../context";
 import { Navigate } from "react-router-dom";
 import "../.././css/login.css";
@@ -36,6 +36,7 @@ const LoginUser = () => {
             </div>
             <p>or</p>
             <FormloginUser handleSubmit={handleSubmit}/>
+            {/* <FormloginUser handleInputChange={handleInputChange} handleSubmit={handleSubmit} /> */}
           </div>
           <img className="image-container" src={ImagesLateral} alt="fondo" />
         </div>

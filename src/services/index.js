@@ -67,6 +67,7 @@ export const updateUserProfile = async (id, profile) => {
         name: profile.nombre,
         apellido: profile.apellido,
         direccion: profile.direccion,
+        contrasena: profile.confirmpassword,
       }),
       headers: {
         "Content-type": "application/json",

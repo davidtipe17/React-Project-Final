@@ -4,7 +4,8 @@ import { updateUser } from "../../services";
 import Swal from "sweetalert2";
 import "../.././css/profile.css";
 import imagenprofile from "../../assets/img/profile.png";
-
+import { FormAddEducacion } from "../../components";
+import { FormAddExperience } from "../../components";
 const Profile = () => {
   const { user, updateUserAuth } = useContext(AuthContext);
 
@@ -80,7 +81,7 @@ const Profile = () => {
                     <div class="row mt-2">
                       <div class="col ">
                         <div class="row ">
-                          <div class="col-6">{user.name}</div>
+                          <div class="col-6">{user?.name}</div>
                           <div class="col-6">{user.correo}</div>
                         </div>
                       </div>
@@ -247,39 +248,6 @@ const Profile = () => {
                 </div>
               </div>
             </div>
-            {/* PRIMER MODULO LATERAL */}
-
-            {/* <div className="row z-depth-3 card mt-5">
-              <div class="col-12  mb-5">
-                <div className="row">
-                  <div class="d-flex mb-3 card-header">
-                    <div class="p-2">
-                      <h5>Portfolio Items</h5>
-                    </div>
-                    <div class="ms-auto p-2">
-                      <button type="button" class="btn btn-primary">
-                        Add Portfolio
-                      </button>
-                    </div>
-                  </div>
-                </div>
-                <div class="d-flex mb-3 card-body justify-content-center">
-                  <div
-                    class="d-flex align-items-center justify-content-center flex-column mb-3"
-                    style={{ height: "250px" }}
-                  >
-                    <div class="p-2">
-                      <img
-                        src="https://www.f-cdn.com/assets/main/en/assets/portfolio/illustration.svg"
-                        alt=""
-                      />
-                    </div>
-                    <div class="p-2">No portafolio items have been added</div>
-                  </div>
-                </div>
-              </div>
-            </div> */}
-
             <div className="row z-depth-3 card mt-5 mb-5">
               <div class="col-12  mb-5">
                 <div className="row">
@@ -436,35 +404,14 @@ const Profile = () => {
                     </div>
                   </div>
                 </div>
-                {user.educacion.length > 0 &&
+
+                {user?.educacion?.length > 0 ? (
                   user.educacion.map((user, index) => (
-                    <div class=" mb-3  card-body " key={index} user={user}>
-                      <div class=" mb-3">
-                        <div class="p-2">
-                          <div className="row">
-                            <div className="col">
-                              <h5>{user.degree}</h5>
-                            </div>
-                          </div>
-                          <div className="row">
-                            <div className="col">
-                              <span>{user.university}, </span>
-                              &nbsp;
-                              <span>{user.country}</span>
-                            </div>
-                          </div>
-                          <div className="row">
-                            <div className="col">
-                              <span>{user.start} - </span>
-                              &nbsp;
-                              <span>{user.end}</span>
-                            </div>
-                          </div>
-                        </div>
-                      </div>
-                      <hr />
-                    </div>
-                  ))}
+                    <FormAddEducacion key={index} user={user} />
+                  ))
+                ) : (
+                  <h1>...</h1>
+                )}
               </div>
             </div>
 
@@ -645,35 +592,13 @@ const Profile = () => {
                     </div>
                   </div>
                 </div>
-                {user.experience.length > 0 &&
+                {user?.experience?.length > 0 ? (
                   user.experience.map((user, index) => (
-                    <div class=" mb-3  card-body ">
-                      <div class=" mb-3">
-                        <div class="p-2">
-                          <div className="row">
-                            <div className="col">
-                              <h5>{user.Title}</h5>
-                            </div>
-                          </div>
-                          <div className="row">
-                            <div className="col">
-                              <h5>{user.company}</h5>
-                            </div>
-                          </div>
-                          <div className="row">
-                            <div className="col">
-                              <span>{user.start} - </span>
-                              &nbsp;
-                              <span>{user.end}</span>
-                            </div>
-                          </div>
-                          <div className="row">
-                            <p>{user.summary}</p>
-                          </div>
-                        </div>
-                      </div>
-                    </div>
-                  ))}
+                    <FormAddExperience key={index} user={user} />
+                  ))
+                ) : (
+                  <h1>...</h1>
+                )}
               </div>
             </div>
           </div>
@@ -682,58 +607,6 @@ const Profile = () => {
           <div className="col-3">
             <div className="row">
               <div className="col-12 card justify-content-center margintoplateraltwo">
-                <div className="row">
-                  <div className="d-flex mb-3 card-header">Verification</div>
-                </div>
-                <div className="card-body">
-                  <div class="d-flex flex-row justify-content-between">
-                    <div className="row">
-                      <div class="p-2">
-                        {" "}
-                        <i class="fa-solid fa-address-card"></i> Profile
-                        Verified
-                      </div>
-                    </div>
-                    <button type="button" class="btn btn-link">
-                      Verify
-                    </button>
-                  </div>
-                  <div class="d-flex flex-row justify-content-between">
-                    <div className="row">
-                      <div class="p-2">
-                        {" "}
-                        <i class="fa-solid fa-credit-card"></i> Payment Verified
-                      </div>
-                    </div>
-                    <button type="button" class="btn btn-link">
-                      Verify
-                    </button>
-                  </div>
-                  <div class="d-flex flex-row justify-content-between">
-                    <div className="row">
-                      <div class="p-2">
-                        {" "}
-                        <i class="fa-solid fa-envelope"> </i> Email Verified
-                      </div>
-                    </div>
-                    <button type="button" class="btn btn-link">
-                      Verify
-                    </button>
-                  </div>
-                  <div class="d-flex flex-row justify-content-between">
-                    <div className="row">
-                      <div class="p-2">
-                        <i class="fa-solid fa-circle-nodes"></i> social networks
-                        Connected
-                      </div>
-                    </div>
-                    <button type="button" class="btn btn-link">
-                      Connect
-                    </button>
-                  </div>
-                </div>
-              </div>
-              <div className="col-12 card justify-content-center mt-5">
                 <div className="row">
                   <div className="d-flex mb-3 card-header">Verification</div>
                 </div>

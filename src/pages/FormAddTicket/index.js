@@ -5,8 +5,7 @@ import { createTicket } from "../../services";
 import { FormAddNewTicket } from "../../components";
 import "../../css/FormAddTicket.css";
 const FormAddTicket = () => {
-
-  const {user} = useContext(AuthContext);
+  const { user } = useContext(AuthContext);
 
   const [newTicket, setNewTicket] = useState({
     idCreator:user.id,
@@ -29,13 +28,12 @@ const FormAddTicket = () => {
     addTicket();
   }
 
-  const addTicket = async  () => {
+  const addTicket = async () => {
     const res = await createTicket(newTicket);
-    if(res){
+    if (res) {
       alert("ticket creado con exito");
     }
-  }
-
+  };
   return (
     <Box>
       <div className="container FormAddTicket-container">
