@@ -12,7 +12,7 @@ const FormUserRegister = ({handleInputChange, handleSubmit}) => {
                 <Grid item xs={12} sm={6}>
                     <TextField
                         autoComplete="given-name"
-                        name="firstname"
+                        name="name"
                         required
                         fullWidth
                         id="firstname"

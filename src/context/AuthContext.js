@@ -9,10 +9,11 @@ export const AuthProvider = ({ children }) => {
 
   const login = async (correo, pass) => {
     const dataUser = await getUser();
+    console.log(correo,pass)
     const authUser = dataUser.find((user) => {
       return user.correo === correo && user.contrasena === pass;
     });
-
+console.log(authUser);
     if (authUser !== undefined) {
       console.log("username", user.name);
       storeUserInLocalStorage(authUser);

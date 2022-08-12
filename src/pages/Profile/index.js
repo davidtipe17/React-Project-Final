@@ -81,7 +81,7 @@ const Profile = () => {
                     <div class="row mt-2">
                       <div class="col ">
                         <div class="row ">
-                          <div class="col-6">{user.name}</div>
+                          <div class="col-6">{user?.name}</div>
                           <div class="col-6">{user.correo}</div>
                         </div>
                       </div>
@@ -405,7 +405,7 @@ const Profile = () => {
                   </div>
                 </div>
 
-                {user.educacion.length > 0 ? (
+                {user?.educacion?.length > 0 ? (
                   user.educacion.map((user, index) => (
                     <FormAddEducacion key={index} user={user} />
                   ))
@@ -592,7 +592,7 @@ const Profile = () => {
                     </div>
                   </div>
                 </div>
-                {user.experience.length > 0 ? (
+                {user?.experience?.length > 0 ? (
                   user.experience.map((user, index) => (
                     <FormAddExperience key={index} user={user} />
                   ))
