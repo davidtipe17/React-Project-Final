@@ -5,8 +5,7 @@ import { AuthContext } from "../../context";
 import { createTicket } from "../../services";
 import { FormAddNewTicket } from "../../components";
 const FormAddTicket = () => {
-
-  const {user} = useContext(AuthContext);
+  const { user } = useContext(AuthContext);
 
   const [newTicket, setNewTicket] = useState({});
 
@@ -14,27 +13,26 @@ const FormAddTicket = () => {
     event.preventDefault();
     const data = new FormData(event.currentTarget);
     console.log({
-      idCreator:user.id,
-      title:data.get('title'),
-      descripcion:data.get('description'),
-      imagenUrl:data.get('image'),
-      price:data.get('price'),
-    }) 
+      idCreator: user.id,
+      title: data.get("title"),
+      descripcion: data.get("description"),
+      imagenUrl: data.get("image"),
+      price: data.get("price"),
+    });
     setNewTicket({
-      title:data.get('title'),
-      description:data.get('description'),
-      image:data.get('image'),
-      price:data.get('price'),
-    }) 
-  }
+      title: data.get("title"),
+      description: data.get("description"),
+      image: data.get("image"),
+      price: data.get("price"),
+    });
+  };
 
-  const addTicket = async  () => {
+  const addTicket = async () => {
     const res = await createTicket(newTicket);
-    if(res){
+    if (res) {
       alert("ticket creado con exito");
     }
-  }
-
+  };
   return (
     <Box>
       <div className="container FormAddTicket-container">
@@ -50,7 +48,10 @@ const FormAddTicket = () => {
           </div>
           <div className="d-flex justify-content-center">
             <div className="card FormAddTicket-card-container rounded-0">
-              <FormAddNewTicket handleSubmit={handleSubmit} addTicket={addTicket} />
+              <FormAddNewTicket
+                handleSubmit={handleSubmit}
+                addTicket={addTicket}
+              />
             </div>
           </div>
         </div>

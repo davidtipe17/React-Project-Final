@@ -1,4 +1,4 @@
-import { useContext } from "react";
+import { useContext, useState } from "react";
 import { AuthContext } from "../../context";
 import { Navigate } from "react-router-dom";
 import "../.././css/login.css";
@@ -9,13 +9,32 @@ import { FormloginUser } from "../../components";
 
 const Login = () => {
   const { login, isAuth } = useContext(AuthContext);
+const {userlogin, setUserLogin} = useState({
 
-  const handleSubmit = (event) => {
-    event.preventDefault();
-    const data = new FormData(event.currentTarget);
-    console.log(data);
-    login(data.get("correo"), data.get("pass"));
-  };
+  correo: "",
+  contrasena: "",
+})
+const handleSubmit = async (event) => {
+  event.preventDefault();
+  const data = new FormData(event.currentTarget);
+  console.log(data);
+  await login(data.get("correo"), data.get("pass"));
+};
+// const logueando =  async () => {
+//   const res = await login(userlogin)
+//   console.log(res)
+// }
+//   const handleSubmit = (event) => {
+//     event.preventDefault();
+    
+//   };
+//   const handleInputChange = (event) => {                                                                                     
+//     const { name, value } = event.target;
+//     setUserLogin({
+//       ...userlogin,
+//       [name]: value,
+//     });
+//   };
   if (isAuth()) {
     return <Navigate to="/profile" />;
   }
@@ -37,6 +56,7 @@ const Login = () => {
             </div>
             <p>or</p>
             <FormloginUser handleSubmit={handleSubmit}/>
+            {/* <FormloginUser handleInputChange={handleInputChange} handleSubmit={handleSubmit} /> */}
           </div>
           <img className="image-container" src={ImagesLateral} alt="fondo" />
         </div>
