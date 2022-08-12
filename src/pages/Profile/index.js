@@ -663,7 +663,6 @@ const Profile = () => {
                               <h5>{user.company}</h5>
                             </div>
                           </div>
-
                           <div className="row">
                             <div className="col">
                               <span>{user.start} - </span>
