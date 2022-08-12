@@ -8,7 +8,7 @@ import {
   FilterTecnicos,
   Chasupport,
   FormAddTicket,
-  Login,
+  LoginUser,
   Profile,
   QuestionAndAnswer,
   EditProfile,
@@ -20,16 +20,21 @@ const Router = () => {
   return (
     <BrowserRouter>
       <Routes>
-     
+        <Route element={<HeaderBarPublic/>}>
         <Route path="/" element={<Home />} />
-        <Route path="/profile" element={<Profile />} />
-        <Route path="/tickets" element={<MyTickets />} />
-        <Route path="/questions" element={<QuestionAndAnswer />} />
-        <Route path="/filters" element={<FilterTecnicos />} />
-        <Route path="/form" element={<FormAddTicket />} />
-        <Route path="/contact" element={<EditProfile />} />
-        <Route path="/chatsupport" element={<Chasupport />}  />
-        <Route path="/checoutpayment" element={< CheckOutPayment/>} />
+        <Route path="/login" element={<LoginUser />} />
+        <Route path="/signup" element={<SignUp />} />
+        </Route>
+        <Route element={<HeaderBar />}>
+          <Route path="/profile" element={<Profile />} />
+          <Route path="/tickets" element={<MyTickets />} />
+          <Route path="/questions" element={<QuestionAndAnswer />} />
+          <Route path="/filters" element={<FilterTecnicos />} />
+          <Route path="/form" element={<FormAddTicket />} />
+          <Route path="/contact" element={<EditProfile />} />
+          <Route path="/chatsupport" element={<Chasupport />} />
+          <Route path="/checkoutpayment" element={<CheckOutPayment />} />
+        </Route>
       </Routes>
     </BrowserRouter>
   );

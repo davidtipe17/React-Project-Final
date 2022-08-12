@@ -5,7 +5,7 @@ export { default as EditProfile} from "./EditProfile";
 export { default as FilterTecnicos} from "./FilterTecnicos"; 
 export { default as Footer} from "./Footer";
 export { default as FormAddTicket} from "./FormAddTicket";
-export { default as Login} from "./Login";
+export { default as LoginUser} from "./LoginUser";
 export { default as MyTickets} from "./MyTickets";
 export { default as Profile} from "./Profile";
 export { default as QuestionAndAnswer} from "./QuestionAndAnswer";

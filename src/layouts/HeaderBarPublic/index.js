@@ -49,7 +49,7 @@ const HeaderBarPublic = () => {
   };
 
   return (
-    <Container>
+    <>
       <Box
         sx={{
           width: 1600,
@@ -151,10 +151,10 @@ const HeaderBarPublic = () => {
           </Container>
         </AppBar>
       </Box>
-      <Box>
+
         <Outlet />
-      </Box>
-    </Container>
+      
+    </>
   );
 };
 export default HeaderBarPublic;
