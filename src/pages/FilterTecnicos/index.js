@@ -177,7 +177,7 @@ const FilterTecnicos = () => {
                 </div>
                 <div className="row mt-2">
                   <div className="col-12">
-                    <h6 className="fw-semibold"> Skills </h6>
+                    <h6 className="fw-semibold"> Skillss </h6>
                   </div>
                 </div>
                 <div className="row ">

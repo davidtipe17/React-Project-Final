@@ -12,6 +12,7 @@ import {
   Profile,
   QuestionAndAnswer,
   EditProfile,
+  SignUp,
 } from "../pages";
 
 import { HeaderBar, HeaderBarPublic } from "../layouts";
