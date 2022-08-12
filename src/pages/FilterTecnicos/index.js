@@ -1,14 +1,25 @@
 import { useState, useEffect } from "react";
 import { searchTickets } from "../../services";
-import { searchUsers} from "../../services";
+import { getUser} from "../../services";
+import { CardTecnico } from "../../components";
+import imagenprofile from "../../assets/img/profile.png";
+import { CardTickets } from "../../components";
 
 import "../.././css/Filtertecnicos.css";
-import imagenprofile from "../../assets/img/profile.png";
+
 
 const FilterTecnicos = () => {
   const [ticketList, setTicketList] = useState([]);
 
   const [usersList, setUserList] = useState([]);
+
+  const [searchInput, setSearchInput] = useState('');
+
+  const [minprice, setMinPrice] = useState('');
+
+  const [maxprice, setMaxPrice] = useState('2000');
+
+  const [filteredResults, setFilteredResults] = useState([]);
 
 
   const fetchTickets = async () => {
@@ -19,13 +30,53 @@ const FilterTecnicos = () => {
   };
 
   const fetchUsers = async () => {
-    const data = await searchUsers();
+    const data = await getUser();
     setUserList(data);
     console.log("probando", data);
     
   };
 
+  const searchItems = (searchValue) => {
+    setSearchInput(searchValue)
+   }
 
+   //precio maximo y minimo
+
+     
+  const filteredTecnicos = usersList.filter((item) => {
+    return Object.values(item.especialidades).join('').toLowerCase().includes(searchInput.toLowerCase())
+    
+    } )
+
+    //filtro de precios
+   
+
+  
+    
+
+
+  //console.log(filteredTecnicos)
+  
+  //console.log(filteredPrecios)
+
+  //filtro de preciostickets
+  const filteredPreciosT = ticketList.filter((item) => {
+    return item.price > minprice && item.price < maxprice
+    
+    }
+
+
+  )
+
+
+  function createStars(number){
+    var elements = [];
+    for(let i =0; i < Math.round(number*0.05); i++){
+        elements.push( <i class="fa-solid fa-star"></i>);
+    }
+    return elements;
+
+}
 
 
   useEffect(() => {
@@ -34,9 +85,8 @@ const FilterTecnicos = () => {
   }, []);
   return (
 
-
     <div>
-      
+    
       <div className="containerPrincipalFilter">
         </div>  
       <ul
@@ -92,6 +142,38 @@ const FilterTecnicos = () => {
                   <div className="col-12">
                     <h6 className="fw-semibold"> Tarifa </h6>
                   </div>
+                <div className="row">
+                  <div class="col-5">
+                    <span>min</span>
+                    <input
+                        type="text"
+                        className="form-control"
+                        
+                        onChange={(e) => setMinPrice(e.target.value)}
+            
+                        aria-label="Username"
+                        aria-describedby="basic-addon1"
+                      />
+
+                  </div>
+                  
+                  
+
+                  <div class="col-5">
+                  <span>max</span>
+                  <input
+                        type="text"
+                        className="form-control"
+                       
+                        onChange={(e) => setMaxPrice(e.target.value)}
+            
+                        aria-label="Username"
+                        aria-describedby="basic-addon1"
+                      />
+
+                  </div>
+
+                </div>
                 </div>
                 <div className="row mt-2">
                   <div className="col-12">
@@ -108,10 +190,15 @@ const FilterTecnicos = () => {
                         type="text"
                         className="form-control"
                         placeholder="Search Skills"
+                        onChange={(e) => searchItems(e.target.value)}
+            
                         aria-label="Username"
                         aria-describedby="basic-addon1"
                       />
                     </div>
+                    
+                    
+                    
                   </div>
                 </div>
                 <div className="row">
@@ -204,97 +291,15 @@ const FilterTecnicos = () => {
                   </div>
                 </div>
                 
-                {usersList.length > 0 &&
-                  usersList.map((user, index) => (
-
-
-                <div className="card-body border-bottom">
-                  <div className="row">
-                    <div className="col-md-3 d-flex justify-content-center">
-                      <img
-                        className="card-img m-auto"
-                        src={imagenprofile}
-                        alt="profile"
-                      />
-                    </div>
-                    <div className="col-md-6">
-                      <div className="row">
-                        <div className="col">
-                          <div className="row mt-4 mb-2">
-                            <div className="col">
-                
-                             <strong class="h5">{user.name + " " + Array.from(user.apellido)[0] + "." }</strong> 
-
-                            </div>
-                            <div className="col">@usuario</div>
-                            <div className="col-1">o</div>
-                            <div className="col-1">o</div>
-                         
-                          </div>
-                       
-                        </div>
-                      </div>
-                      <div className="row">
-                        <div className="col-md-4">
-                          <i class="fa-solid fa-star"></i>
-                          <i class="fa-solid fa-star"></i>
-                          <i class="fa-solid fa-star"></i>
-                          <i class="fa-solid fa-star"></i>
-                          <i class="fa-solid fa-star"></i>
-
-                        </div>
-                        <div className="col">Banderas</div>
-                        <div className="col">
-                          Estrellas
-                        </div>
-                        <div className="col">
-                        <i class="flag flag-united-states"></i>
-                        </div>
-                      </div>
-                      <div className="row">
-                        <div className="col">
-                          <strong>{user.role}</strong>
-                        </div>
-                      </div>
-                      <div className="row">
-                        <div className="col">
-                          <p>
-                            {user.descripcion}           
-                          </p>
-                        </div>
-                      </div>
-                      <div className="row mb-4">
-                        <div className="col">Especialidad</div>
-                        <div className="col">Especialidad</div>
-                        <div className="col">Especialidad</div>
-                      </div>
-                    </div>
-                    <div className="col-md-3 d-flex flex-column justify-content-evenly">
-                      <div className="row mt-3">
-                        <div className="col d-flex flex-column">
-                          <h6 className="d-flex justify-content-end">$80 USD</h6>
-                          <span className="d-flex justify-content-end">Por hora</span>
-                        </div>
-                      </div>
-                     
-                      <div className="row mt-3 ">
-                        <div className="col d-flex flex-column">
-                          <div className=" d-flex justify-content-end">
-                            <i className="fa-solid fa-heart coloriconheart "></i>
-                          </div>
-                          <div className="mt-3 d-flex justify-content-end">
-                            <button
-                              type="button"
-                              className="btn btn-primary  rounded-1"
-                            >
-                              Contactar
-                            </button>
-                          </div>
-                        </div>
-                      </div>
-                    </div>
-                  </div>
-                </div>))}
+                {filteredTecnicos.length > 0 ? (
+                    filteredTecnicos.map((user) => 
+                      <CardTecnico user={user}/> 
+                    )
+                ) : (
+                    usersList.map((user) => 
+                    <CardTecnico user={user}/> 
+                    )
+                )}
               </div>
             </div>
           </div>
@@ -330,6 +335,7 @@ const FilterTecnicos = () => {
                         className="form-control"
                         placeholder="Search Skills"
                         aria-label="Username"
+                        onChange={(e) => setMinPrice(e.target.value)}
                         aria-describedby="basic-addon1"
                       />
                     </div>
@@ -349,6 +355,7 @@ const FilterTecnicos = () => {
                       <input
                         type="text"
                         className="form-control"
+                        onChange={(e) => setMaxPrice(e.target.value)}
                         placeholder="Search Skills"
                         aria-label="Username"
                         aria-describedby="basic-addon1"
@@ -474,54 +481,17 @@ const FilterTecnicos = () => {
                     </div>
                   </div>
                 </div>
-                {ticketList.length > 0 &&
-                  ticketList.map((user, index) => (
-                    <div key={index} user={user} className="card-body border-bottom">
-                      <div className="row">
-                        <div className="col-12">
-                          <div className="row d-flex justify-content-between">
-                            <div className="col-5">
-                              <h5>{user.title}</h5>
-                              <span>Bubget $10 - 30 USD</span>
-                            </div>
-                            <div className="col-4">
-                              <h5>{user.price} USD</h5>
-                              <span>average bid</span>
-                            </div>
-                          </div>
-                          <div className="row mt-4">
-                            <div className="col">
-                              <p>
-                                Lorem ipsum dolor sit, amet consectetur
-                                adipisicing elit. Repellat magni laudantium
-                                aliquid ut nulla. Quaerat, velit iste sequi
-                                numquam ut quam veniam ab quasi unde consectetur
-                                optio veritatis, aliquam ipsam?
-                              </p>
-                            </div>
-                          </div>
-                          <div className="row">
-                            <div className="col-12">
-                              <ul className=" d-flex flex-row justify-center-start">
-                                <li>PHP</li>
-                                <li className="ms-4">JavaScript</li>
-                                <li className="ms-4">WordPress</li>
-                                <li className="ms-4">Css</li>
-                                <li className="ms-4">Html</li>
-                              </ul>
-                            </div>
-                          </div>
-                          <div className="row d-flex justify-content-between">
-                            <div className="col-md-3">Cantidad de Mensajes</div>
-                            <div className="col-md-3">{user.createdAt}</div>
-                            <div className="col-md-3 text-bg-success">
-                              <span>{user.state}</span>
-                            </div>
-                          </div>
-                        </div>
-                      </div>
-                    </div>
-                  ))}
+                {filteredPreciosT.length > 0 ? (
+                    filteredPreciosT.map((user, index) => 
+                    <CardTickets user={user} index={index}/> 
+                    )
+                ) : (
+                    ticketList.map((user, index) => 
+                         
+                    <CardTickets user={user} index={index}/> 
+                        
+                    )
+                )}
               </div>
             </div>
           </div>
