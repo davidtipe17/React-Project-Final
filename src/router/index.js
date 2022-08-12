@@ -26,7 +26,7 @@ const Router = () => {
         <Route path="/login" element={<LoginUser />} />
         <Route path="/signup" element={<SignUp />} />
         </Route>
-        {/* <Route element={<HeaderBar />}> */}
+        <Route element={<HeaderBar />}>
           <Route path="/profile" element={<Profile />} />
           <Route path="/tickets" element={<MyTickets />} />
           <Route path="/questions" element={<QuestionAndAnswer />} />
@@ -35,7 +35,7 @@ const Router = () => {
           <Route path="/contact" element={<EditProfile />} />
           <Route path="/chatsupport" element={<Chasupport />} />
           <Route path="/checkoutpayment" element={<CheckOutPayment />} />
-        {/* </Route> */}
+        </Route>
       </Routes>
     </BrowserRouter>
   );
