@@ -10,7 +10,7 @@ const MyTickets = () => {
             </div>
           <div className=" col-sm-5 mt-2">
             <button className="btn btn-primary shadow rounded ">
-               Cliente
+              Cliente
             </button>
             <button className="btn btn-gray  shadow rounded ">
               Autonomo
