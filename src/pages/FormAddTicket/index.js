@@ -1,9 +1,9 @@
-import { Box } from "@mui/material";
 import { useState, useContext } from "react";
-import "../../css/FormAddTicket.css";
+import { Box } from "@mui/material";
 import { AuthContext } from "../../context";
 import { createTicket } from "../../services";
 import { FormAddNewTicket } from "../../components";
+import "../../css/FormAddTicket.css";
 const FormAddTicket = () => {
 
   const {user} = useContext(AuthContext);
