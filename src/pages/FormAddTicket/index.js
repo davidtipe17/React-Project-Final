@@ -34,6 +34,7 @@ const FormAddTicket = () => {
       alert("ticket creado con exito");
     }
   }
+
   return (
     <Box>
       <div className="container FormAddTicket-container">
@@ -58,4 +59,3 @@ const FormAddTicket = () => {
   );
 };
 export default FormAddTicket;
-  
