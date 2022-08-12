@@ -7,7 +7,7 @@ import LogoGoogle from "../.././assets/img/google.svg";
 import ImagesLateral from "../.././assets/img/login.svg";
 import { FormloginUser } from "../../components";
 
-const Login = () => {
+const LoginUser = () => {
   const { login, isAuth } = useContext(AuthContext);
 
   const handleSubmit = async (event) => {
@@ -45,4 +45,4 @@ const Login = () => {
   );
 };
 
-export default Login;
+export default LoginUser;
