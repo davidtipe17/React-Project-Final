@@ -8,24 +8,25 @@ const FormAddTicket = () => {
 
   const {user} = useContext(AuthContext);
 
-  const [newTicket, setNewTicket] = useState({});
+  const [newTicket, setNewTicket] = useState({
+    idCreator:user.id,
+    title: "",
+    descripcion:"",
+    imagenUrl:"",
+    price:0
+  });
+
+  const handleInputChange = (event) => {
+    const { name, value } = event.target;
+    setNewTicket({
+      ...newTicket,
+      [name]: value,
+    });
+  };
 
   const handleSubmit = (event) => {
     event.preventDefault();
-    const data = new FormData(event.currentTarget);
-    console.log({
-      idCreator:user.id,
-      title:data.get('title'),
-      descripcion:data.get('description'),
-      imagenUrl:data.get('image'),
-      price:data.get('price'),
-    }) 
-    setNewTicket({
-      title:data.get('title'),
-      description:data.get('description'),
-      image:data.get('image'),
-      price:data.get('price'),
-    }) 
+    addTicket();
   }
 
   const addTicket = async  () => {
@@ -50,7 +51,7 @@ const FormAddTicket = () => {
           </div>
           <div className="d-flex justify-content-center">
             <div className="card FormAddTicket-card-container rounded-0">
-              <FormAddNewTicket handleSubmit={handleSubmit} addTicket={addTicket} />
+              <FormAddNewTicket handleSubmit={handleSubmit} handleInputChange={handleInputChange} />
             </div>
           </div>
         </div>
