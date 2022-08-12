@@ -25,7 +25,7 @@ const FormloginUser = ({handleSubmit}) => {
                     type="password"
                     className="form-control"
                     placeholder="Contraseña"
-                    aria-label="Username"
+                    aria-label="Contraseña"
                     aria-describedby="basic-addon1"
                 />
             </div>
@@ -40,7 +40,6 @@ const FormloginUser = ({handleSubmit}) => {
             <button type="Submit" className="btn">
                 NEXT
             </button>
-            <button className="btn">Nuevo Usuario</button>
             <p>
                 No tienes una cuenta? <span className="span">Sign Up</span>
             </p>
