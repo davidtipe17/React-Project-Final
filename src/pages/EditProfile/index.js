@@ -19,10 +19,12 @@ const EditProfile = () => {
   };
   const updateProfile = async () => {
     const response = await updateUserProfile(user.id, newProfile);
+    console.log("responsevalue", response);
+    updateUserAuth({ ...user, newProfile });
     if (response.ok) {
       alert("datos actualizados");
     }
-    
+
     // updateUserAuth({ ...user, newProfile:newProfile });
   };
 
