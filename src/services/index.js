@@ -41,23 +41,24 @@ export const getUser = async () => {
     return error;
   }
 };
+
 export const updateUser = async (id, profesion) => {
   try {
     const response = await fetch(Url_User + "/" + id, {
       method: "PUT",
-      body: JSON.stringify({
-        profesion: profesion,
-      }),
+      body: JSON.stringify({ profesion }),
       headers: {
         "Content-type": "application/json",
       },
     });
-    console.log(response);
-    return response.ok;
+
+    const data = await response.clone().json();
+    return data;
   } catch (error) {
     return error;
   }
 };
+
 export const updateUserProfile = async (id, profile) => {
   try {
     const response = await fetch(Url_User + "/" + id, {
@@ -71,8 +72,9 @@ export const updateUserProfile = async (id, profile) => {
         "Content-type": "application/json",
       },
     });
-    console.log(response);
-    return response.ok;
+
+    const data = await response.clone().json();
+    return data;
   } catch (error) {
     return error;
   }

@@ -14,16 +14,22 @@ export const AuthProvider = ({ children }) => {
     });
 
     if (authUser !== undefined) {
-      localStorage.setItem("helpCenter.user", JSON.stringify(authUser));
+      storeUserInLocalStorage(authUser);
       setUser(authUser);
       return true;
     }
     return false;
   };
+
   const updateUserAuth = (userupdated) => {
     setUser(userupdated);
-    localStorage.setItem("helpCenter.user", JSON.stringify(userupdated));
+    storeUserInLocalStorage(userupdated);
   };
+
+  function storeUserInLocalStorage(user) {
+    localStorage.setItem("helpCenter.user", JSON.stringify(user));
+  }
+
   const logout = () => {
     localStorage.removeItem("helpCenter.user");
     setUser({});

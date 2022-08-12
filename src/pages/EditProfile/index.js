@@ -1,32 +1,42 @@
-import { useContext, useEffect } from "react";
+import { useContext, useState } from "react";
 import { AuthContext } from "../../context";
-import { useState } from "react";
-import "../../css/editProfile.css";
 import { updateUserProfile } from "../../services";
+import "../../css/editProfile.css";
+
 const EditProfile = () => {
   const { user, updateUserAuth } = useContext(AuthContext);
 
-  const [newProfile, setNewProfile] = useState({});
-  const handleSubmit = (event) => {
+  const [newProfile, setNewProfile] = useState({
+    nombre: "",
+    apellido: "",
+    direccion: "",
+  });
+  const handleSubmit = async (event) => {
     event.preventDefault();
-    const data = new FormData(event.currentTarget);
+    await updateProfile();
+  };
+  const handleInputChange = (event) => {
+    const { name, value } = event.target;
     setNewProfile({
-      nombre: data.get("nombre"),
-      apellido: data.get("apellido"),
-      direccion: data.get("direccion"),
+      ...newProfile,
+      [name]: value,
     });
-    console.log("newprofile", newProfile);
   };
   const updateProfile = async () => {
-    const response = await updateUserProfile(user.id, newProfile);
-    console.log("responsevalue", response);
-    updateUserAuth({ ...user, newProfile });
-    if (response.ok) {
-      alert("datos actualizados");
+    try {
+      const userUpdate = await updateUserProfile(user.id, newProfile);
+      updateUserAuth(userUpdate);
+      alert("funciono");
+    } catch (error) {
+      alert(error.message);
     }
-
-    // updateUserAuth({ ...user, newProfile:newProfile });
   };
+
+  const [newContrasena, setNewContrasena] = useState(
+    
+         
+
+  )
 
   return (
     <div>
@@ -60,8 +70,8 @@ const EditProfile = () => {
                               className="form-control"
                               type="text"
                               name="nombre"
-                              id=""
-                              onChange=""
+                              value={newProfile.nombre}
+                              onChange={handleInputChange}
                             />
                           </div>
                           <div className="col-md-6 mb-3">
@@ -70,7 +80,8 @@ const EditProfile = () => {
                               className="form-control"
                               type="text"
                               name="apellido"
-                              id=""
+                              value={newProfile.apellido}
+                              onChange={handleInputChange}
                             />
                           </div>
 
@@ -96,7 +107,8 @@ const EditProfile = () => {
                           className="form-control"
                           type="text"
                           name="direccion"
-                          id=""
+                          value={newProfile.direccion}
+                          onChange={handleInputChange}
                         />
                         <card className="card-body d-flex ">
                           <div className="row">
@@ -109,7 +121,6 @@ const EditProfile = () => {
                         {/* guardar cambios */}
                         <hr className="mt-5" />
                         <button
-                          onClick={updateProfile}
                           type="submit"
                           className="py-3 rounded btn btn-primary"
                         >
