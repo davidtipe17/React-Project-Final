@@ -8,12 +8,13 @@ const FormAddTicket = () => {
   const { user } = useContext(AuthContext);
 
   const [newTicket, setNewTicket] = useState({
-    idCreator: user.id,
+    idCreator:user.id,
     title: "",
-    descripcion: "",
-    imagenUrl: "",
-    price: 0,
+    descripcion:"",
+    imagenUrl:"",
+    price:0
   });
+
   const handleInputChange = (event) => {
     const { name, value } = event.target;
     setNewTicket({
@@ -21,10 +22,12 @@ const FormAddTicket = () => {
       [name]: value,
     });
   };
+
   const handleSubmit = (event) => {
     event.preventDefault();
     addTicket();
-  };
+  }
+
   const addTicket = async () => {
     const res = await createTicket(newTicket);
     if (res) {
@@ -46,10 +49,7 @@ const FormAddTicket = () => {
           </div>
           <div className="d-flex justify-content-center">
             <div className="card FormAddTicket-card-container rounded-0">
-              <FormAddNewTicket
-                handleSubmit={handleSubmit}
-                handleInputChange={handleInputChange}
-              />
+              <FormAddNewTicket handleSubmit={handleSubmit} handleInputChange={handleInputChange} />
             </div>
           </div>
         </div>

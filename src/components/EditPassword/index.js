@@ -1,4 +1,4 @@
-const EdidPassword = ({ handleInputChange,handleInputChangePassword }) => {
+const EdidPassword = ({ handleInputChange }) => {
   return (
     <div className="container mt-3">
       <div className="card-header">
@@ -13,10 +13,8 @@ const EdidPassword = ({ handleInputChange,handleInputChangePassword }) => {
               <input
                 type="text"
                 class="form-control"
-                name="contrasena"
                 aria-label="Username"
                 aria-describedby="basic-addon1"
-                onChange={handleInputChangePassword}
               />
               <span class="input-group-text bg-white" id="basic-addon1">
                 <i class="fa-solid fa-eye-low-vision"></i>
@@ -32,9 +30,6 @@ const EdidPassword = ({ handleInputChange,handleInputChangePassword }) => {
                 name="newpassword"
                 aria-label="Username"
                 aria-describedby="basic-addon1"
-                id="input_newcontrasena"
-            disabled
-                
               />
               <span class="input-group-text bg-white" id="basic-addon1">
                 <i class="fa-solid fa-eye-low-vision"></i>
@@ -52,8 +47,6 @@ const EdidPassword = ({ handleInputChange,handleInputChangePassword }) => {
                 aria-label="Username"
                 aria-describedby="basic-addon1"
                 onChange={handleInputChange}
-                id="input_confirmcontrasena"
-                disabled
               />
               <span class="input-group-text bg-white" id="basic-addon1">
                 <i class="fa-solid fa-eye-low-vision"></i>

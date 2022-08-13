@@ -1,39 +1,22 @@
-import { useState, useEffect, useContext } from "react";
-import { AuthContext } from "../../context";
-import { searchTickets } from "../../services";
-import { FilterTicketOpen } from "../../components";
-import { FilterTicketProcess } from "../../components";
-import { FilterTicketPendient } from "../../components";
-import { TicketFilterSuccesfull } from "../../components";
-const MyTickets = () => {
-  const [ticketList, setTicketList] = useState([]);
+import "../../css/tickets.css";
 
-  const { user } = useContext(AuthContext);
-  const fetchTickets = async () => {
-    const data = await searchTickets();
-    setTicketList(data);
-  };
-  const filteredTicketsOpen = ticketList.filter(
-    (ticket) => ticket.state === "Abierto" && ticket.idCreator === user.id
-  );
-  const filteredTicketsProcess = ticketList.filter(
-    (ticket) => ticket.state === "Proceso" && ticket.idCreator === user.id
-  );
-  const filteredTicketsPendient = ticketList.filter(
-    (ticket) => ticket.state === "Pendientes" && ticket.idCreator === user.id
-  );
-  const filteredTicketsSucesfull = ticketList.filter(
-    (ticket) => ticket.state === "Resueltos" && ticket.idCreator === user.id
-  );
-  useEffect(() => {
-    fetchTickets();
-  }, []);
+
+
+const MyTickets = () => {
   return (
     <div>
       <div className="container-md  tickets-container mt-5">
         <div className="cardHeader row justify-content-between py-3">
-          <div className="col-sm-12 text-center mt-4 text-bg-danger p-3">
+            <div className="col-sm-3">
             <h2 className="tickets-title-responsive">Tickets</h2>
+            </div>
+          <div className=" col-sm-5 mt-2">
+            <button className="btn btn-primary shadow rounded ">
+              Cliente
+            </button>
+            <button className="btn btn-gray  shadow rounded ">
+              Autonomo
+            </button>
           </div>
         </div>
         <div className="card">
@@ -99,20 +82,92 @@ const MyTickets = () => {
               </button>
             </li>
           </ul>
+          {/* filtro */}
+          <div className="container filtro">
+            <div className="row d-flex justify-content-between">
+              <div className="col-sm-6 filtro">
+                <div class="input-group my-3">
+                  <input
+                    type="text"
+                    class="form-control"
+                    placeholder="Descripcion..."
+                    aria-label="Recipient's username"
+                    aria-describedby="button-addon2"
+                  />
+                  <button
+                    class="btn btn-outline-secondary"
+                    type="button"
+                    id="button-addon2"
+                  >
+                    Filtrar
+                  </button>
+                </div>
+              </div>
+              <div className="col-sm-4">
+                <div class="input-group my-3">
+                  <input
+                    type="text"
+                    class="form-control"
+                    placeholder="N° Ticket"
+                    aria-label="Recipient's username"
+                    aria-describedby="button-addon2"
+                  />
+                  <button
+                    class="btn btn-outline-secondary"
+                    type="button"
+                    id="button-addon2"
+                  >
+                    Filtrar
+                  </button>
+                </div>
+              </div>
+            </div>
+          </div>
           <div
             className="tab-content tickets-list d-flex justify-content-center  align-items-center bg-white"
             id="myTabContent"
           >
-            <FilterTicketOpen filteredTicketsOpen={filteredTicketsOpen} />
-            <FilterTicketProcess
-              filteredTicketsProcess={filteredTicketsProcess}
-            />
-            <FilterTicketPendient
-              filteredTicketsPendient={filteredTicketsPendient}
-            />
-            <TicketFilterSuccesfull
-              filteredTicketsSucesfull={filteredTicketsSucesfull}
-            />
+            <div
+              className="tab-pane fade show active"
+              id="ticketsAbiertos"
+              role="tabpanel"
+              aria-labelledby="tickets-Abiertos-tab"
+            >
+              <div className="container text-center">
+                <h3>Crea un nuevo proyecto</h3>
+                <p>
+                  Millones de talentosos freelancers estan listos para ayudarte
+                  a hacer cosas increibles
+                </p>
+                <button className="btn-publicarProyecto p-2 rounded shadow">
+                  Publicar Proyecto
+                </button>
+              </div>
+            </div>
+            <div
+              className="tab-pane fade"
+              id="ticketsEnProceso"
+              role="tabpanel"
+              aria-labelledby="tickets-En-Proceso-tab"
+            >
+              ...
+            </div>
+            <div
+              className="tab-pane fade"
+              id="ticketsPendientes"
+              role="tabpanel"
+              aria-labelledby="tickets-Pendientes-tab"
+            >
+              ...
+            </div>
+            <div
+              className="tab-pane fade"
+              id="ticketsResueltos"
+              role="tabpanel"
+              aria-labelledby="tickets-Resueltos-tab"
+            >
+              ...
+            </div>
           </div>
         </div>
       </div>

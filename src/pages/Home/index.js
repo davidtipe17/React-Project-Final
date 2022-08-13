@@ -55,19 +55,19 @@ const Home = () => {
             </div>
             <div className="carousel-inner">
               <div className="carousel-item active" data-bs-interval="1000">
-                <img src={slide1} className="d-block w-100" alt="..." />
+                <img src={slide1} className="d-block  w-100" alt="..." />
               </div>
               <div className="carousel-item" data-bs-interval="2000">
-                <img src={slide2} className="d-block w-100" alt="..." />
+                <img src={slide2} className="d-block  w-100" alt="..." />
               </div>
               <div className="carousel-item" data-bs-interval="3000">
-                <img src={slide3} className="d-block w-100" alt="..." />
+                <img src={slide3} className="d-block  w-100" alt="..." />
               </div>
               <div className="carousel-item" data-bs-interval="4000">
-                <img src={slide4} className="d-block w-100" alt="..." />
+                <img src={slide4} className="d-block  w-100" alt="..." />
               </div>
               <div className="carousel-item" data-bs-interval="5000">
-                <img src={slide5} className="d-block w-100" alt="..." />
+                <img src={slide5} className="d-block  w-100" alt="..." />
               </div>
             </div>
             <button
@@ -169,9 +169,13 @@ const Home = () => {
                 aria-label="Recipient's username"
                 aria-describedby="button-addon2"
               />
-              <button className="btn btn-dark" type="button" id="button-addon2">
+               <div className="input-group-append">
+               <button className="btn btn-dark" type="button" id="button-addon2">
                 Enviar
               </button>
+    
+              </div>
+              
             </div>
           </div>
         </section>
