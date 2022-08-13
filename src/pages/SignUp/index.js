@@ -9,6 +9,7 @@ import {
   CssBaseline
 } from "@mui/material";
 import LockOutlinedIcon from "@mui/icons-material/LockOutlined";
+import { useNavigate } from "react-router-dom";
 import { FormUserRegister } from "../../components";
 
 function Copyright(props) {
@@ -55,7 +56,9 @@ export default function SignUp() {
     const res = await createUser(newUser);
     if (res) {
       alert("usuario creado con exito");
+    
     }
+
   }
 
   return (

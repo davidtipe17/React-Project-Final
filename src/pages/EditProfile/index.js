@@ -46,7 +46,6 @@ const EditProfile = () => {
     capturatePro.removeAttribute("disabled");
   }
 
-
   return (
     <div>
       <form
