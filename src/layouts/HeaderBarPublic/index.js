@@ -1,53 +1,36 @@
-import * as React from "react";
-import AppBar from "@mui/material/AppBar";
-import Box from "@mui/material/Box";
-import Toolbar from "@mui/material/Toolbar";
-import IconButton from "@mui/material/IconButton";
-import Menu from "@mui/material/Menu";
-import MenuIcon from "@mui/icons-material/Menu";
-import Container from "@mui/material/Container";
-import Avatar from "@mui/material/Avatar";
 import { useState } from "react";
-import Tooltip from "@mui/material/Tooltip";
-import MenuItem from "@mui/material/MenuItem";
+import { Outlet, useNavigate } from "react-router-dom";
+import { Footer } from "../../pages";
+import 
+{
+  AppBar,
+  Box,
+  Button,
+  Toolbar,
+  Menu,
+  Container,
+  MenuItem,
+  MenuList,
+} from "@mui/material";
+import IconButton from "@mui/material/IconButton";
+import MenuIcon from "@mui/icons-material/Menu";
 import Support from "../.././assets/img/support.svg";
 import ImageListItem from "@mui/material/ImageListItem";
-import { Outlet, useNavigate } from "react-router-dom";
-import MenuList from "@mui/material/MenuList";
-import Divider from "@mui/material/Divider";
-import Button from "@mui/material/Button";
-import ListItemText from "@mui/material/ListItemText";
 import ListItemIcon from "@mui/material/ListItemIcon";
-import LogoutIcon from "@mui/icons-material/Logout";
-import SwitchAccountIcon from "@mui/icons-material/SwitchAccount";
-import SupportAgentIcon from "@mui/icons-material/SupportAgent";
-import PaymentIcon from "@mui/icons-material/Payment";
-import MarkUnreadChatAltIcon from "@mui/icons-material/MarkUnreadChatAlt";
 import WorkOutlineIcon from "@mui/icons-material/WorkOutline";
-import LocalGroceryStoreRoundedIcon from "@mui/icons-material/LocalGroceryStoreRounded";
-import LineAxisRoundedIcon from "@mui/icons-material/LineAxisRounded";
-import { Typography } from "@mui/material";
 import InputRoundedIcon from "@mui/icons-material/InputRounded";
 import AppRegistrationIcon from "@mui/icons-material/AppRegistration";
 const HeaderBarPublic = () => {
   const history = useNavigate();
 
   const [anchorElNav, setAnchorElNav] = useState(null);
-  const [anchorElUser, setAnchorElUser] = useState(null);
 
   const handleOpenNavMenu = (event) => {
     setAnchorElNav(event.currentTarget);
   };
-  const handleOpenUserMenu = (event) => {
-    setAnchorElUser(event.currentTarget);
-  };
   const handleCloseNavMenu = () => {
     setAnchorElNav(null);
   };
-  const handleCloseUserMenu = () => {
-    setAnchorElUser(null);
-  };
-
   return (
     <>
       <Box
@@ -105,7 +88,7 @@ const HeaderBarPublic = () => {
                   <MenuList sx={{}}>
                     <MenuItem>
                       <ListItemIcon>
-                        <WorkOutlineIcon  fontSize="small" />
+                        <WorkOutlineIcon fontSize="small" />
                       </ListItemIcon>
                     </MenuItem>
                   </MenuList>
@@ -152,8 +135,8 @@ const HeaderBarPublic = () => {
         </AppBar>
       </Box>
 
-        <Outlet />
-      
+      <Outlet />
+      <Footer />
     </>
   );
 };

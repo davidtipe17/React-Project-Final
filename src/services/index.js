@@ -7,7 +7,7 @@ export const createTicket = async (newTicket) => {
       body: JSON.stringify({
         title: newTicket.title,
         imagenUrl: newTicket.imagenUrl,
-        State: "abierto",
+        state: "abierto",
         idCreator: newTicket.idUser,
         descripcion: newTicket.descripcion,
       }),
