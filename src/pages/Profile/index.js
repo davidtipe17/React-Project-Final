@@ -33,17 +33,7 @@ const Profile = () => {
       <div className="container-content ">
         <div className="row justify-content-between">
           <div className="col-md-8 ">
-            <div className="row mt-5 mb-2">
-              <div class="col-12  mb-1">
-                <div class="d-flex ">
-                  <div class="ms-auto p-2">
-                    <button type="button" class="btn btn-light ">
-                      <b> View Client Profile </b>
-                    </button>
-                  </div>
-                </div>
-              </div>
-            </div>
+          
             {/* PRIMER MODULO LATERAL */}
             <div className="row">
               <div className="col 12 card">
