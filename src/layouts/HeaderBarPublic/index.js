@@ -29,6 +29,10 @@ import LineAxisRoundedIcon from "@mui/icons-material/LineAxisRounded";
 import { Typography } from "@mui/material";
 import InputRoundedIcon from "@mui/icons-material/InputRounded";
 import AppRegistrationIcon from "@mui/icons-material/AppRegistration";
+
+import { styled, useTheme } from "@mui/material/styles";
+
+
 const HeaderBarPublic = () => {
   const history = useNavigate();
 
@@ -48,11 +52,14 @@ const HeaderBarPublic = () => {
     setAnchorElUser(null);
   };
 
+
+ 
+
   return (
-    <>
+    <Container>
       <Box
         sx={{
-          width: 1600,
+         
         }}
       >
         <AppBar>
@@ -68,7 +75,7 @@ const HeaderBarPublic = () => {
                   display: { xs: "none", md: "flex" },
                 }}
                 cols={3}
-                rowHeight={164}
+                rowheight={164}
               >
                 <img src={Support} alt="" />
               </ImageListItem>
@@ -121,7 +128,7 @@ const HeaderBarPublic = () => {
                   justifyContent: "center",
                 }}
                 cols={3}
-                rowHeight={164}
+                rowheight={164}
               >
                 <img src={Support} alt="" />
               </Box>
@@ -151,10 +158,14 @@ const HeaderBarPublic = () => {
           </Container>
         </AppBar>
       </Box>
-
-        <Outlet />
       
-    </>
+
+      <Box sx={{ m:10 }}>
+			
+				<Outlet />
+			</Box>
+      
+    </Container>
   );
 };
 export default HeaderBarPublic;

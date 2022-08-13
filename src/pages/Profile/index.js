@@ -30,7 +30,7 @@ const Profile = () => {
       <div className="container-content ">
         <div className="row justify-content-between">
           <div className="col-md-8 ">
-            <div className="row mt-5 mb-2">
+            <div className="row mb-2">
               <div class="col-12  mb-1">
                 <div class="d-flex ">
                   <div class="ms-auto p-2">
@@ -604,7 +604,7 @@ const Profile = () => {
           </div>
 
           {/* COLUMN TWO */}
-          <div className="col-3">
+          <div className="col-md-3">
             <div className="row">
               <div className="col-12 card justify-content-center margintoplateraltwo">
                 <div className="row">
