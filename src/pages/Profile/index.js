@@ -1,5 +1,5 @@
 import { useContext } from "react";
-import {  useNavigate } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
 
 import { AuthContext } from "../../context";
 import { updateUser } from "../../services";
@@ -27,13 +27,12 @@ const Profile = () => {
     const userMockapi = await updateUser(user.id, response.value);
     console.log("userMockapi", userMockapi);
     updateUserAuth(userMockapi);
-  };
+  };                                                                             
   return (
     <div className="container-total-profile">
       <div className="container-content ">
         <div className="row justify-content-between">
           <div className="col-md-8 ">
-          
             {/* PRIMER MODULO LATERAL */}
             <div className="row">
               <div className="col 12 card">
@@ -52,20 +51,12 @@ const Profile = () => {
                           <i class="fa-solid fa-signal"></i> &nbsp; I'm Offline!
                         </div>
                         <div class="p-2">
-                          <i class="fa-solid fa-flag"></i> &nbsp; Flex item 2
-                        </div>
-                        <div class="p-2">
                           <i class="fa-solid fa-clock"></i> &nbsp;q{" "}
                           {user.horadedesconexion}
                         </div>
                         <div class="p-2">
                           <i class="fa-solid fa-user-check"></i> &nbsp; Se unió
                           el {user.createdAt}
-                        </div>
-                        <div class="p-2">
-                          <i class="fa-solid fa-thumbs-up"></i>{" "}
-                          <span className="counterrecomendation">0</span>
-                          &nbsp; Recomendaciones
                         </div>
                       </div>
                     </div>
@@ -224,10 +215,6 @@ const Profile = () => {
                     </div>
                     <div class="row mt-2">
                       <div class="col ">{user.profesion}</div>
-                    </div>
-                    <div class="row mt-2">
-                      <div class="col">Estrellas</div>
-                      <div class="col"></div>
                     </div>
                     <div class="row d-flex flex-column mt-2">
                       <div class="col p-2">
@@ -397,7 +384,6 @@ const Profile = () => {
                     </div>
                   </div>
                 </div>
-
                 {user?.educacion?.length > 0 ? (
                   user.educacion.map((user, index) => (
                     <FormAddEducacion key={index} user={user} />
@@ -612,7 +598,11 @@ const Profile = () => {
                         Verified
                       </div>
                     </div>
-                    <button onClick={() => history("/contact")} type="button" class="btn btn-link">
+                    <button
+                      onClick={() => history("/contact")}
+                      type="button"
+                      class="btn btn-link"
+                    >
                       Verify
                     </button>
                   </div>
@@ -623,7 +613,11 @@ const Profile = () => {
                         <i class="fa-solid fa-credit-card"></i> Payment Verified
                       </div>
                     </div>
-                    <button onClick={() => history("/contact")} type="button" class="btn btn-link">
+                    <button
+                      onClick={() => history("/contact")}
+                      type="button"
+                      class="btn btn-link"
+                    >
                       Verify
                     </button>
                   </div>
@@ -634,7 +628,11 @@ const Profile = () => {
                         <i class="fa-solid fa-envelope"> </i> Email Verified
                       </div>
                     </div>
-                    <button onClick={() => history("/contact")} type="button" class="btn btn-link">
+                    <button
+                      onClick={() => history("/contact")}
+                      type="button"
+                      class="btn btn-link"
+                    >
                       Verify
                     </button>
                   </div>
@@ -645,7 +643,11 @@ const Profile = () => {
                         Connected
                       </div>
                     </div>
-                    <button onClick={() => history("/contact")} type="button" class="btn btn-link">
+                    <button
+                      onClick={() => history("/contact")}
+                      type="button"
+                      class="btn btn-link"
+                    >
                       Connect
                     </button>
                   </div>

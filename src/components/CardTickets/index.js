@@ -28,7 +28,7 @@ const CardTickets = ({ user, index }) => {
               <span>{user.state}</span>
             </div>
 
-            <button type="button" class="btn btn-primary  rounded-1 mt-2">
+            <button type="button" className="btn btn-primary  rounded-1 mt-2">
               Add Ticket
             </button>
           </div>

@@ -5,7 +5,7 @@ const CardTecnico = ({ user }) => {
   function createStars(number) {
     var elements = [];
     for (let i = 0; i < Math.round(number * 0.05); i++) {
-      elements.push(<i class="fa-solid fa-star"></i>);
+      elements.push(<i className="fa-solid fa-star"></i>);
     }
     return elements;
   }
@@ -21,7 +21,7 @@ const CardTecnico = ({ user }) => {
             <div className="col">
               <div className="row mt-4 mb-2">
                 <div className="col">
-                  <strong class="h5">
+                  <strong className="h5">
                     {user.name + " " + Array.from(user.apellido)[0] + "."}
                   </strong>
                 </div>
@@ -37,7 +37,7 @@ const CardTecnico = ({ user }) => {
             <div className="col">{user.pais}</div>
 
             <div className="col">
-              <i class="flag flag-united-states"></i>
+              <i className="flag flag-united-states"></i>
             </div>
           </div>
           <div className="row">

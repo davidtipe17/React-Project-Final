@@ -8,19 +8,19 @@ const EdidPassword = ({ handleInputChange, handleInputChangePassword }) => {
         <div className="card py-5 px-3 rounded-0">
           <h4 className="mb-3">Cambiar Contraseña</h4>
 
-          <div class="col-md-6">
-            <div class="input-group mb-3 mt-3">
+          <div className="col-md-6">
+            <div className="input-group mb-3 mt-3">
               <input
                 type="text"
-                class="form-control"
+                className="form-control"
                 name="confirmpassword"
                 aria-label="Username"
                 aria-describedby="basic-addon1"
                 onChange={handleInputChange}
                 id="input_confirmcontrasena"
               />
-              <span class="input-group-text bg-white" id="basic-addon1">
-                <i class="fa-solid fa-eye-low-vision"></i>
+              <span className="input-group-text bg-white" id="basic-addon1">
+                <i className="fa-solid fa-eye-low-vision"></i>
               </span>
             </div>
           </div>

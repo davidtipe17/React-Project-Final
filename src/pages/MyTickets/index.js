@@ -17,13 +17,13 @@ const MyTickets = () => {
     (ticket) => ticket.state === "Abierto" && ticket.idCreator === user.id
   );
   const filteredTicketsProcess = ticketList.filter(
-    (ticket) => ticket.state === "Proceso" && ticket.idCreator === user.id
+    (ticket) => ticket.state === "Proceso" && ticket.idSolver === user.id
   );
   const filteredTicketsPendient = ticketList.filter(
-    (ticket) => ticket.state === "Pendientes" && ticket.idCreator === user.id
+    (ticket) => ticket.state === "Pendientes" && ticket.idSolver === user.id
   );
   const filteredTicketsSucesfull = ticketList.filter(
-    (ticket) => ticket.state === "Resueltos" && ticket.idCreator === user.id
+    (ticket) => ticket.state === "Resueltos" && ticket.idSolver === user.id
   );
   useEffect(() => {
     fetchTickets();

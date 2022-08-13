@@ -1,8 +1,8 @@
 const FormAddEducacion = ({ user }) => {
   return (
-    <div class=" mb-3  card-body " user={user}>
-      <div class=" mb-3">
-        <div class="p-2">
+    <div className=" mb-3  card-body " user={user}>
+      <div className=" mb-3">
+        <div className="p-2">
           <div className="row">
             <div className="col">
               <h5>{user.degree}</h5>
