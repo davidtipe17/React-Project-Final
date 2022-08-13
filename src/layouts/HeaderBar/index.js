@@ -28,6 +28,7 @@ import MarkUnreadChatAltIcon from "@mui/icons-material/MarkUnreadChatAlt";
 import WorkOutlineIcon from "@mui/icons-material/WorkOutline";
 import LocalGroceryStoreRoundedIcon from "@mui/icons-material/LocalGroceryStoreRounded";
 import LineAxisRoundedIcon from "@mui/icons-material/LineAxisRounded";
+import { Footer } from "../../pages";
 
 const ResponsiveAppBar = () => {
   const history = useNavigate();
@@ -251,6 +252,7 @@ const ResponsiveAppBar = () => {
       <Box>
         <Outlet />
       </Box>
+      <Footer/>
     </Container>
   );
 };
