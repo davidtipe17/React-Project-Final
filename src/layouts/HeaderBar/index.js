@@ -56,11 +56,7 @@ const ResponsiveAppBar = () => {
 
   return (
     <Container>
-      <Box
-        sx={{
-        
-        }}
-      >
+      <Box sx={{}}>
         <AppBar>
           <Container maxWidth="xl">
             <Toolbar disableGutters>
@@ -182,7 +178,11 @@ const ResponsiveAppBar = () => {
               <Box sx={{ flexGrow: 0, display: "flex" }}>
                 <Box sx={{ mr: 20 }}>
                   <Typography>
-                    <Button onClick={() => history("/form")} sx={{ backgroundColor: "red" }} variant="contained">
+                    <Button
+                      onClick={() => history("/form")}
+                      sx={{ backgroundColor: "red" }}
+                      variant="contained"
+                    >
                       Post a Ticket
                     </Button>
                   </Typography>
@@ -214,12 +214,13 @@ const ResponsiveAppBar = () => {
                   onClick={handleCloseUserMenu}
                 >
                   <MenuList onClick={handleCloseUserMenu}>
-                  
                     <MenuItem onClick={() => history("/profile")}>
                       <ListItemIcon>
                         <SwitchAccountIcon fontSize="small" />
                       </ListItemIcon>
-                      <ListItemText>{user.name + " " + user.apellido}</ListItemText>
+                      <ListItemText>
+                        {user.name + " " + user.apellido}
+                      </ListItemText>
                     </MenuItem>
                     <MenuItem onClick={() => history("/checkoutpayment")}>
                       <ListItemIcon>
@@ -247,7 +248,7 @@ const ResponsiveAppBar = () => {
           </Container>
         </AppBar>
       </Box>
-      <Box sx={{ mt:10 }}>
+      <Box sx={{ mt: 10 }}>
         <Outlet />
       </Box>
       {/* <Footer/> */}

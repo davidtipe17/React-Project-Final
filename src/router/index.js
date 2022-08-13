@@ -9,7 +9,7 @@ import {
   FormAddTicket,
   LoginUser,
   Profile,
-  QuestionAndAnswer,
+  Questionandanswer,
   EditProfile,
   SignUp,
 } from "../pages";
@@ -28,7 +28,7 @@ const Router = () => {
         <Route element={<HeaderBar />}>
           <Route path="/profile" element={<Profile />} />
           <Route path="/tickets" element={<MyTickets />} />
-          <Route path="/questions" element={<QuestionAndAnswer />} />
+          <Route path="/questions" element={<Questionandanswer />} />
           <Route path="/filters" element={<FilterTecnicos />} />
           <Route path="/form" element={<FormAddTicket />} />
           <Route path="/contact" element={<EditProfile />} />

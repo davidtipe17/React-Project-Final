@@ -8,5 +8,5 @@ export { default as FormAddTicket} from "./FormAddTicket";
 export { default as LoginUser} from "./LoginUser";
 export { default as MyTickets} from "./MyTickets";
 export { default as Profile} from "./Profile";
-export { default as QuestionAndAnswer} from "./QuestionAndAnswer";
+export { default as Questionandanswer} from "./Questionandanswer";
 export {default as SignUp} from "./SignUp";
