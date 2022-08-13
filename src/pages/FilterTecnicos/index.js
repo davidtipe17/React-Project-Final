@@ -1,94 +1,70 @@
 import { useState, useEffect } from "react";
 import { searchTickets } from "../../services";
-import { getUser} from "../../services";
+import { getUser } from "../../services";
 import { CardTecnico } from "../../components";
 import imagenprofile from "../../assets/img/profile.png";
 import { CardTickets } from "../../components";
 
 import "../.././css/Filtertecnicos.css";
 
-
 const FilterTecnicos = () => {
   const [ticketList, setTicketList] = useState([]);
 
   const [usersList, setUserList] = useState([]);
 
-  const [searchInput, setSearchInput] = useState('');
+  const [searchInput, setSearchInput] = useState("");
 
-  const [minprice, setMinPrice] = useState('');
+  const [minprice, setMinPrice] = useState("");
 
-  const [maxprice, setMaxPrice] = useState('2000');
+  const [maxprice, setMaxPrice] = useState("2000");
 
   const [filteredResults, setFilteredResults] = useState([]);
-
 
   const fetchTickets = async () => {
     const data = await searchTickets();
     setTicketList(data);
     console.log("probando", data);
-
   };
 
   const fetchUsers = async () => {
     const data = await getUser();
     setUserList(data);
     console.log("probando", data);
-    
   };
 
   const searchItems = (searchValue) => {
-    setSearchInput(searchValue)
-   }
+    setSearchInput(searchValue);
+  };
 
-   //precio maximo y minimo
+  //precio maximo y minimo
 
-     
   const filteredTecnicos = usersList.filter((item) => {
-    return Object.values(item.especialidades).join('').toLowerCase().includes(searchInput.toLowerCase())
-    
-    } )
-
-    //filtro de precios
-   
-
-  
-    
+    return Object.values(item.especialidades)
+      .join("")
+      .toLowerCase()
+      .includes(searchInput.toLowerCase());
+  });
 
 
-  //console.log(filteredTecnicos)
-  
-  //console.log(filteredPrecios)
-
-  //filtro de preciostickets
   const filteredPreciosT = ticketList.filter((item) => {
-    return item.price > minprice && item.price < maxprice
-    
-    }
+    return item.price > minprice && item.price < maxprice;
+  });
 
-
-  )
-
-
-  function createStars(number){
+  function createStars(number) {
     var elements = [];
-    for(let i =0; i < Math.round(number*0.05); i++){
-        elements.push( <i class="fa-solid fa-star"></i>);
+    for (let i = 0; i < Math.round(number * 0.05); i++) {
+      elements.push(<i class="fa-solid fa-star"></i>);
     }
     return elements;
-
-}
-
+  }
 
   useEffect(() => {
     fetchTickets();
     fetchUsers();
   }, []);
   return (
-
     <div>
-    
-      <div className="containerPrincipalFilter">
-        </div>  
+      <div className="containerPrincipalFilter"></div>
       <ul
         className="nav nav-pills mb-3 border border-dark"
         id="pills-tab"
@@ -142,38 +118,29 @@ const FilterTecnicos = () => {
                   <div className="col-12">
                     <h6 className="fw-semibold"> Tarifa </h6>
                   </div>
-                <div className="row">
-                  <div class="col-5">
-                    <span>min</span>
-                    <input
+                  <div className="row">
+                    <div class="col-5">
+                      <span>min</span>
+                      <input
                         type="text"
                         className="form-control"
-                        
                         onChange={(e) => setMinPrice(e.target.value)}
-            
                         aria-label="Username"
                         aria-describedby="basic-addon1"
                       />
+                    </div>
 
-                  </div>
-                  
-                  
-
-                  <div class="col-5">
-                  <span>max</span>
-                  <input
+                    <div class="col-5">
+                      <span>max</span>
+                      <input
                         type="text"
                         className="form-control"
-                       
                         onChange={(e) => setMaxPrice(e.target.value)}
-            
                         aria-label="Username"
                         aria-describedby="basic-addon1"
                       />
-
+                    </div>
                   </div>
-
-                </div>
                 </div>
                 <div className="row mt-2">
                   <div className="col-12">
@@ -191,14 +158,10 @@ const FilterTecnicos = () => {
                         className="form-control"
                         placeholder="Search Skills"
                         onChange={(e) => searchItems(e.target.value)}
-            
                         aria-label="Username"
                         aria-describedby="basic-addon1"
                       />
                     </div>
-                    
-                    
-                    
                   </div>
                 </div>
                 <div className="row">
@@ -290,16 +253,10 @@ const FilterTecnicos = () => {
                     </div>
                   </div>
                 </div>
-                
-                {filteredTecnicos.length > 0 ? (
-                    filteredTecnicos.map((user) => 
-                      <CardTecnico user={user}/> 
-                    )
-                ) : (
-                    usersList.map((user) => 
-                    <CardTecnico user={user}/> 
-                    )
-                )}
+
+                {filteredTecnicos.length > 0
+                  ? filteredTecnicos.map((user) => <CardTecnico user={user} />)
+                  : usersList.map((user) => <CardTecnico user={user} />)}
               </div>
             </div>
           </div>
@@ -481,17 +438,13 @@ const FilterTecnicos = () => {
                     </div>
                   </div>
                 </div>
-                {filteredPreciosT.length > 0 ? (
-                    filteredPreciosT.map((user, index) => 
-                    <CardTickets user={user} index={index}/> 
-                    )
-                ) : (
-                    ticketList.map((user, index) => 
-                         
-                    <CardTickets user={user} index={index}/> 
-                        
-                    )
-                )}
+                {filteredPreciosT.length > 0
+                  ? filteredPreciosT.map((user, index) => (
+                      <CardTickets user={user} index={index} />
+                    ))
+                  : ticketList.map((user, index) => (
+                      <CardTickets user={user} index={index} />
+                    ))}
               </div>
             </div>
           </div>

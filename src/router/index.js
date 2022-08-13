@@ -3,7 +3,6 @@ import { BrowserRouter, Routes, Route } from "react-router-dom";
 import {
   Home,
   CheckOutPayment,
-  Footer,
   MyTickets,
   FilterTecnicos,
   Chasupport,
