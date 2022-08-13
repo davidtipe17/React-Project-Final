@@ -1,11 +1,12 @@
-import { useContext, useState } from "react";
+import { useContext } from "react";
 import { AuthContext } from "../../context";
 import { Navigate } from "react-router-dom";
-import "../.././css/login.css";
+import { FormloginUser } from "../../components";
 import LogoFacebook from "../.././assets/img/facebook.svg";
 import LogoGoogle from "../.././assets/img/google.svg";
 import ImagesLateral from "../.././assets/img/login.svg";
-import { FormloginUser } from "../../components";
+import "../.././css/login.css";
+
 
 const LoginUser = () => {
   const { login, isAuth } = useContext(AuthContext);
