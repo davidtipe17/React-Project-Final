@@ -1,4 +1,4 @@
-import { config } from "./config";
+import { config, Url_User } from "./config";
 
 export const createTicket = async (newTicket) => {
   try {
