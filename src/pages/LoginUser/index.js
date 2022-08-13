@@ -36,7 +36,6 @@ const LoginUser = () => {
             </div>
             <p>or</p>
             <FormloginUser handleSubmit={handleSubmit}/>
-            {/* <FormloginUser handleInputChange={handleInputChange} handleSubmit={handleSubmit} /> */}
           </div>
           <img className="image-container" src={ImagesLateral} alt="fondo" />
         </div>

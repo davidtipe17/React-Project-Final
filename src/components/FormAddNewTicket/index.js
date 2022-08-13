@@ -1,9 +1,9 @@
 
 const FormAddNewTicket = ({handleSubmit, handleInputChange}) => {
     return (
-        <form action="" onSubmit={handleSubmit}>
+        <form onSubmit={handleSubmit}>
             <div className="m-3">
-                <label for="title" className="form-label">Elige un titulo para tu ticket</label>
+                <label  className="form-label">Elige un titulo para tu ticket</label>
                 <input 
                     type="text" 
                     className="form-control rounded-0" 
@@ -13,7 +13,7 @@ const FormAddNewTicket = ({handleSubmit, handleInputChange}) => {
                     />
             </div>
             <div className="m-3">
-                <label for="description" className="form-label">Cuentanos más sobre tu proyecto</label>
+                <label className="form-label">Cuentanos más sobre tu proyecto</label>
                 <textarea 
                     className="form-control" 
                     id="description" 
@@ -23,7 +23,7 @@ const FormAddNewTicket = ({handleSubmit, handleInputChange}) => {
                 ></textarea>
             </div>
             <div className="m-3">
-                <label for="image" className="form-label">
+                <label className="form-label">
                     Inserta una imagen
                 </label>
                 <input
@@ -35,7 +35,7 @@ const FormAddNewTicket = ({handleSubmit, handleInputChange}) => {
                 />
             </div>
             <div className="m-3">
-                <label for="price" className="form-label">¿Cual sera el precio?</label>
+                <label className="form-label">¿Cual sera el precio?</label>
                 <input 
                     type="text" 
                     className="form-control rounded-0" 
