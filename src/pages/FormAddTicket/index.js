@@ -10,8 +10,8 @@ const FormAddTicket = () => {
   const [newTicket, setNewTicket] = useState({
     idCreator: user.id,
     title: "",
-    descripcion: "",
-    imagenUrl: "",
+    description: "",
+    imageUrl: "",
     price: 0,
   });
   const handleInputChange = (event) => {

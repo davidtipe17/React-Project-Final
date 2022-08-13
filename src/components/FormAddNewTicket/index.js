@@ -17,7 +17,7 @@ const FormAddNewTicket = ({handleSubmit, handleInputChange}) => {
                 <textarea 
                     className="form-control" 
                     id="description" 
-                    name="descripcion" 
+                    name="description" 
                     rows="3"
                     onChange={handleInputChange}
                 ></textarea>
@@ -30,7 +30,7 @@ const FormAddNewTicket = ({handleSubmit, handleInputChange}) => {
                     className="form-control rounded-0"
                     type="file"
                     id="image"
-                    name="imagenUrl"
+                    name="imageUrl"
                     onChange={handleInputChange}
                 />
             </div>
