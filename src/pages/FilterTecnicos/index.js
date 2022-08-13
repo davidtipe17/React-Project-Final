@@ -1,11 +1,24 @@
 import { useState, useEffect } from "react";
 import { searchTickets } from "../../services";
+import { getUser } from "../../services";
+import { CardTecnico } from "../../components";
+import imagenprofile from "../../assets/img/profile.png";
+import { CardTickets } from "../../components";
 
 import "../.././css/Filtertecnicos.css";
-import imagenprofile from "../../assets/img/profile.png";
 
 const FilterTecnicos = () => {
   const [ticketList, setTicketList] = useState([]);
+
+  const [usersList, setUserList] = useState([]);
+
+  const [searchInput, setSearchInput] = useState("");
+
+  const [minprice, setMinPrice] = useState("");
+
+  const [maxprice, setMaxPrice] = useState("2000");
+
+  const [filteredResults, setFilteredResults] = useState([]);
 
   const fetchTickets = async () => {
     const data = await searchTickets();
@@ -13,13 +26,45 @@ const FilterTecnicos = () => {
     console.log("probando", data);
   };
 
+  const fetchUsers = async () => {
+    const data = await getUser();
+    setUserList(data);
+    console.log("probando", data);
+  };
+
+  const searchItems = (searchValue) => {
+    setSearchInput(searchValue);
+  };
+
+  //precio maximo y minimo
+
+  const filteredTecnicos = usersList.filter((item) => {
+    return Object.values(item.especialidades)
+      .join("")
+      .toLowerCase()
+      .includes(searchInput.toLowerCase());
+  });
+
+
+  const filteredPreciosT = ticketList.filter((item) => {
+    return item.price > minprice && item.price < maxprice;
+  });
+
+  function createStars(number) {
+    var elements = [];
+    for (let i = 0; i < Math.round(number * 0.05); i++) {
+      elements.push(<i class="fa-solid fa-star"></i>);
+    }
+    return elements;
+  }
+
   useEffect(() => {
     fetchTickets();
+    fetchUsers();
   }, []);
   return (
     <div>
-      <div className="containerPrincipalFilter">
-        </div>  
+      <div className="containerPrincipalFilter"></div>
       <ul
         className="nav nav-pills mb-3 border border-dark"
         id="pills-tab"
@@ -63,7 +108,7 @@ const FilterTecnicos = () => {
         >
           <div className="container-content">
             <div className="row d-flex flex-row justify-content-between">
-              <div className="col-3 card p-3">
+              <div className="col-md-3 card p-3 mb-3">
                 <div className="row">
                   <div className="col-12">
                     <h4 className="fw-semibold"> Filters</h4>
@@ -72,6 +117,29 @@ const FilterTecnicos = () => {
                 <div className="row">
                   <div className="col-12">
                     <h6 className="fw-semibold"> Tarifa </h6>
+                  </div>
+                  <div className="row">
+                    <div class="col-5">
+                      <span>min</span>
+                      <input
+                        type="text"
+                        className="form-control"
+                        onChange={(e) => setMinPrice(e.target.value)}
+                        aria-label="Username"
+                        aria-describedby="basic-addon1"
+                      />
+                    </div>
+
+                    <div class="col-5">
+                      <span>max</span>
+                      <input
+                        type="text"
+                        className="form-control"
+                        onChange={(e) => setMaxPrice(e.target.value)}
+                        aria-label="Username"
+                        aria-describedby="basic-addon1"
+                      />
+                    </div>
                   </div>
                 </div>
                 <div className="row mt-2">
@@ -89,6 +157,7 @@ const FilterTecnicos = () => {
                         type="text"
                         className="form-control"
                         placeholder="Search Skills"
+                        onChange={(e) => searchItems(e.target.value)}
                         aria-label="Username"
                         aria-describedby="basic-addon1"
                       />
@@ -152,7 +221,7 @@ const FilterTecnicos = () => {
                 </div>
               </div>
 
-              <div className="col-8 card">
+              <div className="col-md-8 card mb-3">
                 <div className="row">
                   <div className="card-header d-flex justify-content-between ">
                     <div className="card-component-firstheader d-flex justify-content-around align-items-center text-center">
@@ -175,7 +244,7 @@ const FilterTecnicos = () => {
                         </button>
                       </div>
                     </div>
-                    <div className="row-contenedor-mylist">
+                    <div className="row-contenedor-mylist btn-responsive">
                       <button className="btn" type="button">
                         <i className="fa-solid fa-heart coloriconheart"></i>
                         &nbsp;
@@ -184,81 +253,10 @@ const FilterTecnicos = () => {
                     </div>
                   </div>
                 </div>
-                <div className="card-body">
-                  <div className="row">
-                    <div className="col-3 d-flex justify-content-center">
-                      <img
-                        className="card-img m-auto"
-                        src={imagenprofile}
-                        alt="profile"
-                      />
-                    </div>
-                    <div className="col-6">
-                      <div className="row">
-                        <div className="col">
-                          <div className="row mt-2">
-                            <div className="col">col</div>
-                            <div className="col">col</div>
-                            <div className="col">col</div>
-                            <div className="col">col</div>
-                          </div>
-                        </div>
-                      </div>
-                      <div className="row">
-                        <div className="col">Estrellas</div>
-                        <div className="col">Banderas</div>
-                        <div className="col">Estrellas</div>
-                        <div className="col">Banderas</div>
-                      </div>
-                      <div className="row">
-                        <div className="col">Software Engineer</div>
-                      </div>
-                      <div className="row">
-                        <div className="col">
-                          <p>
-                            Lorem ipsum dolor sit, amet consectetur adipisicing
-                            elit. Repellat magni laudantium aliquid ut nulla.
-                            Quaerat, velit iste sequi numquam ut quam veniam ab
-                            quasi unde consectetur optio veritatis, aliquam
-                            ipsam?
-                          </p>
-                        </div>
-                      </div>
-                      <div className="row mb-5">
-                        <div className="col">Especialidad</div>
-                        <div className="col">Especialidad</div>
-                        <div className="col">Especialidad</div>
-                      </div>
-                    </div>
-                    <div className="col-3 d-flex flex-column justify-content-evenly">
-                      <div className="row mt-3">
-                        <div className="col d-flex justify-content-end">
-                          <h6>$80 USD</h6>
-                        </div>
-                      </div>
-                      <div className="row mt-3 ">
-                        <div className="col d-flex justify-content-end">
-                          <span>Por hora</span>
-                        </div>
-                      </div>
-                      <div className="row mt-3 ">
-                        <div className="col d-flex flex-column">
-                          <div className=" d-flex justify-content-end">
-                            <i className="fa-solid fa-heart coloriconheart "></i>
-                          </div>
-                          <div className="mt-3 d-flex justify-content-end">
-                            <button
-                              type="button"
-                              className="btn btn-primary  rounded-1"
-                            >
-                              Primary
-                            </button>
-                          </div>
-                        </div>
-                      </div>
-                    </div>
-                  </div>
-                </div>
+
+                {filteredTecnicos.length > 0
+                  ? filteredTecnicos.map((user) => <CardTecnico user={user} />)
+                  : usersList.map((user) => <CardTecnico user={user} />)}
               </div>
             </div>
           </div>
@@ -272,7 +270,7 @@ const FilterTecnicos = () => {
         >
           <div className="container-content">
             <div className="row d-flex flex-row justify-content-between">
-              <div className="col-3 card p-3">
+              <div className="col-md-3 card p-3">
                 <div className="row">
                   <div className="col-12">
                     <h4 className="fw-semibold"> Filters</h4>
@@ -294,6 +292,7 @@ const FilterTecnicos = () => {
                         className="form-control"
                         placeholder="Search Skills"
                         aria-label="Username"
+                        onChange={(e) => setMinPrice(e.target.value)}
                         aria-describedby="basic-addon1"
                       />
                     </div>
@@ -313,6 +312,7 @@ const FilterTecnicos = () => {
                       <input
                         type="text"
                         className="form-control"
+                        onChange={(e) => setMaxPrice(e.target.value)}
                         placeholder="Search Skills"
                         aria-label="Username"
                         aria-describedby="basic-addon1"
@@ -406,7 +406,7 @@ const FilterTecnicos = () => {
                   </div>
                 </div>
               </div>
-              <div className="col-8 card">
+              <div className="col-md-8 card">
                 <div className="row">
                   <div className="card-header d-flex justify-content-between ">
                     <div className="card-component-firstheader d-flex justify-content-around align-items-center text-center">
@@ -438,54 +438,13 @@ const FilterTecnicos = () => {
                     </div>
                   </div>
                 </div>
-                {ticketList.length > 0 &&
-                  ticketList.map((user, index) => (
-                    <div key={index} user={user} className="card-body">
-                      <div className="row">
-                        <div className="col-12">
-                          <div className="row d-flex justify-content-between">
-                            <div className="col-5">
-                              <h5>{user.title}</h5>
-                              <span>Bubget $10 - 30 USD</span>
-                            </div>
-                            <div className="col-4">
-                              <h5>{user.price} USD</h5>
-                              <span>average bid</span>
-                            </div>
-                          </div>
-                          <div className="row mt-4">
-                            <div className="col">
-                              <p>
-                                Lorem ipsum dolor sit, amet consectetur
-                                adipisicing elit. Repellat magni laudantium
-                                aliquid ut nulla. Quaerat, velit iste sequi
-                                numquam ut quam veniam ab quasi unde consectetur
-                                optio veritatis, aliquam ipsam?
-                              </p>
-                            </div>
-                          </div>
-                          <div className="row">
-                            <div className="col-12">
-                              <ul className=" d-flex flex-row justify-center-start">
-                                <li>PHP</li>
-                                <li className="ms-4">JavaScript</li>
-                                <li className="ms-4">WordPress</li>
-                                <li className="ms-4">Css</li>
-                                <li className="ms-4">Html</li>
-                              </ul>
-                            </div>
-                          </div>
-                          <div className="row d-flex justify-content-between">
-                            <div className="col-3">Cantidad de Mensajes</div>
-                            <div className="col-3">{user.createdAt}</div>
-                            <div className="col-3 text-bg-success">
-                              <span>{user.state}</span>
-                            </div>
-                          </div>
-                        </div>
-                      </div>
-                    </div>
-                  ))}
+                {filteredPreciosT.length > 0
+                  ? filteredPreciosT.map((user, index) => (
+                      <CardTickets user={user} index={index} />
+                    ))
+                  : ticketList.map((user, index) => (
+                      <CardTickets user={user} index={index} />
+                    ))}
               </div>
             </div>
           </div>

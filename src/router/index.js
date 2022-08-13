@@ -3,12 +3,11 @@ import { BrowserRouter, Routes, Route } from "react-router-dom";
 import {
   Home,
   CheckOutPayment,
-  Footer,
   MyTickets,
   FilterTecnicos,
   Chasupport,
   FormAddTicket,
-  Login,
+  LoginUser,
   Profile,
   QuestionAndAnswer,
   EditProfile,
@@ -23,7 +22,7 @@ const Router = () => {
       <Routes>
         <Route element={<HeaderBarPublic/>}>
         <Route path="/" element={<Home />} />
-        <Route path="/login" element={<Login />} />
+        <Route path="/login" element={<LoginUser />} />
         <Route path="/signup" element={<SignUp />} />
         </Route>
         <Route element={<HeaderBar />}>
