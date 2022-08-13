@@ -37,7 +37,7 @@ const CardTecnico = ({ user }) => {
             <div className="col">{user.pais}</div>
 
             <div className="col">
-        
+              <i class="flag flag-united-states"></i>
             </div>
           </div>
           <div className="row">

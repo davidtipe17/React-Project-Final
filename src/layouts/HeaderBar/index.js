@@ -28,7 +28,6 @@ import MarkUnreadChatAltIcon from "@mui/icons-material/MarkUnreadChatAlt";
 import WorkOutlineIcon from "@mui/icons-material/WorkOutline";
 import LocalGroceryStoreRoundedIcon from "@mui/icons-material/LocalGroceryStoreRounded";
 import LineAxisRoundedIcon from "@mui/icons-material/LineAxisRounded";
-import { styled, useTheme } from "@mui/material/styles";
 
 const ResponsiveAppBar = () => {
   const history = useNavigate();
@@ -40,7 +39,6 @@ const ResponsiveAppBar = () => {
   if (!isAuth()) {
     return <Navigate to="/login" />;
   }
-
 
   const handleOpenNavMenu = (event) => {
     setAnchorElNav(event.currentTarget);
@@ -55,15 +53,14 @@ const ResponsiveAppBar = () => {
     setAnchorElUser(null);
   };
 
-  
   return (
     <Container>
       <Box
         sx={{
-         
+          width: 1600,
         }}
       >
-        <AppBar >
+        <AppBar>
           <Container maxWidth="xl">
             <Toolbar disableGutters>
               <ImageListItem
@@ -76,7 +73,7 @@ const ResponsiveAppBar = () => {
                   display: { xs: "none", md: "flex" },
                 }}
                 cols={3}
-                rowheight={164}
+                rowHeight={164}
               >
                 <img src={Support} alt="" />
               </ImageListItem>
@@ -144,7 +141,7 @@ const ResponsiveAppBar = () => {
                   justifyContent: "center",
                 }}
                 cols={3}
-                rowheight={164}
+                rowHeight={164}
               >
                 <img src={Support} alt="" />
               </Box>
@@ -251,9 +248,9 @@ const ResponsiveAppBar = () => {
           </Container>
         </AppBar>
       </Box>
-      <Box sx={{ m:10 }}>
-				<Outlet />
-			</Box>
+      <Box>
+        <Outlet />
+      </Box>
     </Container>
   );
 };

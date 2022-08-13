@@ -3,10 +3,17 @@
   margin: 0;
 }
 
+body{
+  display: flex;
+  justify-content: center;
+  margin-top: 40px;
+
+}
 /* .containerPrincipalFilter{
 } */
 .container-content {
-  width: 100%;
+
+  height: 100vh;
 }
 .coloriconheart {
   color: fuchsia;
@@ -21,13 +28,3 @@
     width: 9%;
     text-align: center;
 }
-
-@media screen and (max-width: 1200px) {
-
-  .btn-responsive {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  }
-
-  }

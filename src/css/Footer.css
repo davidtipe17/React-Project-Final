@@ -6,7 +6,7 @@
 .container-fluid2{
     background-color: #bf9595;
     display: flex;  
-    width: 100w;
+    width: 100vw;
     justify-content: center;
 }
 .container-fluid .row{

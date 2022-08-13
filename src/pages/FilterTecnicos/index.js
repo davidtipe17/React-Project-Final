@@ -1,81 +1,70 @@
 import { useState, useEffect } from "react";
 import { searchTickets } from "../../services";
-import { getUser} from "../../services";
+import { getUser } from "../../services";
 import { CardTecnico } from "../../components";
 import imagenprofile from "../../assets/img/profile.png";
 import { CardTickets } from "../../components";
 
 import "../.././css/Filtertecnicos.css";
 
-
 const FilterTecnicos = () => {
   const [ticketList, setTicketList] = useState([]);
 
   const [usersList, setUserList] = useState([]);
 
-  const [searchInput, setSearchInput] = useState('');
+  const [searchInput, setSearchInput] = useState("");
 
-  const [minprice, setMinPrice] = useState('');
+  const [minprice, setMinPrice] = useState("");
 
-  const [maxprice, setMaxPrice] = useState('2000');
+  const [maxprice, setMaxPrice] = useState("2000");
 
-
+  const [filteredResults, setFilteredResults] = useState([]);
 
   const fetchTickets = async () => {
     const data = await searchTickets();
     setTicketList(data);
     console.log("probando", data);
-
   };
 
   const fetchUsers = async () => {
     const data = await getUser();
     setUserList(data);
     console.log("probando", data);
-    
   };
 
   const searchItems = (searchValue) => {
-    setSearchInput(searchValue)
-   }
-   //precio maximo y minimo    
+    setSearchInput(searchValue);
+  };
+
+  //precio maximo y minimo
+
   const filteredTecnicos = usersList.filter((item) => {
-    return Object.values(item.especialidades).join('').toLowerCase().includes(searchInput.toLowerCase())
-    
-    } )
+    return Object.values(item.especialidades)
+      .join("")
+      .toLowerCase()
+      .includes(searchInput.toLowerCase());
+  });
 
 
-
-
-    //filtro de precios
-  //console.log(filteredTecnicos)
-  
-  //console.log(filteredPrecios)
-
-  //filtro de preciostickets
   const filteredPreciosT = ticketList.filter((item) => {
-    return item.price > minprice && item.price < maxprice
-    
-    }
+    return item.price > minprice && item.price < maxprice;
+  });
 
-  )
-
-  function createStars(number){
+  function createStars(number) {
     var elements = [];
-    for(let i =0; i < Math.round(number*0.05); i++){
-        elements.push( <i class="fa-solid fa-star"></i>);
+    for (let i = 0; i < Math.round(number * 0.05); i++) {
+      elements.push(<i class="fa-solid fa-star"></i>);
     }
     return elements;
-}
+  }
 
   useEffect(() => {
     fetchTickets();
     fetchUsers();
   }, []);
-
   return (
-
-    <div className="prueba1">
+    <div>
+      <div className="containerPrincipalFilter"></div>
       <ul
         className="nav nav-pills mb-3 border border-dark"
         id="pills-tab"
@@ -109,7 +98,6 @@ const FilterTecnicos = () => {
           </button>
         </li>
       </ul>
-      
       <div className="tab-content" id="pills-tabContent">
         <div
           className="tab-pane fade show active"
@@ -118,7 +106,7 @@ const FilterTecnicos = () => {
           aria-labelledby="pills-home-tab"
           tabIndex="0"
         >
-          <div >
+          <div className="container-content">
             <div className="row d-flex flex-row justify-content-between">
               <div className="col-md-3 card p-3 mb-3">
                 <div className="row">
@@ -126,10 +114,37 @@ const FilterTecnicos = () => {
                     <h4 className="fw-semibold"> Filters</h4>
                   </div>
                 </div>
-               
+                <div className="row">
+                  <div className="col-12">
+                    <h6 className="fw-semibold"> Tarifa </h6>
+                  </div>
+                  <div className="row">
+                    <div class="col-5">
+                      <span>min</span>
+                      <input
+                        type="text"
+                        className="form-control"
+                        onChange={(e) => setMinPrice(e.target.value)}
+                        aria-label="Username"
+                        aria-describedby="basic-addon1"
+                      />
+                    </div>
+
+                    <div class="col-5">
+                      <span>max</span>
+                      <input
+                        type="text"
+                        className="form-control"
+                        onChange={(e) => setMaxPrice(e.target.value)}
+                        aria-label="Username"
+                        aria-describedby="basic-addon1"
+                      />
+                    </div>
+                  </div>
+                </div>
                 <div className="row mt-2">
                   <div className="col-12">
-                    <h6 className="fw-semibold"> Skillss </h6>
+                    <h6 className="fw-semibold"> Skills </h6>
                   </div>
                 </div>
                 <div className="row ">
@@ -143,10 +158,64 @@ const FilterTecnicos = () => {
                         className="form-control"
                         placeholder="Search Skills"
                         onChange={(e) => searchItems(e.target.value)}
-            
                         aria-label="Username"
                         aria-describedby="basic-addon1"
                       />
+                    </div>
+                  </div>
+                </div>
+                <div className="row">
+                  <div className="col">
+                    <div className="form-check">
+                      <input
+                        className="form-check-input"
+                        type="checkbox"
+                        value=""
+                        id="flexCheckChecked"
+                        checked
+                      />
+                      <label
+                        className="form-check-label"
+                        for="flexCheckChecked"
+                      >
+                        Skill 1
+                      </label>
+                    </div>
+                    <div className="form-check">
+                      <input
+                        className="form-check-input"
+                        type="checkbox"
+                        value=""
+                        id="flexCheckChecked"
+                        checked
+                      />
+                      <label
+                        className="form-check-label"
+                        for="flexCheckChecked"
+                      >
+                        Skill 2
+                      </label>
+                    </div>
+                  </div>
+                </div>
+                <div className="row mt-1">
+                  <div className="col">
+                    <label htmlFor="row">
+                      <h6>Online</h6>
+                    </label>
+                    <div className="form-check form-switch">
+                      <input
+                        className="form-check-input"
+                        type="checkbox"
+                        role="switch"
+                        id="flexSwitchCheckChecked"
+                      />
+                      <label
+                        className="form-check-label"
+                        for="flexSwitchCheckChecked"
+                      >
+                        Tecnicos Online
+                      </label>
                     </div>
                   </div>
                 </div>
@@ -185,19 +254,9 @@ const FilterTecnicos = () => {
                   </div>
                 </div>
 
-                {filteredTecnicos.length > 0 ? (
-                    filteredTecnicos.map((user) => 
-                      <CardTecnico user={user}/> 
-                    )
-                ) : (
-                    usersList.map((user) => 
-                    <CardTecnico user={user}/> 
-                    )
-                )}
-
-                
-
-
+                {filteredTecnicos.length > 0
+                  ? filteredTecnicos.map((user) => <CardTecnico user={user} />)
+                  : usersList.map((user) => <CardTecnico user={user} />)}
               </div>
             </div>
           </div>
@@ -209,7 +268,7 @@ const FilterTecnicos = () => {
           aria-labelledby="pills-profile-tab"
           tabIndex="0"
         >
-          <div >
+          <div className="container-content">
             <div className="row d-flex flex-row justify-content-between">
               <div className="col-md-3 card p-3">
                 <div className="row">
@@ -229,9 +288,9 @@ const FilterTecnicos = () => {
                         <i className="fa-solid fa-dollar-sign"></i>
                       </span>
                       <input
-                        type="number"
+                        type="text"
                         className="form-control"
-                       
+                        placeholder="Search Skills"
                         aria-label="Username"
                         onChange={(e) => setMinPrice(e.target.value)}
                         aria-describedby="basic-addon1"
@@ -251,10 +310,31 @@ const FilterTecnicos = () => {
                         <i className="fa-solid fa-dollar-sign"></i>
                       </span>
                       <input
-                        type="num,b"
+                        type="text"
                         className="form-control"
                         onChange={(e) => setMaxPrice(e.target.value)}
-                       
+                        placeholder="Search Skills"
+                        aria-label="Username"
+                        aria-describedby="basic-addon1"
+                      />
+                    </div>
+                  </div>
+                </div>
+                <div className="row mt-2">
+                  <div className="col">
+                    <h6 className="fw-semibold"> Skills </h6>
+                  </div>
+                </div>
+                <div className="row ">
+                  <div className="col border border-light">
+                    <div className="input-group mb-3">
+                      <span className="input-group-text" id="basic-addon1">
+                        <i className="fa-solid fa-magnifying-glass"></i>
+                      </span>
+                      <input
+                        type="text"
+                        className="form-control"
+                        placeholder="Search Skills"
                         aria-label="Username"
                         aria-describedby="basic-addon1"
                       />
@@ -262,6 +342,68 @@ const FilterTecnicos = () => {
                   </div>
                 </div>
                 <div className="row">
+                  <div className="col">
+                    <div className="form-check">
+                      <input
+                        className="form-check-input"
+                        type="checkbox"
+                        value=""
+                        id="flexCheckChecked"
+                        checked
+                      />
+                      <label
+                        className="form-check-label"
+                        for="flexCheckChecked"
+                      >
+                        Skill 1
+                      </label>
+                    </div>
+                    <div className="form-check">
+                      <input
+                        className="form-check-input"
+                        type="checkbox"
+                        value=""
+                        id="flexCheckChecked"
+                        checked
+                      />
+                      <label
+                        className="form-check-label"
+                        for="flexCheckChecked"
+                      >
+                        Skill 2
+                      </label>
+                    </div>
+                    <div className="form-check">
+                      <input
+                        className="form-check-input"
+                        type="checkbox"
+                        value=""
+                        id="flexCheckChecked"
+                        checked
+                      />
+                      <label
+                        className="form-check-label"
+                        for="flexCheckChecked"
+                      >
+                        Skill 3
+                      </label>
+                    </div>
+                    <div className="form-check">
+                      <input
+                        className="form-check-input"
+                        type="checkbox"
+                        value=""
+                        id="flexCheckChecked"
+                        checked
+                      />
+                      <label
+                        className="form-check-label"
+                        for="flexCheckChecked"
+                      >
+                        Skill 4
+                      </label>
+                    </div>
+                  </div>
                 </div>
               </div>
               <div className="col-md-8 card">
@@ -296,18 +438,13 @@ const FilterTecnicos = () => {
                     </div>
                   </div>
                 </div>
-                {filteredPreciosT.length > 0 ? (
-                    filteredPreciosT.map((user, index) => 
-                    <CardTickets user={user} index={index}/> 
-                    )
-                ) : (
-                    ticketList.map((user, index) => 
-                         
-                    <CardTickets user={user} index={index}/>          
-                    )
-                )}
-
-
+                {filteredPreciosT.length > 0
+                  ? filteredPreciosT.map((user, index) => (
+                      <CardTickets user={user} index={index} />
+                    ))
+                  : ticketList.map((user, index) => (
+                      <CardTickets user={user} index={index} />
+                    ))}
               </div>
             </div>
           </div>

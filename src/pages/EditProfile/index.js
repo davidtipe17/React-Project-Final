@@ -5,13 +5,15 @@ import "../../css/editProfile.css";
 import { EditPassword, EditUpdateProfile } from "../../components";
 
 const EditProfile = () => {
+  const capturatePro = document.querySelector("#input_newcontrasena");
+  const capturate = document.querySelector("#input_confirmcontrasena");
   const { logout, user, updateUserAuth } = useContext(AuthContext);
-
+  const [validatepass, setValidatePass] = useState({});
   const [newProfile, setNewProfile] = useState({
-    nombre: "",
-    apellido: "",
-    direccion: "",
-    confirmpassword: "",
+    nombre: user.name,
+    apellido: user.apellido,
+    direccion: user.direccion,
+    confirmpassword: user.contrasena,
   });
   const handleSubmit = async (event) => {
     event.preventDefault();
@@ -35,6 +37,16 @@ const EditProfile = () => {
     }
   };
 
+  const handleInputChangePassword = (e) => {
+    const { name, value } = e.target;
+    setValidatePass({ ...validatepass, [name]: value });
+  };
+  if (validatepass.contrasena === user.contrasena) {
+    capturate.removeAttribute("disabled");
+    capturatePro.removeAttribute("disabled");
+  }
+
+
   return (
     <div>
       <form
@@ -51,7 +63,10 @@ const EditProfile = () => {
                   newProfile={newProfile}
                   handleInputChange={handleInputChange}
                 />
-                <EditPassword handleInputChange={handleInputChange} />
+                <EditPassword
+                  handleInputChangePassword={handleInputChangePassword}
+                  handleInputChange={handleInputChange}
+                />
               </div>
             </div>
           </div>
