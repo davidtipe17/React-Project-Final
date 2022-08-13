@@ -16,6 +16,7 @@ const MyTickets = () => {
   const filteredTicketsOpen = ticketList.filter(
     (ticket) => ticket.state === "Abierto" && ticket.idCreator === user.id
   );
+  console.log(filteredTicketsOpen);
   const filteredTicketsProcess = ticketList.filter(
     (ticket) => ticket.state === "Proceso" && ticket.idSolver === user.id
   );

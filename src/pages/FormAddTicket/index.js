@@ -6,9 +6,10 @@ import { FormAddNewTicket } from "../../components";
 import "../../css/FormAddTicket.css";
 const FormAddTicket = () => {
   const { user } = useContext(AuthContext);
+  const [userCreator, setUserCreator] = useState(user.id);
 
   const [newTicket, setNewTicket] = useState({
-    idCreator: user.id,
+    idCreator: userCreator,
     title: "",
     description: "",
     imageUrl: "",
@@ -29,6 +30,7 @@ const FormAddTicket = () => {
     const res = await createTicket(newTicket);
     if (res) {
       alert("ticket creado con exito");
+      console.log(newTicket);
     }
   };
   return (

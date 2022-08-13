@@ -5,11 +5,11 @@ export const createTicket = async (newTicket) => {
     const response = await fetch(config, {
       method: "POST",
       body: JSON.stringify({
+        idCreator: newTicket.idCreator,
         title: newTicket.title,
-        imagenUrl: newTicket.imagenUrl,
-        state: "abierto",
-        idCreator: newTicket.idUser,
-        descripcion: newTicket.descripcion,
+        imageUrl: newTicket.imageUrl,
+        state: "Abierto",
+        description: newTicket.description,
       }),
       headers: {
         "Content-type": "application/json",
