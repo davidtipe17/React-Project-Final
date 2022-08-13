@@ -1,3 +1,4 @@
+import {  useNavigate } from "react-router-dom";
 import {
     Button, 
     Box, 
@@ -6,6 +7,7 @@ import {
     TextField
 } from "@mui/material";
 const FormUserRegister = ({handleInputChange, handleSubmit}) => {
+    const history = useNavigate();
     return (
         <Box component="form" noValidate onSubmit={handleSubmit} sx={{ mt: 3 }}>
             <Grid container spacing={2}>
@@ -84,6 +86,7 @@ const FormUserRegister = ({handleInputChange, handleSubmit}) => {
                 fullWidth
                 variant="contained"
                 sx={{ mt: 3, mb: 2 }}
+                // onClick={() => history("/login")}
             >
                 Sign Up
             </Button>

@@ -1,4 +1,4 @@
-const EdidPassword = ({ handleInputChange,handleInputChangePassword }) => {
+const EdidPassword = ({ handleInputChange, handleInputChangePassword }) => {
   return (
     <div className="container mt-3">
       <div className="card-header">
@@ -7,44 +7,9 @@ const EdidPassword = ({ handleInputChange,handleInputChangePassword }) => {
       <div className="card-body">
         <div className="card py-5 px-3 rounded-0">
           <h4 className="mb-3">Cambiar Contraseña</h4>
-          <h5 clas>Contraseña</h5>
-          <div class="col-md-6">
-            <div class="input-group mb-3">
-              <input
-                type="text"
-                class="form-control"
-                name="contrasena"
-                aria-label="Username"
-                aria-describedby="basic-addon1"
-                onChange={handleInputChangePassword}
-              />
-              <span class="input-group-text bg-white" id="basic-addon1">
-                <i class="fa-solid fa-eye-low-vision"></i>
-              </span>
-            </div>
-          </div>
-          <h5 clas>Nueva Contraseña</h5>
-          <div class="col-md-6">
-            <div class="input-group mb-3">
-              <input
-                type="text"
-                class="form-control"
-                name="newpassword"
-                aria-label="Username"
-                aria-describedby="basic-addon1"
-                id="input_newcontrasena"
-            disabled
-                
-              />
-              <span class="input-group-text bg-white" id="basic-addon1">
-                <i class="fa-solid fa-eye-low-vision"></i>
-              </span>
-            </div>
-          </div>
 
-          <h5 clas>Confirmar Contraseña</h5>
           <div class="col-md-6">
-            <div class="input-group mb-3">
+            <div class="input-group mb-3 mt-3">
               <input
                 type="text"
                 class="form-control"
@@ -53,7 +18,6 @@ const EdidPassword = ({ handleInputChange,handleInputChangePassword }) => {
                 aria-describedby="basic-addon1"
                 onChange={handleInputChange}
                 id="input_confirmcontrasena"
-                disabled
               />
               <span class="input-group-text bg-white" id="basic-addon1">
                 <i class="fa-solid fa-eye-low-vision"></i>

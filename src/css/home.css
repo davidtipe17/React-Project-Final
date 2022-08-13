@@ -3,6 +3,8 @@
     padding: 0;
     box-sizing: border-box;    
 }
+
+
 .home{
     font-family: 'Cinzel', serif;
 }
@@ -23,7 +25,6 @@
     text-align: center;
     font-weight: 600;
 }
-
 
 /* 3 section barra de suscripcion  */
 

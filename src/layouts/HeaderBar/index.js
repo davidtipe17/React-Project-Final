@@ -58,7 +58,7 @@ const ResponsiveAppBar = () => {
     <Container>
       <Box
         sx={{
-          width: 1600,
+        
         }}
       >
         <AppBar>
@@ -182,7 +182,7 @@ const ResponsiveAppBar = () => {
               <Box sx={{ flexGrow: 0, display: "flex" }}>
                 <Box sx={{ mr: 20 }}>
                   <Typography>
-                    <Button sx={{ backgroundColor: "red" }} variant="contained">
+                    <Button onClick={() => history("/form")} sx={{ backgroundColor: "red" }} variant="contained">
                       Post a Ticket
                     </Button>
                   </Typography>
@@ -214,14 +214,12 @@ const ResponsiveAppBar = () => {
                   onClick={handleCloseUserMenu}
                 >
                   <MenuList onClick={handleCloseUserMenu}>
-                    <MenuItem variant="h6" noWrap component="h5">
-                      {user.name + " " + user.apellido}
-                    </MenuItem>
+                  
                     <MenuItem onClick={() => history("/profile")}>
                       <ListItemIcon>
                         <SwitchAccountIcon fontSize="small" />
                       </ListItemIcon>
-                      <ListItemText>Profile</ListItemText>
+                      <ListItemText>{user.name + " " + user.apellido}</ListItemText>
                     </MenuItem>
                     <MenuItem onClick={() => history("/checkoutpayment")}>
                       <ListItemIcon>
@@ -249,10 +247,10 @@ const ResponsiveAppBar = () => {
           </Container>
         </AppBar>
       </Box>
-      <Box>
+      <Box sx={{ mt:10 }}>
         <Outlet />
       </Box>
-      <Footer/>
+      {/* <Footer/> */}
     </Container>
   );
 };

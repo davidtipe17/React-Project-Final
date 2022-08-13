@@ -29,7 +29,7 @@ const MyTickets = () => {
     fetchTickets();
   }, []);
   return (
-    <div>
+    <div className="container-ticket-filter ">
       <div className="container-md  tickets-container mt-5">
         <div className="cardHeader row justify-content-between py-3">
           <div className="col-sm-12 text-center mt-4 text-bg-danger p-3">

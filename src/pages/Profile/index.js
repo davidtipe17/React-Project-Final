@@ -1,14 +1,17 @@
 import { useContext } from "react";
+import {  useNavigate } from "react-router-dom";
+
 import { AuthContext } from "../../context";
 import { updateUser } from "../../services";
 import Swal from "sweetalert2";
 import "../.././css/profile.css";
+
 import imagenprofile from "../../assets/img/profile.png";
 import { FormAddEducacion } from "../../components";
 import { FormAddExperience } from "../../components";
 const Profile = () => {
   const { user, updateUserAuth } = useContext(AuthContext);
-
+  const history = useNavigate();
   const editUser = async () => {
     const response = await Swal.fire({
       title: "Edita la Profesion",
@@ -604,7 +607,7 @@ const Profile = () => {
           </div>
 
           {/* COLUMN TWO */}
-          <div className="col-3">
+          <div className="col-md-3">
             <div className="row">
               <div className="col-12 card justify-content-center margintoplateraltwo">
                 <div className="row">
@@ -619,7 +622,7 @@ const Profile = () => {
                         Verified
                       </div>
                     </div>
-                    <button type="button" class="btn btn-link">
+                    <button onClick={() => history("/contact")} type="button" class="btn btn-link">
                       Verify
                     </button>
                   </div>
@@ -630,7 +633,7 @@ const Profile = () => {
                         <i class="fa-solid fa-credit-card"></i> Payment Verified
                       </div>
                     </div>
-                    <button type="button" class="btn btn-link">
+                    <button onClick={() => history("/contact")} type="button" class="btn btn-link">
                       Verify
                     </button>
                   </div>
@@ -641,7 +644,7 @@ const Profile = () => {
                         <i class="fa-solid fa-envelope"> </i> Email Verified
                       </div>
                     </div>
-                    <button type="button" class="btn btn-link">
+                    <button onClick={() => history("/contact")} type="button" class="btn btn-link">
                       Verify
                     </button>
                   </div>
@@ -652,7 +655,7 @@ const Profile = () => {
                         Connected
                       </div>
                     </div>
-                    <button type="button" class="btn btn-link">
+                    <button onClick={() => history("/contact")} type="button" class="btn btn-link">
                       Connect
                     </button>
                   </div>

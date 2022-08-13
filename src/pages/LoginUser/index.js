@@ -7,7 +7,6 @@ import LogoGoogle from "../.././assets/img/google.svg";
 import ImagesLateral from "../.././assets/img/login.svg";
 import "../.././css/login.css";
 
-
 const LoginUser = () => {
   const { login, isAuth } = useContext(AuthContext);
 
@@ -30,13 +29,9 @@ const LoginUser = () => {
                 <img src={LogoGoogle} alt="google-image" />
                 <span>Google</span>
               </div>
-              <div className="social-login-element">
-                <img src={LogoFacebook} alt="facebook-image" />
-                <span>Facebook</span>
-              </div>
             </div>
             <p>or</p>
-            <FormloginUser handleSubmit={handleSubmit}/>
+            <FormloginUser handleSubmit={handleSubmit} />
           </div>
           <img className="image-container" src={ImagesLateral} alt="fondo" />
         </div>

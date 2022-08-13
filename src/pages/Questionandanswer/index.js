@@ -9,7 +9,7 @@ const QuestionAndAnswer = () => {
         </div>
       </div>
       <div className="row mb-4">
-        <div className="col-12">
+        <div className="col">
           <p>
             Lorem ipsum dolor sit amet consectetur adipisicing elit. Aut
             voluptate praesentium, soluta, cupiditate autem quam a labore est

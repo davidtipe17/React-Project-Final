@@ -5,10 +5,8 @@ import "../../css/editProfile.css";
 import { EditPassword, EditUpdateProfile } from "../../components";
 
 const EditProfile = () => {
-  const capturatePro = document.querySelector("#input_newcontrasena");
-  const capturate = document.querySelector("#input_confirmcontrasena");
   const { logout, user, updateUserAuth } = useContext(AuthContext);
-  const [validatepass, setValidatePass] = useState({});
+
   const [newProfile, setNewProfile] = useState({
     nombre: user.name,
     apellido: user.apellido,
@@ -37,16 +35,6 @@ const EditProfile = () => {
     }
   };
 
-  const handleInputChangePassword = (e) => {
-    const { name, value } = e.target;
-    setValidatePass({ ...validatepass, [name]: value });
-  };
-  if (validatepass.contrasena === user.contrasena) {
-    capturate.removeAttribute("disabled");
-    capturatePro.removeAttribute("disabled");
-  }
-
-
   return (
     <div>
       <form
@@ -55,7 +43,6 @@ const EditProfile = () => {
       >
         <div className="containerEditProfile rounded-1">
           <div className="row">
-            <div className="col-md-3 mt-5 mb-3"></div>
             <div className="col-md-9 bodyEditProfile pb-5">
               <div className="tab-content" id="v-pills-tabContent">
                 <EditUpdateProfile
@@ -63,10 +50,7 @@ const EditProfile = () => {
                   newProfile={newProfile}
                   handleInputChange={handleInputChange}
                 />
-                <EditPassword
-                  handleInputChangePassword={handleInputChangePassword}
-                  handleInputChange={handleInputChange}
-                />
+                <EditPassword handleInputChange={handleInputChange} />
               </div>
             </div>
           </div>

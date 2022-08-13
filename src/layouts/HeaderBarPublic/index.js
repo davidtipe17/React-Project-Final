@@ -35,7 +35,7 @@ const HeaderBarPublic = () => {
     <>
       <Box
         sx={{
-          width: 1600,
+         
         }}
       >
         <AppBar>
@@ -115,9 +115,7 @@ const HeaderBarPublic = () => {
                   display: { xs: "none", md: "flex" },
                 }}
               >
-                <Button sx={{ margin: 0.4, color: "white" }} variant="text">
-                  My Tickets
-                </Button>
+            
               </Box>
 
               <Box sx={{ display: "flex" }}>
@@ -134,9 +132,11 @@ const HeaderBarPublic = () => {
           </Container>
         </AppBar>
       </Box>
+      <Box sx={{ mt:10 }}>
+        <Outlet />
+      </Box>
 
-      <Outlet />
-      <Footer />
+      {/* <Footer /> */}
     </>
   );
 };

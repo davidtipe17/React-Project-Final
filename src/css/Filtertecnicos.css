@@ -3,14 +3,7 @@
   margin: 0;
 }
 
-body{
-  display: flex;
-  justify-content: center;
-  margin-top: 40px;
 
-}
-/* .containerPrincipalFilter{
-} */
 .container-content {
 
   height: 100vh;

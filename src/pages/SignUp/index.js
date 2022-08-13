@@ -6,11 +6,11 @@ import {
   Container,
   Link,
   Typography,
-  CssBaseline
+  CssBaseline,
 } from "@mui/material";
 import LockOutlinedIcon from "@mui/icons-material/LockOutlined";
 import { FormUserRegister } from "../../components";
-import {  useNavigate } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
 function Copyright(props) {
   return (
     <Typography
@@ -50,11 +50,12 @@ export default function SignUp() {
     event.preventDefault();
     addUser();
   };
-
+  const history = useNavigate();
   async function addUser() {
     const res = await createUser(newUser);
     if (res) {
       alert("usuario creado con exito");
+      history("/login");
     }
   }
 
@@ -75,7 +76,10 @@ export default function SignUp() {
         <Typography component="h1" variant="h5">
           Sign up
         </Typography>
-        <FormUserRegister handleInputChange={handleInputChange} handleSubmit={handleSubmit} />
+        <FormUserRegister
+          handleInputChange={handleInputChange}
+          handleSubmit={handleSubmit}
+        />
       </Box>
       <Copyright sx={{ mt: 5 }} />
     </Container>

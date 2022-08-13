@@ -1,194 +1,149 @@
-
 :root {
-    --login-bg:#f1eded;
-    --title-bg: #000000;
-    --button-bg: #d36161;
-    --light-pink: #000000;
-    --image-bg:  #efc1c1 ;
+  --login-bg: #f1eded;
+  --title-bg: #000000;
+  --button-bg: #d36161;
+  --light-pink: #000000;
+  --image-bg: #efc1c1;
 }
 
 .login-container-total {
-    height: 100vh;
-    width: 100%;
-    font-family: 'Poppins', sans-serif;
-    background-image: url(".././assets/img/loginBackground.png");
-    background-repeat:no-repeat;
-    background-size: cover;
+
+
+  font-family: "Poppins", sans-serif;
+
+  background-repeat: no-repeat;
+  background-size: cover;
 }
 
 .login-container-main {
-    display: flex;
-   justify-content: center;
-    
-} 
-
+  display: flex;
+  justify-content: center;
+}
 
 .login-container-tridcontainer {
-    margin-top: 60px;
-    height: 43.75em;
-    width: 60em;
-    border-radius: 10px;
-    display: flex;
-    
-    overflow: hidden;
+  margin-top: 60px;
+  height: 43.75em;
+
+  border-radius: 10px;
+  display: flex;
+  overflow: hidden;
+  justify-content: center;
 }
 
 .login-information-container {
-
-    width: 50%;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: space-between;
-    text-align: center;
-    padding-top: 60px;
-    background-color: var(--login-bg);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-between;
+  text-align: center;
+  padding-top: 60px;
+  background-color: var(--login-bg);
 }
 
 .image-container {
-    padding: 2rem;
-    width: 50%;
-    background-color: var(--image-bg);
-    box-sizing: border-box;
+  padding: 2rem;
+  width: 50%;
+  background-color: var(--image-bg);
+  box-sizing: border-box;
 }
 
 .title {
-    text-transform: capitalize;
-    font-size: 2.25rem;
-    font-weight: 600;
-    letter-spacing: 1px;
-    color: var(--title-bg);
+  text-transform: capitalize;
+  font-size: 2.25rem;
+  font-weight: 600;
+  letter-spacing: 1px;
+  color: var(--title-bg);
 }
 
 .social-login {
-    width: 100%;
-    display: flex;
-    justify-content: space-evenly;
-    cursor: pointer;
-    margin-top: 20px;
+  width: 100%;
+  display: flex;
+  justify-content: space-evenly;
+  cursor: pointer;
+  margin-top: 20px;
 }
 
 .social-login-element {
-    width: 12.5rem;
-    height: 3.75rem;
-    font-size: 1.2rem;
-    font-weight: 700;
-    letter-spacing: 0.5px;
-    border-radius: 5px;
-    border: 1px solid var(--button-bg);
-    display: flex;
-    justify-content: center;
-    align-items: center;
+  width: 12.5rem;
+  height: 3.75rem;
+  font-size: 1.2rem;
+  font-weight: 700;
+  letter-spacing: 0.5px;
+  border-radius: 5px;
+  border: 1px solid var(--button-bg);
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
 
 .social-login-element img {
-    width: 1.875rem;
-    height: 1.875rem;
-    position: relative;
-    top: 0;
-    left: -0.625rem;
+  width: 1.875rem;
+  height: 1.875rem;
+  position: relative;
+  top: 0;
+  left: -0.625rem;
 }
 
 .social-login-element:hover {
-    background-color: #fff;
+  background-color: #fff;
 }
 
 .login-info-container > p {
-    font-size: 1.25em;
-    margin-top: 1.5em;
+  font-size: 1.25em;
+  margin-top: 1.5em;
 }
 
 .inputs-container {
-    height: 55%;
-    width: 85%;
-    display: flex;
-    flex-direction: column;
-    justify-content: space-around;
-    align-items: center;
+  height: 55%;
+  width: 85%;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+  align-items: center;
 }
 
-.input, .btn {
-    width: 90%;
-    height: 3.125rem;
-    font-size: 1em;
+.input,
+.btn {
+  width: 90%;
+  height: 3.125rem;
+  font-size: 1em;
 }
 
 .input {
-    padding-left: 20px;
-    border: none;
-    border-radius: 5px;
-    font-weight: 600;
-    letter-spacing: 1px;
-    box-sizing: border-box;
+  padding-left: 20px;
+  border: none;
+  border-radius: 5px;
+  font-weight: 600;
+  letter-spacing: 1px;
+  box-sizing: border-box;
 }
 
-
 .input:hover {
-    border: 2px solid var(--button-bg);
+  border: 2px solid var(--button-bg);
 }
 
 .btn {
-    width: 80%;
-    letter-spacing: 1px;
-    text-transform: uppercase;
-    color: white;
-    border: none;
-    border-radius: 5px;
-    background-color: var(--button-bg);
-    cursor: pointer;
+  width: 80%;
+  letter-spacing: 1px;
+  color: white;
+  border: none;
+  border-radius: 5px;
+  background-color: var(--button-bg);
+  cursor: pointer;
 }
 
 .inputs-container p {
-    margin: 0;
+  margin: 0;
 }
 
 .span {
-    color: var(--light-pink);
-    font-weight: 600;
-    cursor: pointer;
+  color: var(--light-pink);
+  font-weight: 600;
+  cursor: pointer;
 }
-
 
 @media screen and (max-width: 1000px) {
-    .login-container {
-        width: 70%;
-        margin-top: 3rem;
-    }
-    .login-info-container {
-        width: 100%;
-        border-radius: 5px;
-    }
-    
-    .image-container {
-        display: none;
-    }  
+  .image-container {
+    display: none;
+  }
 }
-
-@media screen and (max-width: 650px) {
-    .login-container {
-        width: 90%;
-    }
-}
-
-@media screen and (max-width: 500px) {
-    .login-container {
-        height: 90%;
-    }
-
-    .social-login {
-        flex-direction: column;
-        align-items: center;
-        height: 30%;
-    }
-
-    .login-info-container > p {
-        margin: 0;
-    }
-}
- 
-
-
-
-
-
-
