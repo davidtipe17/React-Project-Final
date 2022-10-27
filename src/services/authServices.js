@@ -1,4 +1,4 @@
-import { API_URL } from "@lib/Enviroments";
+import { API_URL } from "../lib/Enviroments";
 
 export const SignIn = async (user) => {
     const response = await fetch(`${API_URL}/auth/signin`, {
@@ -8,7 +8,9 @@ export const SignIn = async (user) => {
       },
       body: JSON.stringify(user),
     });
+
     const data = await response.json();
+    const status = response.status;
     return { data, status };
   };
 

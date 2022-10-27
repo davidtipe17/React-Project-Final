@@ -3,7 +3,9 @@ import "../.././css/Filtertecnicos.css";
 
 
 
+
 const CardPost = ({ post, index }) => 
+
 
     { 
 
@@ -74,5 +76,6 @@ const CardPost = ({ post, index }) =>
     )
     }
                       
+   
 
 export default CardPost;

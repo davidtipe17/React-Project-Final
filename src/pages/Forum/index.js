@@ -1,24 +1,47 @@
 import { useState, useEffect } from "react";
-import { searchPosts } from "../../services";
+import { searchTickets } from "../../services";
 import { getUser} from "../../services";
-import imagenprofile from "../../assets/img/profile.png";
 import { CardPost } from "../../components";
+import { getUserById, createUser, deleteUser } from "../../services/userServices";
+import { listUsers } from "../../services/userServices";
+import { listPosts, GetPostById } from "../../services/publicationServices";
+import { SignIn } from "../../services/authServices"
+import { createRole, listRoles, deleteRole } from "../../services/roleServices"
+
 
 import "../.././css/Filtertecnicos.css";
 
 
 const Forum = () => {
-  const [PostList, setPostList] = useState([]);
+  const [ticketList, setTicketList] = useState([]);
 
   const [usersList, setUserList] = useState([]);
 
   const [searchInput, setSearchInput] = useState('');
 
+  /*PRUEBAS
+  console.log("usuario por ID" , getUserById(1))
+  console.log("lista de usuarios", listUsers(1,1))
+
+  const user = {
+    "username": "miguelitorapero",
+    "password": "miguel"
+  }
+
+  console.log("usuario logeado", SignIn(user))
+
+  let token = "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJmcmVzaCI6ZmFsc2UsImlhdCI6MTY2NjkwMTU4OSwianRpIjoiNjY5ZmI5OGQtNjk2Ni00MGI2LTlkMGItYzA0MDYyMTExNDdmIiwidHlwZSI6ImFjY2VzcyIsInN1YiI6MywibmJmIjoxNjY2OTAxNTg5LCJleHAiOjE2NjY5ODc5ODl9.z-k-ju95At9ERc1iVsakoHifh3PGccL9FEHNM2oPWv8"
+
+  console.log("lista de posts", listPosts(1,1,token))
+
+  console.log("post por id", GetPostById(1, token))*/
 
 
-  const fetchPosts = async () => {
-    const data = await searchPosts();
-    setPostList(data);
+
+
+  const fetchTickets = async () => {
+    const data = await searchTickets();
+    setTicketList(data);
     console.log("probando", data);
 
   };
@@ -47,8 +70,8 @@ const Forum = () => {
   
   //console.log(filteredPrecios)
 
-  //filtro de preciosPosts
-  const filteredPosts = PostList.filter((item) => {
+  //filtro de preciostickets
+  const filteredPosts = ticketList.filter((item) => {
     return item.description
     
     }
@@ -57,7 +80,7 @@ const Forum = () => {
 
 
   useEffect(() => {
-    fetchPosts();
+    fetchTickets();
     fetchUsers();
   }, []);
 
@@ -124,7 +147,7 @@ const Forum = () => {
                   </div>
                 </div>
                 {
-                    PostList.map((post, index) => 
+                    ticketList.map((post, index) => 
                          
                     <CardPost post={post} index={index}/>       
                        
@@ -135,8 +158,9 @@ const Forum = () => {
               </div>
             </div>
           </div>
+          
         </div>
-     
+    
    
   );
 };

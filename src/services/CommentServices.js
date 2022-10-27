@@ -1,49 +1,66 @@
-import { API_URL } from "@lib/Enviroments";
+import { API_URL } from "../lib/Enviroments";
 
-export const createComment = async (comment) => {
-    const response = await fetch(`${API_URL}/comentaries`, {
-      method: "POST",
-      headers: {
-        "Content-Type": "application/json",
-      },
-      body: JSON.stringify(comment),
-      
-    });
-    const data = await response.json();
-    return data;
-  };
+export const createComment = async (comment, token) => {
+  let formData = new FormData();
+  formData.append("message", comment.message);
+  formData.append("image_url", comment.image_url);
+  formData.append("publication_id", comment.publication_id);
+  console.log(formData);
+
+  const response = await fetch(`${API_URL}/commentaries`, {
+    method: "POST",
+    headers: {
+       Authorization: "Bearer " + token,
+    },
+    body: formData,
+    
+  });
+  const data = await response.json();
+  return data;
+};
+
+  
+export const updateComment = async (comment, id, token) => {
+  let formData = new FormData();
+  formData.append("message", comment.message);
+  formData.append("image_url", comment.image_url);
+  console.log(formData);
+
+  const response = await fetch(`${API_URL}/commentaries/${id}`, {
+    method: "PUT",
+    headers: {
+       Authorization: "Bearer " + token,
+    },
+    body: formData,
+    
+  });
+  const data = await response.json();
+  return data;
+};
 
 
-  export const GetCommentById = async (id) => {
-    const response = await fetch(`${API_URL}/comentaries/${id}`);
-    const data = await response.json();
-    return data;
-  };
+export const getCommmentById = async (id, token) => {
+  const response = await fetch(`${API_URL}/commentaries/${id}`, {
+    headers: {
+      Authorization: "Bearer " + token,
+    },
+  });
+  const data = await response.json();
+  return data;
+};
 
 
-  export const DeleteComment = async (id) => {
-    const response = await fetch(`${API_URL}/comentaries/${id}`, {
-      method: "DELETE",
-      headers: {
-        "Content-Type": "application/json",
-      },
-    });
-    const data = await response.json();
-    return data;
-  };
+export const deleteComment = async (id, token) => {
+  const response = await fetch(`${API_URL}/commentaries/${id}`, {
+    method: "DELETE",
+    headers: {
+      Authorization: "Bearer " + token,
+    },
+  });
+  const data = await response.json();
+  return data;
+};
 
-
-  export const UpdateComment = async (comment) => {
-    const response = await fetch(`${API_URL}/comentaries/${id}`, {
-      method: "PUT",
-      headers: {
-        "Content-Type": "application/json",
-      },
-      body: JSON.stringify(comment),
-    });
-    const data = await response.json();
-    return data ;
-  };
   
 
   

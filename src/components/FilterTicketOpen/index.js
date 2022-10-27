@@ -1,5 +1,3 @@
-
-
 const FilterTicketOpen = ({ filteredTicketsOpen}) => {
   return (
     <div
