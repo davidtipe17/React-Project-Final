@@ -32,6 +32,89 @@ export const searchTickets = async () => {
   }
 };
 
+//POSTS
+
+export const createPost = async (newTicket) => {
+  try {
+    const response = await fetch(config, {
+      method: "POST",
+      body: JSON.stringify({
+        title: newTicket.title,
+        imagenUrl: newTicket.imagenUrl,
+        State: "abierto",
+        idCreator: newTicket.idUser,
+        description: newTicket.description,
+      }),
+      headers: {
+        "Content-type": "application/json",
+      },
+    });
+    return response.ok;
+  } catch (error) {
+    return error;
+  }
+};
+
+export const searchPosts = async () => {
+  try {
+    const response = await fetch(config);
+    const data = await response.json();
+
+    return data;
+  } catch (error) {
+    return error;
+  }
+};
+
+
+
+export const getPost = async () => {
+  try {
+    const response = await fetch(config);
+    const data = await response.json();
+    return data;
+  } catch (error) {
+    return error;
+  }
+};
+
+
+//COMMENTS
+
+export const createComment = async (newTicket) => {
+  try {
+    const response = await fetch(config, {
+      method: "POST",
+      body: JSON.stringify({
+        title: newTicket.title,
+        imagenUrl: newTicket.imagenUrl,
+        State: "abierto",
+        idCreator: newTicket.idUser,
+        descripcion: newTicket.descripcion,
+      }),
+      headers: {
+        "Content-type": "application/json",
+      },
+    });
+    return response.ok;
+  } catch (error) {
+    return error;
+  }
+};
+
+export const searchComments = async () => {
+  try {
+    const response = await fetch(config);
+    const data = await response.json();
+
+    return data;
+  } catch (error) {
+    return error;
+  }
+};
+
+
+
 export const getUser = async () => {
   try {
     const response = await fetch(Url_User);

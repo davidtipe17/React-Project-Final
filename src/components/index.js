@@ -11,3 +11,7 @@ export { default as FilterTicketOpen } from "./FilterTicketOpen";
 export { default as FilterTicketProcess } from "./FilterTicketProcess";
 export { default as FilterTicketPendient } from "./FilterTicketPendient";
 export { default as TicketFilterSuccesfull } from "./TicketFilterSuccesfull";
+export { default as CardPost} from "./CardPost"
+export { default as FormAddNewPost } from "./FormAddNewPost";
+export { default as CardComment } from "./CardComment";
+export { default as FormAddNewComment } from "./FormAddNewComment";

@@ -12,6 +12,10 @@ import {
   Questionandanswer,
   EditProfile,
   SignUp,
+  Forum,
+  Thread,
+  FormAddPost,
+  FormAddComment
 } from "../pages";
 
 import { HeaderBar, HeaderBarPublic } from "../layouts";
@@ -30,10 +34,14 @@ const Router = () => {
           <Route path="/tickets" element={<MyTickets />} />
           <Route path="/questions" element={<Questionandanswer />} />
           <Route path="/filters" element={<FilterTecnicos />} />
-          <Route path="/form" element={<FormAddTicket />} />
+          <Route path="/form" element={<FormAddPost />} />
           <Route path="/contact" element={<EditProfile />} />
           <Route path="/chatsupport" element={<Chasupport />} />
           <Route path="/checkoutpayment" element={<CheckOutPayment />} />
+          <Route path="/forum" element={<Forum />} />
+          <Route path="/thread" element={<Thread />} />
+         
+
         </Route>
       </Routes>
     </BrowserRouter>

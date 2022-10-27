@@ -10,3 +10,7 @@ export { default as MyTickets} from "./MyTickets";
 export { default as Profile} from "./Profile";
 export { default as Questionandanswer} from "./Questionandanswer";
 export {default as SignUp} from "./SignUp";
+export {default as Forum} from "./Forum";
+export {default as Thread} from "./Thread";
+export { default as FormAddPost} from "./FormAddPost";
+export { default as FormAddComment} from "./FormAddComment";

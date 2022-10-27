@@ -173,8 +173,15 @@ const ResponsiveAppBar = () => {
                 >
                   Mi Imbox
                 </Button>
+                <Button
+                  onClick={() => history("/forum")}
+                  sx={{ margin: 0.4, color: "white" }}
+                  variant="text"
+                >
+                  Forum
+                </Button>
               </Box>
-
+             
               <Box sx={{ flexGrow: 0, display: "flex" }}>
                 <Box sx={{ mr: 20 }}>
                   <Typography>
@@ -183,7 +190,7 @@ const ResponsiveAppBar = () => {
                       sx={{ backgroundColor: "red" }}
                       variant="contained"
                     >
-                      Post a Ticket
+                      Post something!
                     </Button>
                   </Typography>
                 </Box>
