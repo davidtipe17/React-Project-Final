@@ -1,4 +1,4 @@
-import { useContext } from "react";
+import { useContext, useState } from "react";
 import { AuthContext } from "../../context";
 import { Navigate } from "react-router-dom";
 import { FormloginUser } from "../../components";
@@ -6,14 +6,20 @@ import LogoFacebook from "../.././assets/img/facebook.svg";
 import LogoGoogle from "../.././assets/img/google.svg";
 import ImagesLateral from "../.././assets/img/login.svg";
 import "../.././css/login.css";
+import { SignIn } from "../../services/authServices";
 
 const LoginUser = () => {
   const { login, isAuth } = useContext(AuthContext);
+  const [userCredentials, setUserCredentials] = useState({
+    username: "",
+    password: "",
+  });
 
   const handleSubmit = async (event) => {
     event.preventDefault();
     const data = new FormData(event.currentTarget);
-    await login(data.get("correo"), data.get("pass"));
+    await login(data.get("username"), data.get("password"));
+    
   };
   if (isAuth()) {
     return <Navigate to="/profile" />;

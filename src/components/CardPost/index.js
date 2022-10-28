@@ -1,9 +1,6 @@
 import imagenprofile from "../../assets/img/profile.png";
 import "../.././css/Filtertecnicos.css";
 
-
-
-
 const CardPost = ({ post, index }) => 
 
 
