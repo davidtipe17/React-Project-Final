@@ -4,13 +4,11 @@ import { getUser} from "../../services";
 import { CardPost } from "../../components";
 import { getUserById, createUser, deleteUser } from "../../services/userServices";
 import { listUsers } from "../../services/userServices";
-import { listPosts, GetPostById } from "../../services/publicationServices";
+import { listPosts, getPostById, createPost } from "../../services/publicationServices";
 import { SignIn } from "../../services/authServices"
 import { createRole, listRoles, deleteRole } from "../../services/roleServices"
 
-
 import "../.././css/Filtertecnicos.css";
-
 
 const Forum = () => {
   const [ticketList, setTicketList] = useState([]);
@@ -19,8 +17,10 @@ const Forum = () => {
 
   const [searchInput, setSearchInput] = useState('');
 
-  /*PRUEBAS
+  //PRUEBAS
+
   console.log("usuario por ID" , getUserById(1))
+
   console.log("lista de usuarios", listUsers(1,1))
 
   const user = {
@@ -30,11 +30,39 @@ const Forum = () => {
 
   console.log("usuario logeado", SignIn(user))
 
-  let token = "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJmcmVzaCI6ZmFsc2UsImlhdCI6MTY2NjkwMTU4OSwianRpIjoiNjY5ZmI5OGQtNjk2Ni00MGI2LTlkMGItYzA0MDYyMTExNDdmIiwidHlwZSI6ImFjY2VzcyIsInN1YiI6MywibmJmIjoxNjY2OTAxNTg5LCJleHAiOjE2NjY5ODc5ODl9.z-k-ju95At9ERc1iVsakoHifh3PGccL9FEHNM2oPWv8"
+  let token1 = "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJmcmVzaCI6ZmFsc2UsImlhdCI6MTY2NjkwMTU4OSwianRpIjoiNjY5ZmI5OGQtNjk2Ni00MGI2LTlkMGItYzA0MDYyMTExNDdmIiwidHlwZSI6ImFjY2VzcyIsInN1YiI6MywibmJmIjoxNjY2OTAxNTg5LCJleHAiOjE2NjY5ODc5ODl9.z-k-ju95At9ERc1iVsakoHifh3PGccL9FEHNM2oPWv8"
 
-  console.log("lista de posts", listPosts(1,1,token))
 
-  console.log("post por id", GetPostById(1, token))*/
+  console.log("lista de posts", listPosts(1,1,token1))
+
+
+  console.log("post por id", getPostById(1, token1))
+
+
+  let token="eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJmcmVzaCI6ZmFsc2UsImlhdCI6MTY2Njk3NjE4MiwianRpIjoiN2M1ZTVlNTctMmM1ZC00NzcyLWFkNTEtMzU2ZTc4YzYwYjAzIiwidHlwZSI6ImFjY2VzcyIsInN1YiI6MywibmJmIjoxNjY2OTc2MTgyLCJleHAiOjE2NjcwNjI1ODJ9.CAKx3d5_EF12JDv-PI6R6RTmamOOdo1r4V-v-agEEPg.eyJmcmVzaCI6ZmFsc2UsImlhdCI6MTY2NjkyNjc2OSwianRpIjoiYTQ2NTM0NDQtNDBiOC00MGQwLTk3MWQtYmVlZTE1OWRmYmI4IiwidHlwZSI6ImFjY2VzcyIsInN1YiI6MywibmJmIjoxNjY2OTI2NzY5LCJleHAiOjE2NjcwMTMxNjl9.ninqorRrn1NlZJctXDtSuK58YyofpebCcsGrHh2hEDoeXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJmcmVzaCI6ZmFsc2UsImlhdCI6MTY2NjkyNDQ0OCwianRpIjoiN2UwNDI2OWYtODJmMC00YTI4LTk2NjYtYjAxMzg2NjdiZjk3IiwidHlwZSI6ImFjY2VzcyIsInN1YiI6MywibmJmIjoxNjY2OTI0NDQ4LCJleHAiOjE2NjcwMTA4NDh9.vuatbTiLLfZjY9oZL9u_yIJfv0Bkp-ICaeyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJmcmVzaCI6ZmFsc2UsImlhdCI6MTY2NjkyNjc2OSwianRpIjoiYTQ2NTM0NDQtNDBiOC00MGQwLTk3MWQtYmVlZTE1OWRmYmI4IiwidHlwZSI6ImFjY2VzcyIsInN1YiI6MywibmJmIjoxNjY2OTI2NzY5LCJleHAiOjE2NjcwMTMxNjl9.ninqorRrn1NlZJctXDtSuK58YyofpebCcsGrHh2hEDoQxjazMWCew"
+
+  const post = {
+    "description": "holaaaa",
+    "title": "hola", 
+    "img_url": " " 
+  }
+
+  console.log("publicacion creada", createPost(post, token))
+
+
+  //form data
+  const formData1 = new FormData();
+    
+  formData1.append("description", "description");
+  formData1.append("title", "description");
+  formData1.append("image_url", "description");
+
+  console.log(formData1);
+
+
+
+
+ 
 
 
 
@@ -87,10 +115,7 @@ const Forum = () => {
   return (
 
     <div className="prueba1">
-    
-      
-      
-        
+     
           <div >
             <div className="row d-flex flex-row justify-content-between">
               <div className="col-md-3 card p-3">

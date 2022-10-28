@@ -6,8 +6,8 @@ const FormloginUser = ({handleSubmit}) => {
                     <i className="fa-solid fa-user"></i>
                 </span>
                 <input
-                    id="username"
-                    name="username"
+                    id="correo"
+                    name="correo"
                     type="text"
                     className="form-control"
                     placeholder="Username"
@@ -20,8 +20,8 @@ const FormloginUser = ({handleSubmit}) => {
                     <i className="fa-solid fa-lock"></i>
                 </span>
                 <input
-                    id="password"
-                    name="password"
+                    id="pass"
+                    name="pass"
                     type="password"
                     className="form-control"
                     placeholder="Contraseña"

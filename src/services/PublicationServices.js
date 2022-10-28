@@ -14,15 +14,16 @@ export const listPosts = async (perpage, page, token) => {
 
 export const createPost = async (post, token) => {
     let formData = new FormData();
-    formData.append("title", post.title);
+    
     formData.append("description", post.description);
+    formData.append("title", post.title);
     formData.append("image_url", post.image_url);
     console.log(formData);
 
-    const response = await fetch(`${API_URL}/publications`, {
+    const response = await fetch(`${API_URL}/publications/`, {
       method: "POST",
       headers: {
-        "Content-Type": "application/json",
+        "Content-Type": "multipart/form-data",
          Authorization: "Bearer " + token,
       },
       body: formData,
