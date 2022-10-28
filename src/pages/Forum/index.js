@@ -2,11 +2,13 @@ import { useState, useEffect } from "react";
 import { searchTickets } from "../../services";
 import { getUser} from "../../services";
 import { CardPost } from "../../components";
-import { getUserById, createUser, deleteUser } from "../../services/userServices";
+import { getUserById, createUser, deleteUser, updateUser } from "../../services/userServices";
 import { listUsers } from "../../services/userServices";
 import { listPosts, getPostById, createPost } from "../../services/publicationServices";
 import { SignIn } from "../../services/authServices"
 import { createRole, listRoles, deleteRole } from "../../services/roleServices"
+import { createComment, listComment } from "../../services/commentServices"
+import { createReply } from "../../services/replyServices"
 
 import "../.././css/Filtertecnicos.css";
 
@@ -17,7 +19,7 @@ const Forum = () => {
 
   const [searchInput, setSearchInput] = useState('');
 
-  //PRUEBAS
+  /*PRUEBAS
 
   console.log("usuario por ID" , getUserById(1))
 
@@ -39,7 +41,7 @@ const Forum = () => {
   console.log("post por id", getPostById(1, token1))
 
 
-  let token="eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJmcmVzaCI6ZmFsc2UsImlhdCI6MTY2Njk3NjE4MiwianRpIjoiN2M1ZTVlNTctMmM1ZC00NzcyLWFkNTEtMzU2ZTc4YzYwYjAzIiwidHlwZSI6ImFjY2VzcyIsInN1YiI6MywibmJmIjoxNjY2OTc2MTgyLCJleHAiOjE2NjcwNjI1ODJ9.CAKx3d5_EF12JDv-PI6R6RTmamOOdo1r4V-v-agEEPg.eyJmcmVzaCI6ZmFsc2UsImlhdCI6MTY2NjkyNjc2OSwianRpIjoiYTQ2NTM0NDQtNDBiOC00MGQwLTk3MWQtYmVlZTE1OWRmYmI4IiwidHlwZSI6ImFjY2VzcyIsInN1YiI6MywibmJmIjoxNjY2OTI2NzY5LCJleHAiOjE2NjcwMTMxNjl9.ninqorRrn1NlZJctXDtSuK58YyofpebCcsGrHh2hEDoeXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJmcmVzaCI6ZmFsc2UsImlhdCI6MTY2NjkyNDQ0OCwianRpIjoiN2UwNDI2OWYtODJmMC00YTI4LTk2NjYtYjAxMzg2NjdiZjk3IiwidHlwZSI6ImFjY2VzcyIsInN1YiI6MywibmJmIjoxNjY2OTI0NDQ4LCJleHAiOjE2NjcwMTA4NDh9.vuatbTiLLfZjY9oZL9u_yIJfv0Bkp-ICaeyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJmcmVzaCI6ZmFsc2UsImlhdCI6MTY2NjkyNjc2OSwianRpIjoiYTQ2NTM0NDQtNDBiOC00MGQwLTk3MWQtYmVlZTE1OWRmYmI4IiwidHlwZSI6ImFjY2VzcyIsInN1YiI6MywibmJmIjoxNjY2OTI2NzY5LCJleHAiOjE2NjcwMTMxNjl9.ninqorRrn1NlZJctXDtSuK58YyofpebCcsGrHh2hEDoQxjazMWCew"
+  
 
   const post = {
     "description": "holaaaa",
@@ -47,22 +49,34 @@ const Forum = () => {
     "img_url": " " 
   }
 
-  console.log("publicacion creada", createPost(post, token))
+  console.log("publicacion creada", createPost(post, "token"))
+
+  let token="eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJmcmVzaCI6ZmFsc2UsImlhdCI6MTY2Njk3ODcyMCwianRpIjoiMTk2MTI0MTItZDBiZC00NWNhLTgyZWItZWVmNDlmOWI4ZDEwIiwidHlwZSI6ImFjY2VzcyIsInN1YiI6MywibmJmIjoxNjY2OTc4NzIwLCJleHAiOjE2NjcwNjUxMjB9.GLv5eAn5AgPEd2-d64DJtz4KJT8htnauKGf5XVBFnB0"  
+  const user = {
+    "name": "name",
+    "last_name": "migue",
+    "img_url" : " ",
+    "username" : "adminprueba",
+  }
+  
+
+  console.log("usuario actualizado", updateUser(user, 3))
+
+  const post = {
+    "message": "este es un comentario a la primera publicación",
+    "publication_id": 1,  
+  }
+
+  console.log("comentario a la primera publicacion", createComment(post, token))
+
+  const reply = {
+    "message": "esta es una respuesta al primer comentario de la primera publicación",
+    "commentary_id": 1,  
+  }
+
+  console.log("respuesta al primer comentario", createReply(reply, token))   */
 
 
-  //form data
-  const formData1 = new FormData();
-    
-  formData1.append("description", "description");
-  formData1.append("title", "description");
-  formData1.append("image_url", "description");
-
-  console.log(formData1);
-
-
-
-
- 
 
 
 

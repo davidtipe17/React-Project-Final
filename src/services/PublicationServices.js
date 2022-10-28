@@ -23,7 +23,6 @@ export const createPost = async (post, token) => {
     const response = await fetch(`${API_URL}/publications/`, {
       method: "POST",
       headers: {
-        "Content-Type": "multipart/form-data",
          Authorization: "Bearer " + token,
       },
       body: formData,
@@ -87,7 +86,7 @@ export const DeletePost = async (id, token) => {
     console.log(formData);
 
     const response = await fetch(`${API_URL}/publications/${id}`, {
-      method: "POST",
+      method: "PUT",
       headers: {
          Authorization: "Bearer " + token,
       },
