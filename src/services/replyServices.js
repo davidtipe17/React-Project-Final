@@ -7,7 +7,7 @@ export const createReply = async (reply, token) => {
   formData.append("commentary_id", reply.commentary_id);
   console.log(formData);
 
-  const response = await fetch(`${API_URL}/replycomment`, {
+  const response = await fetch(`${API_URL}/replycomment/`, {
     method: "POST",
     headers: {
        Authorization: "Bearer " + token,

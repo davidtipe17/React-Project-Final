@@ -1,14 +1,14 @@
 import { API_URL } from "../lib/Enviroments";
 
 export const listRoles = async () => {
-  const response = await fetch(`${API_URL}/roles`);
+  const response = await fetch(`${API_URL}/roles/`);
   const data = await response.json();
   return { data };
 };
 
 export const createRole = async (role) => {
  
-  const response = await fetch(`${API_URL}/roles`, {
+  const response = await fetch(`${API_URL}/roles/`, {
     method: "POST",
     headers: {
       "Content-Type": "application/json",

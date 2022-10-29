@@ -6,10 +6,10 @@ import { getUserById, createUser, deleteUser, listUsers } from "../../services/u
 import { listPosts, getPostById, listPostsTotal } from "../../services/publicationServices";
 import { SignIn } from "../../services/authServices"
 // import { createRole, listRoles, deleteRole } from "../../services/roleServices"
-
+import { createComment, listComment } from "../../services/commentServices"
+import { createReply } from "../../services/replyServices"
 
 import "../.././css/Filtertecnicos.css";
-
 
 const Forum = () => {
   // const [ticketList, setTicketList] = useState([]);
@@ -47,6 +47,13 @@ const Forum = () => {
   //   const data = await searchTickets();
   //   setTicketList(data);
   //   // console.log("probando", data);
+
+  // };
+
+  // const fetchTickets = async () => {
+  //   const data = await searchTickets();
+  //   setTicketList(data);
+  //   console.log("probando", data);
 
   // };
 

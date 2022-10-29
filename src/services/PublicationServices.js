@@ -13,25 +13,25 @@ export const listPosts = async (perpage, page, token) => {
 
 
 export const createPost = async (post, token) => {
-  let formData = new FormData();
-  formData.append("title", post.title);
-  formData.append("description", post.description);
-  formData.append("image_url", post.image_url);
-  console.log(formData);
+    let formData = new FormData();
+    
+    formData.append("description", post.description);
+    formData.append("title", post.title);
+    formData.append("image_url", post.image_url);
+    console.log(formData);
 
-  const response = await fetch(`${API_URL}/publications`, {
-    method: "POST",
-    headers: {
-      "Content-Type": "application/json",
-      Authorization: "Bearer " + token,
-    },
-    body: formData,
-
-  });
-  const data = await response.json();
-  return data;
-};
-
+    const response = await fetch(`${API_URL}/publications/`, {
+      method: "POST",
+      headers: {
+         Authorization: "Bearer " + token,
+      },
+      body: formData,
+      
+    });
+    const data = await response.json();
+    return data;
+  };
+  
 
 export const listPostsTotal = async (perpage, page, token) => {
   const response = await fetch(`${API_URL}/publications/pubTotal`, {
@@ -85,16 +85,17 @@ export const UpdatePost = async (post, id, token) => {
   formData.append("image_url", post.image_url);
   console.log(formData);
 
-  const response = await fetch(`${API_URL}/publications/${id}`, {
-    method: "POST",
-    headers: {
-      Authorization: "Bearer " + token,
-    },
-    body: formData,
-
-  });
-  const data = await response.json();
-  return data;
-};
-
-
+    const response = await fetch(`${API_URL}/publications/${id}`, {
+      method: "PUT",
+      headers: {
+         Authorization: "Bearer " + token,
+      },
+      body: formData,
+      
+    });
+    const data = await response.json();
+    return data;
+  };
+ 
+  
+  

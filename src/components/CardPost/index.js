@@ -9,9 +9,7 @@ const CardPost = ({ post, index }) => {
   const redirect = () => {
     navigate(`/thread/${post.id}`)
   }
-
   return (
-
     <div key={index} post={post} className="card-body border m-3">
       <div className="row">
 
