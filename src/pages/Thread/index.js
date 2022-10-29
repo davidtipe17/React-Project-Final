@@ -17,17 +17,17 @@ import "../.././css/Filtertecnicos.css";
 
 const Thread = () => {
 
-  const [publicationList, setPublication] = useState([]);
-  console.log(publicationList)
+  const [publicationList, setPublication] = useState();
+  console.log("cp", publicationList)
 
   const { id } = useParams();
 
   const fetchPublication = async () => {
-    let token = "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJmcmVzaCI6ZmFsc2UsImlhdCI6MTY2NjkzNzk4OCwianRpIjoiNDVjNzZkODUtNzQ1MC00YTdlLTkxMzQtNTFjYTJkZjM1MDlkIiwidHlwZSI6ImFjY2VzcyIsInN1YiI6NCwibmJmIjoxNjY2OTM3OTg4LCJleHAiOjE2NjcwMjQzODh9.napauFtf8UPdzFA7A5aIG7PMY8KkZLgqKqwy5cwtGdo"
-    const data = await listPostsTotalById(id, token);
+    let token = "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJmcmVzaCI6ZmFsc2UsImlhdCI6MTY2NzAxNDg2MywianRpIjoiNGRmMmMxZDQtY2Q1Zi00NWZlLWI1NmQtYWE2OTBmZTIyN2U4IiwidHlwZSI6ImFjY2VzcyIsInN1YiI6NCwibmJmIjoxNjY3MDE0ODYzLCJleHAiOjE2NjcxMDEyNjN9.UXPy0QN9YFKDTPNHt--lXSpOxqLFburO89oPohdRPq4"
+    const { data } = await listPostsTotalById(id, token);
     setPublication(data);
-    console.log("probando", data);
   };
+
 
 
   const [ticketList, setTicketList] = useState([]);
@@ -86,45 +86,11 @@ const Thread = () => {
 
   };
 
-  const searchItems = (searchValue) => {
-    setSearchInput(searchValue)
-  }
-
-  const filteredPosts = ticketList.filter((item) => {
-    return item.id == 2
-
-  }
-    //precio maximo y minimo    
-    //const filteredTecnicos = usersList.filter((item) => {
-    //return Object.values(item.especialidades).join('').toLowerCase().includes(searchInput.toLowerCase())
-
-    //} )
-
-
-
-
-    //filtro de precios
-    //console.log(filteredTecnicos)
-
-    //console.log(filteredPrecios)
-
-    //filtro de preciostickets
-
-  )
-
-  function createStars(number) {
-    var elements = [];
-    for (let i = 0; i < Math.round(number * 0.05); i++) {
-      elements.push(<i className="fa-solid fa-star"></i>);
-    }
-    return elements;
-  }
 
   useEffect(() => {
     fetchTickets();
     fetchUsers();
     fetchPublication();
-    setPublication();
   }, []);
 
   return (
@@ -136,7 +102,7 @@ const Thread = () => {
           <div className="col-md-3 card p-3">
             <div className="row">
               <div className="col-12">
-                <h4 className="fw-semibold"> Filters</h4>
+                <h4 className="fw-semibold">TITLE</h4>
               </div>
             </div>
             <div className="row">
@@ -169,24 +135,21 @@ const Thread = () => {
 
             <div className="row-md-8 card mb-4">
 
-            {publicationList?.length > 0 ? (
-                  publicationList.map((post, index) => (
-                    <CardPostForum key={index} user={post} />
-                  ))
-                ) : (
-                  <h1>...</h1>
-                )}
+              <CardPostForum publicationList={publicationList} />
+
             </div>
 
             <div className="row-md-8 card mb-4 p-5">
               <h4>Respuestas</h4>
-              {publicationList?.length > 0 ? (
-                  publicationList.map((post, index) => (
-                    <CardComment key={index} user={post} />
-                  ))
-                ) : (
-                  <h1>...</h1>
-                )}
+              {publicationList?.commentary_publication?.length > 0 ? (
+                publicationList.commentary_publication.map((user, index) => (
+                  <CardComment key={index} user={user} />
+                ))
+              ) : (
+                <h1>...</h1>
+              )}
+
+
 
             </div>
 

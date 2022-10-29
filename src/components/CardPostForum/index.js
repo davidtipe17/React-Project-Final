@@ -4,14 +4,14 @@ import "../.././css/Filtertecnicos.css";
 
 
 
-const CardPostForum = ({ post, index }) => {
+const CardPostForum = ({publicationList}) => {
 
 
 
     return (
-        
 
-        <div key={index} post={post} className="card-body border m-3">
+
+        <div className="card-body border m-3">
             <div className="row">
 
                 <div className="row mt-4 d-flex justify-content-between">
@@ -21,19 +21,19 @@ const CardPostForum = ({ post, index }) => {
                         <img className="card-img m-auto" src={imagenprofile} alt="profile" />
 
                         <div className="row mt-2">
-                            <span><i class="fa fa-user"></i> user </span>
+                            <span><i class="fa fa-user"></i> {publicationList.users.email} </span>
                         </div>
                     </div>
 
                     <div className="col-md-8 justify-content-between">
                         <div className="row-5">
-                            <h5>{post.title}</h5>
+                            <h5> {publicationList.title} </h5>
 
                         </div>
                         <div className="row mt-4">
                             <div className="col">
                                 <p>
-                                    {post.description}
+                                    {publicationList.description}
                                 </p>
                             </div>
                         </div>

@@ -37,7 +37,7 @@ const Forum = () => {
   // console.log("post por id", getPostById(1, token))
 
   const fetchPublication = async () => {
-    let token = "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJmcmVzaCI6ZmFsc2UsImlhdCI6MTY2NjkzNzk4OCwianRpIjoiNDVjNzZkODUtNzQ1MC00YTdlLTkxMzQtNTFjYTJkZjM1MDlkIiwidHlwZSI6ImFjY2VzcyIsInN1YiI6NCwibmJmIjoxNjY2OTM3OTg4LCJleHAiOjE2NjcwMjQzODh9.napauFtf8UPdzFA7A5aIG7PMY8KkZLgqKqwy5cwtGdo"
+    let token = "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJmcmVzaCI6ZmFsc2UsImlhdCI6MTY2NzAxNDg2MywianRpIjoiNGRmMmMxZDQtY2Q1Zi00NWZlLWI1NmQtYWE2OTBmZTIyN2U4IiwidHlwZSI6ImFjY2VzcyIsInN1YiI6NCwibmJmIjoxNjY3MDE0ODYzLCJleHAiOjE2NjcxMDEyNjN9.UXPy0QN9YFKDTPNHt--lXSpOxqLFburO89oPohdRPq4"
     const data = await listPostsTotal(1, 1, token);
     setPublication(data.data);
     console.log('hola', data.data)
