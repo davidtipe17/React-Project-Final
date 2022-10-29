@@ -9,6 +9,7 @@ const MyTickets = () => {
   const [ticketList, setTicketList] = useState([]);
 
   const { user } = useContext(AuthContext);
+
   const fetchTickets = async () => {
     const data = await searchTickets();
     setTicketList(data);

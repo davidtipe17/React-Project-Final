@@ -24,14 +24,14 @@ const FilterTecnicos = () => {
   const fetchTickets = async () => {
     const data = await searchTickets();
     setTicketList(data);
-    console.log("probando", data);
+    // console.log("probando", data);
 
   };
 
   const fetchUsers = async () => {
     const data = await getUser();
     setUserList(data);
-    console.log("probando", data);
+    // console.log("probando", data);
     
   };
 

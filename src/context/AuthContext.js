@@ -1,41 +1,59 @@
 import { createContext, useState } from "react";
+import { SignIn } from "../services/authServices"
 import { getUser } from "../services";
 // nota
 export const AuthContext = createContext();
 
 export const AuthProvider = ({ children }) => {
-  const userStorage = JSON.parse(localStorage.getItem("helpCenter.user")) || {};
+
+  const [statuslog, setStatuslog] = useState();
+
+  const userStorage = JSON.parse(localStorage.getItem("Foro.user")) || {};
   const [user, setUser] = useState(userStorage);
 
   const login = async (correo, pass) => {
-    const dataUser = await getUser();
-    console.log(correo,pass)
-    const authUser = dataUser.find((user) => {
-      return user.correo === correo && user.contrasena === pass;
-    });
-console.log(authUser);
-    if (authUser !== undefined) {
-      console.log("username", user.name);
-      storeUserInLocalStorage(authUser);
-      setUser(authUser);
-      return true;
+
+    const username = correo;
+    const password = pass;
+
+
+    const response = await SignIn({ username, password });
+    const { data, status } = response;
+
+    if (status === 200) {
+      localStorage.setItem('Token', data.acces_token);
+      localStorage.setItem('RefreshToken', data.refresh_token);
+      setStatuslog(status)
+      console.log(data.acces_token)
+      return true
+    } else {
+      return false
     }
-    return false;
   };
+
   const updateUserAuth = (userupdated) => {
     setUser(userupdated);
-    storeUserInLocalStorage(userupdated);
+    // storeUserInLocalStorage(userupdated);
   };
-  function storeUserInLocalStorage(user) {
-    localStorage.setItem("helpCenter.user", JSON.stringify(user));
-  }
   const logout = () => {
-    localStorage.removeItem("helpCenter.user");
+    localStorage.removeItem('Token');
     setUser({});
     window.location.href = "/login";
   };
   const isAuth = () => {
-    return user.name ? true : false;
+    const token = localStorage.getItem('Token')
+
+    if (!token) {
+      return false;
+    }
+
+    const payload = token.split(".")[1];
+    const jsonPayload = JSON.parse(window.atob(payload));
+    if (jsonPayload.exp > new Date() / 1000) {
+      return true;
+    }
+    return false
+
   };
   return (
     <AuthContext.Provider
@@ -43,5 +61,5 @@ console.log(authUser);
     >
       {children}
     </AuthContext.Provider>
-  );
+  );
 };

@@ -6,7 +6,6 @@ export const listRoles = async () => {
   return { data };
 };
 
-
 export const createRole = async (role) => {
  
   const response = await fetch(`${API_URL}/roles`, {

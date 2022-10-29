@@ -39,7 +39,7 @@ const Router = () => {
           <Route path="/chatsupport" element={<Chasupport />} />
           <Route path="/checkoutpayment" element={<CheckOutPayment />} />
           <Route path="/forum" element={<Forum />} />
-          <Route path="/thread" element={<Thread />} />
+          <Route path="/thread/:id" element={<Thread />} />
          
 
         </Route>

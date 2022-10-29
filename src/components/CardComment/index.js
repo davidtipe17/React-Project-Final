@@ -27,7 +27,7 @@ const CardComment = ({ post, index }) =>
                             <div className="row mt-4">
                               <div className="col">
                                 <p>
-                                   {post.description}
+                                  {post.commentary_publication.message}
                                 </p>
                             </div>             
                           </div>
@@ -37,7 +37,7 @@ const CardComment = ({ post, index }) =>
 
                           <div className="row mt-2 d-flex justify-content-between">
                            
-                            <div className="col-md-6 mt-6 d-flex align-items-end"><strong>Done at:</strong> {' ' + post.createdAt}</div>
+                            <div className="col-md-6 mt-6 d-flex align-items-end"><strong>Done at:</strong> create at</div>
                             <div className="col-md-3 d-flex justify-content-end">
 
                               
